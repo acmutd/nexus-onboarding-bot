@@ -1,0 +1,7872 @@
+[
+    {
+        "course_number": "1208",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001",
+            "0l1"
+        ],
+        "title": "Introduction to Bioengineering II",
+        "instructors": [
+            "Kathleen Myers"
+        ],
+        "class_numbers": [
+            23473,
+            23623
+        ],
+        "enrolled_current": 42,
+        "enrolled_max": 57,
+        "assistants": [
+            "Paulina Trevino",
+            "Mohammadaref Ghaderi",
+            "Fatemeh Rahmani"
+        ]
+    },
+    {
+        "course_number": "1208",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "002",
+            "003"
+        ],
+        "title": "Introduction to Bioengineering II",
+        "instructors": [
+            "Clark Meyer"
+        ],
+        "class_numbers": [
+            23476,
+            23479
+        ],
+        "enrolled_current": 63,
+        "enrolled_max": 67,
+        "assistants": [
+            "Paulina Trevino",
+            "Mohammadaref Ghaderi",
+            "Fatemeh Rahmani"
+        ]
+    },
+    {
+        "course_number": "1300",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Biomedical Engineering Computing",
+        "instructors": [
+            "Levi Good"
+        ],
+        "class_numbers": [
+            23404
+        ],
+        "enrolled_current": 33,
+        "enrolled_max": 32,
+        "assistants": [
+            "Santhosh Gowtham Giddaluru"
+        ]
+    },
+    {
+        "course_number": "2320",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Statics",
+        "instructors": [
+            "Gu Eon Kang",
+            "Xu Feng"
+        ],
+        "class_numbers": [
+            23622
+        ],
+        "enrolled_current": 29,
+        "enrolled_max": 39,
+        "assistants": [
+            "Angelica Sanjuan Bermudez"
+        ]
+    },
+    {
+        "course_number": "3200",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Biomedical Engineering Fundamentals and Design",
+        "instructors": [
+            "Christian Rivera"
+        ],
+        "class_numbers": [
+            23618
+        ],
+        "enrolled_current": 62,
+        "enrolled_max": 72,
+        "assistants": [
+            "Connor Carnes",
+            "Connor Neifert",
+            "Juliet Addo"
+        ]
+    },
+    {
+        "course_number": "3302",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Bioengineering Signals and Systems",
+        "instructors": [
+            "Rafiulhossain Shihab"
+        ],
+        "class_numbers": [
+            23405
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 59,
+        "assistants": [
+            "Victor Nguyen"
+        ]
+    },
+    {
+        "course_number": "3315",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Thermodynamics and Physical Chemistry in Biomedical Engineering",
+        "instructors": [
+            "Yongsheng Gao"
+        ],
+        "class_numbers": [
+            22387
+        ],
+        "enrolled_current": 34,
+        "enrolled_max": 48,
+        "assistants": [
+            "Naomie Mirindi Neema"
+        ]
+    },
+    {
+        "course_number": "3320",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Electrical and Electronic Circuits in Biomedical Engineering",
+        "instructors": [
+            "Tariq Ali"
+        ],
+        "class_numbers": [
+            22906
+        ],
+        "enrolled_current": 38,
+        "enrolled_max": 44,
+        "assistants": [
+            "Rittik Patra"
+        ]
+    },
+    {
+        "course_number": "3331",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Cell and Molecular Engineering",
+        "instructors": [
+            "Chen Cao"
+        ],
+        "class_numbers": [
+            23287
+        ],
+        "enrolled_current": 60,
+        "enrolled_max": 60,
+        "assistants": [
+            "Naomie Mirindi Neema",
+            "Farhan Vahdat Azad"
+        ]
+    },
+    {
+        "course_number": "3332",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Quantitative Physiology for Engineers",
+        "instructors": [
+            "Seth Hays"
+        ],
+        "class_numbers": [
+            23406
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 59,
+        "assistants": [
+            "Sorour Eslami"
+        ]
+    },
+    {
+        "course_number": "3341",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Probability Theory and Statistics for Biomedical Engineers",
+        "instructors": [
+            "Kathleen Myers"
+        ],
+        "class_numbers": [
+            23247,
+            23248
+        ],
+        "enrolled_current": 83,
+        "enrolled_max": 87,
+        "assistants": [
+            "Zikun Zhou",
+            "Marjan Nikpey Sheikhani"
+        ]
+    },
+    {
+        "course_number": "3380",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Medical Imaging Systems and Methods",
+        "instructors": [
+            "Levi Good"
+        ],
+        "class_numbers": [
+            22905
+        ],
+        "enrolled_current": 22,
+        "enrolled_max": 35,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3399",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introductory Biomechanics",
+        "instructors": [
+            "Victor Varner"
+        ],
+        "class_numbers": [
+            22633
+        ],
+        "enrolled_current": 27,
+        "enrolled_max": 48,
+        "assistants": [
+            "Angelica Sanjuan Bermudez"
+        ]
+    },
+    {
+        "course_number": "3399",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Introductory Biomechanics",
+        "instructors": [
+            "Gu Eon Kang"
+        ],
+        "class_numbers": [
+            22902
+        ],
+        "enrolled_current": 48,
+        "enrolled_max": 48,
+        "assistants": [
+            "Elham Zamani"
+        ]
+    },
+    {
+        "course_number": "4310",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Feedback Systems in Biomedical Engineering",
+        "instructors": [
+            "You Li"
+        ],
+        "class_numbers": [
+            23609
+        ],
+        "enrolled_current": 63,
+        "enrolled_max": 69,
+        "assistants": [
+            "Niharika Pandala",
+            "Rasik Dhakal"
+        ]
+    },
+    {
+        "course_number": "4341",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Immunoengineering",
+        "instructors": [
+            "Caroline Jones"
+        ],
+        "class_numbers": [
+            29479
+        ],
+        "enrolled_current": 34,
+        "enrolled_max": 34,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4355",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Finite Element Analysis in Biomedical Engineering",
+        "instructors": [
+            "Clark Meyer"
+        ],
+        "class_numbers": [
+            23621
+        ],
+        "enrolled_current": 21,
+        "enrolled_max": 39,
+        "assistants": [
+            "Jeremy Warren"
+        ]
+    },
+    {
+        "course_number": "4360",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Biomaterials and Medical Devices",
+        "instructors": [
+            "Danieli Rodrigues"
+        ],
+        "class_numbers": [
+            22904
+        ],
+        "enrolled_current": 62,
+        "enrolled_max": 62,
+        "assistants": [
+            "Krishna Prajapati",
+            "Sumedha Guha"
+        ]
+    },
+    {
+        "course_number": "4370",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Biomedical Image Processing",
+        "instructors": [
+            "Baowei Fei"
+        ],
+        "class_numbers": [
+            22932
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4389",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001",
+            "002",
+            "003"
+        ],
+        "title": "Senior Design Project II",
+        "instructors": [
+            "Todd Polk"
+        ],
+        "class_numbers": [
+            22388,
+            22389,
+            22517
+        ],
+        "enrolled_current": 64,
+        "enrolled_max": 75,
+        "assistants": [
+            "Nathaniel Tjahjono"
+        ]
+    },
+    {
+        "course_number": "4v95",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Undergraduate Topics in Biomedical Engineering",
+        "instructors": [
+            "Christian Rivera",
+            "David Schmidtke"
+        ],
+        "class_numbers": [
+            29483
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 10,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6330",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Medical Device Product Development",
+        "instructors": [
+            "Roger Hill"
+        ],
+        "class_numbers": [
+            23607
+        ],
+        "enrolled_current": 24,
+        "enrolled_max": 25,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6342",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Biomaterials and Medical Devices",
+        "instructors": [
+            "Danieli Rodrigues"
+        ],
+        "class_numbers": [
+            22641
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6345",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Self-Assembly of Biomaterials",
+        "instructors": [
+            "Girgis Obaid"
+        ],
+        "class_numbers": [
+            23611
+        ],
+        "enrolled_current": 12,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6368",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Cancer Therapy  Design  Development and Imaging",
+        "instructors": [
+            "Girgis Obaid"
+        ],
+        "class_numbers": [
+            23610
+        ],
+        "enrolled_current": 18,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6372",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Engineering Systems  Modeling and Simulation",
+        "instructors": [
+            "Waseem Abbas"
+        ],
+        "class_numbers": [
+            22820
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 10,
+        "assistants": [
+            "Ali Amoori"
+        ]
+    },
+    {
+        "course_number": "6373",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Physiology and Immunology for Engineers",
+        "instructors": [
+            "Fang Bian"
+        ],
+        "class_numbers": [
+            22960
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6374",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Genes  Proteins and Cell Biology for Engineers",
+        "instructors": [
+            "Polimyr Caesar Dave Dingal"
+        ],
+        "class_numbers": [
+            23288
+        ],
+        "enrolled_current": 24,
+        "enrolled_max": 29,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6378",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Mechanobiology for Engineers",
+        "instructors": [
+            "Jacopo Ferruzzi"
+        ],
+        "class_numbers": [
+            23625
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6382",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Systems Biology",
+        "instructors": [
+            "Leonidas Bleris"
+        ],
+        "class_numbers": [
+            22122
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6388",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Nonlinear Systems",
+        "instructors": [
+            "Armin Zare"
+        ],
+        "class_numbers": [
+            28515
+        ],
+        "enrolled_current": 0,
+        "enrolled_max": 5,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6389",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computational Biology",
+        "instructors": [
+            "Michael Zhang"
+        ],
+        "class_numbers": [
+            23054
+        ],
+        "enrolled_current": 3,
+        "enrolled_max": 30,
+        "assistants": [
+            "Khyati Chandratre"
+        ]
+    },
+    {
+        "course_number": "6392",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Bioinstrumentation and Systems",
+        "instructors": [
+            "Brian Kim"
+        ],
+        "class_numbers": [
+            28390
+        ],
+        "enrolled_current": 12,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6394",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "0h1"
+        ],
+        "title": "Medical Imaging Techniques and Image Processing",
+        "instructors": [
+            "Yichen Ding"
+        ],
+        "class_numbers": [
+            23292
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6v87",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Special Topics in Biomedical Engineering",
+        "instructors": [
+            "Victor Varner"
+        ],
+        "class_numbers": [
+            28386
+        ],
+        "enrolled_current": 8,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6v87",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Special Topics in Biomedical Engineering",
+        "instructors": [
+            "Caroline Jones"
+        ],
+        "class_numbers": [
+            29370
+        ],
+        "enrolled_current": 3,
+        "enrolled_max": 3,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6v87",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Special Topics in Biomedical Engineering",
+        "instructors": [
+            "Christian Rivera",
+            "David Schmidtke"
+        ],
+        "class_numbers": [
+            29482
+        ],
+        "enrolled_current": 3,
+        "enrolled_max": 10,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6v87",
+        "course_prefixes": [
+            "bmen"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Special Topics in Biomedical Engineering",
+        "instructors": [
+            "Katherine Brown"
+        ],
+        "class_numbers": [
+            28824
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6302",
+        "course_prefixes": [
+            "bmen",
+            "eecs",
+            "sysm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Dynamics of Complex Networks and Systems",
+        "instructors": [
+            "Mark Spong"
+        ],
+        "class_numbers": [
+            22514,
+            22515,
+            22618
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 25,
+        "assistants": [
+            "Ali Amoori"
+        ]
+    },
+    {
+        "course_number": "6328",
+        "course_prefixes": [
+            "bmen",
+            "syse"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Data Science in Digital Health Systems",
+        "instructors": [
+            "James Yurkovich"
+        ],
+        "class_numbers": [
+            29726,
+            29727
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3303",
+        "course_prefixes": [
+            "ce"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Discrete-Time Signals and Systems",
+        "instructors": [
+            "Nasser Kehtarnavaz"
+        ],
+        "class_numbers": [
+            23264
+        ],
+        "enrolled_current": 48,
+        "enrolled_max": 56,
+        "assistants": [
+            "Nafisa Zarrin Tasnim"
+        ]
+    },
+    {
+        "course_number": "6320",
+        "course_prefixes": [
+            "ce"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Applied Data Structures and Algorithms",
+        "instructors": [
+            "Kanad Basu"
+        ],
+        "class_numbers": [
+            28155
+        ],
+        "enrolled_current": 34,
+        "enrolled_max": 44,
+        "assistants": [
+            "Navnil Choudhury"
+        ]
+    },
+    {
+        "course_number": "1337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computer Science I",
+        "instructors": [
+            "Priya Narayanasami"
+        ],
+        "class_numbers": [
+            22584,
+            22585
+        ],
+        "enrolled_current": 76,
+        "enrolled_max": 160,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "1337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "002",
+            "005"
+        ],
+        "title": "Computer Science I",
+        "instructors": [
+            "Srimathi Srinivasan"
+        ],
+        "class_numbers": [
+            22170,
+            22173,
+            22864,
+            22918
+        ],
+        "enrolled_current": 131,
+        "enrolled_max": 320,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "1337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Computer Science I",
+        "instructors": [
+            "Parisa Darbari"
+        ],
+        "class_numbers": [
+            23419,
+            23420
+        ],
+        "enrolled_current": 52,
+        "enrolled_max": 160,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "1337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "004",
+            "009"
+        ],
+        "title": "Computer Science I",
+        "instructors": [
+            "Shyam Karrah"
+        ],
+        "class_numbers": [
+            22171,
+            22174,
+            23266,
+            23267
+        ],
+        "enrolled_current": 160,
+        "enrolled_max": 320,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "1337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "006"
+        ],
+        "title": "Computer Science I",
+        "instructors": [
+            "Gordon Arnold"
+        ],
+        "class_numbers": [
+            22656,
+            22657
+        ],
+        "enrolled_current": 76,
+        "enrolled_max": 160,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "1337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "007",
+            "010"
+        ],
+        "title": "Computer Science I",
+        "instructors": [
+            "Jason Smith"
+        ],
+        "class_numbers": [
+            22172,
+            22175,
+            22619,
+            22628
+        ],
+        "enrolled_current": 120,
+        "enrolled_max": 320,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "1337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "008"
+        ],
+        "title": "Computer Science I",
+        "instructors": [
+            "Aditya Srivastava"
+        ],
+        "class_numbers": [
+            22440,
+            22441
+        ],
+        "enrolled_current": 79,
+        "enrolled_max": 160,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "1337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "0w1",
+            "0w2"
+        ],
+        "title": "Computer Science I",
+        "instructors": [
+            "Scott Dollinger"
+        ],
+        "class_numbers": [
+            22653,
+            22654,
+            28082,
+            28083
+        ],
+        "enrolled_current": 160,
+        "enrolled_max": 320,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2305",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Discrete Mathematics for Computing I",
+        "instructors": [
+            "Jessica Ouyang"
+        ],
+        "class_numbers": [
+            22620,
+            22629
+        ],
+        "enrolled_current": 133,
+        "enrolled_max": 300,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2305",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Discrete Mathematics for Computing I",
+        "instructors": [
+            "Jason Jue"
+        ],
+        "class_numbers": [
+            22865,
+            22910
+        ],
+        "enrolled_current": 149,
+        "enrolled_max": 300,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2305",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Discrete Mathematics for Computing I",
+        "instructors": [
+            "Sergey Bereg"
+        ],
+        "class_numbers": [
+            22337,
+            22338
+        ],
+        "enrolled_current": 143,
+        "enrolled_max": 300,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2305",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "005"
+        ],
+        "title": "Discrete Mathematics for Computing I",
+        "instructors": [
+            "Daniel Gibney"
+        ],
+        "class_numbers": [
+            23534,
+            23535
+        ],
+        "enrolled_current": 150,
+        "enrolled_max": 300,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2336",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "001",
+            "003"
+        ],
+        "title": "Computer Science II",
+        "instructors": [
+            "Brian Ricks"
+        ],
+        "class_numbers": [
+            22975,
+            22976,
+            23268,
+            23269
+        ],
+        "enrolled_current": 120,
+        "enrolled_max": 240,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2336",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "005"
+        ],
+        "title": "Computer Science II",
+        "instructors": [
+            "Jason Smith"
+        ],
+        "class_numbers": [
+            22258,
+            22259
+        ],
+        "enrolled_current": 45,
+        "enrolled_max": 120,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2336",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "007"
+        ],
+        "title": "Computer Science II",
+        "instructors": [
+            "Jeyakesavan Veerasamy"
+        ],
+        "class_numbers": [
+            28508,
+            28511
+        ],
+        "enrolled_current": 50,
+        "enrolled_max": 120,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2336",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "008"
+        ],
+        "title": "Computer Science II",
+        "instructors": [
+            "Aditya Srivastava"
+        ],
+        "class_numbers": [
+            28509,
+            28512
+        ],
+        "enrolled_current": 49,
+        "enrolled_max": 120,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2336",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Computer Science II",
+        "instructors": [
+            "David Sims"
+        ],
+        "class_numbers": [
+            29206,
+            29207
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 120,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Programming Language Paradigms",
+        "instructors": [
+            "Yi Zhao"
+        ],
+        "class_numbers": [
+            22525,
+            22526,
+            22873,
+            22903
+        ],
+        "enrolled_current": 165,
+        "enrolled_max": 330,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "003",
+            "007"
+        ],
+        "title": "Programming Language Paradigms",
+        "instructors": [
+            "Gity Karami"
+        ],
+        "class_numbers": [
+            22795,
+            22798,
+            22800,
+            22801
+        ],
+        "enrolled_current": 169,
+        "enrolled_max": 340,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Programming Language Paradigms",
+        "instructors": [
+            "Jalal Omer"
+        ],
+        "class_numbers": [
+            22370,
+            22371
+        ],
+        "enrolled_current": 85,
+        "enrolled_max": 170,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "005"
+        ],
+        "title": "Programming Language Paradigms",
+        "instructors": [
+            "Elmer Salazar"
+        ],
+        "class_numbers": [
+            21869,
+            22228
+        ],
+        "enrolled_current": 78,
+        "enrolled_max": 160,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4337",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "006",
+            "hon"
+        ],
+        "title": "Programming Language Paradigms",
+        "instructors": [
+            "Chris Davis"
+        ],
+        "class_numbers": [
+            22025,
+            23098,
+            23099
+        ],
+        "enrolled_current": 98,
+        "enrolled_max": 214,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4390",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "001",
+            "003"
+        ],
+        "title": "Computer Networks",
+        "instructors": [
+            "Nidhiben Solanki"
+        ],
+        "class_numbers": [
+            22220,
+            22221,
+            23104,
+            23113
+        ],
+        "enrolled_current": 149,
+        "enrolled_max": 235,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4390",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "002",
+            "005"
+        ],
+        "title": "Computer Networks",
+        "instructors": [
+            "Zygmunt Haas"
+        ],
+        "class_numbers": [
+            23182,
+            23183,
+            23689,
+            23691
+        ],
+        "enrolled_current": 153,
+        "enrolled_max": 312,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4390",
+        "course_prefixes": [
+            "ce",
+            "cs"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Computer Networks",
+        "instructors": [
+            "Yi Ding"
+        ],
+        "class_numbers": [
+            23320,
+            23321
+        ],
+        "enrolled_current": 68,
+        "enrolled_max": 140,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6304",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "eedg"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computer Architecture",
+        "instructors": [
+            "Hossein Pedram"
+        ],
+        "class_numbers": [
+            22578,
+            22579,
+            22580
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 45,
+        "assistants": [
+            "Milad Daneshnazar"
+        ]
+    },
+    {
+        "course_number": "3345",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Data Structures and Introduction to Algorithmic Analysis",
+        "instructors": [
+            "Yvo Desmedt"
+        ],
+        "class_numbers": [
+            22247,
+            22248,
+            22249
+        ],
+        "enrolled_current": 54,
+        "enrolled_max": 240,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3345",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "002",
+            "007"
+        ],
+        "title": "Data Structures and Introduction to Algorithmic Analysis",
+        "instructors": [
+            "Meghana Satpute"
+        ],
+        "class_numbers": [
+            23095,
+            23096,
+            23097,
+            23423,
+            23424,
+            23425
+        ],
+        "enrolled_current": 160,
+        "enrolled_max": 480,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3345",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Data Structures and Introduction to Algorithmic Analysis",
+        "instructors": [
+            "Sridhar Alagar"
+        ],
+        "class_numbers": [
+            22927,
+            22928,
+            22929
+        ],
+        "enrolled_current": 80,
+        "enrolled_max": 240,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3345",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "005",
+            "501"
+        ],
+        "title": "Data Structures and Introduction to Algorithmic Analysis",
+        "instructors": [
+            "Omar Hamdy"
+        ],
+        "class_numbers": [
+            22212,
+            22213,
+            22214,
+            22215,
+            22229,
+            22230
+        ],
+        "enrolled_current": 160,
+        "enrolled_max": 480,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3345",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "006"
+        ],
+        "title": "Data Structures and Introduction to Algorithmic Analysis",
+        "instructors": [
+            "Sruthi Chappidi"
+        ],
+        "class_numbers": [
+            22501,
+            22502,
+            22503
+        ],
+        "enrolled_current": 53,
+        "enrolled_max": 240,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3345",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "008"
+        ],
+        "title": "Data Structures and Introduction to Algorithmic Analysis",
+        "instructors": [
+            "Parisa Darbari"
+        ],
+        "class_numbers": [
+            23637,
+            23638,
+            23639
+        ],
+        "enrolled_current": 72,
+        "enrolled_max": 240,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3345",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "009"
+        ],
+        "title": "Data Structures and Introduction to Algorithmic Analysis",
+        "instructors": [
+            "Yi Zhao"
+        ],
+        "class_numbers": [
+            22379,
+            22380,
+            22391
+        ],
+        "enrolled_current": 79,
+        "enrolled_max": 240,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3345",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "502",
+            "504"
+        ],
+        "title": "Data Structures and Introduction to Algorithmic Analysis",
+        "instructors": [
+            "Ziaullah Khan"
+        ],
+        "class_numbers": [
+            22796,
+            22804,
+            22805,
+            22868,
+            22908,
+            22909
+        ],
+        "enrolled_current": 160,
+        "enrolled_max": 480,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3354",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001",
+            "hon"
+        ],
+        "title": "Software Engineering",
+        "instructors": [
+            "Tien Nguyen"
+        ],
+        "class_numbers": [
+            22444,
+            22445,
+            22446,
+            23576
+        ],
+        "enrolled_current": 115,
+        "enrolled_max": 280,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3354",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Software Engineering",
+        "instructors": [
+            "Srimathi Srinivasan"
+        ],
+        "class_numbers": [
+            22650,
+            22651,
+            22652
+        ],
+        "enrolled_current": 80,
+        "enrolled_max": 240,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3354",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "003",
+            "004"
+        ],
+        "title": "Software Engineering",
+        "instructors": [
+            "Ranran Feng"
+        ],
+        "class_numbers": [
+            22869,
+            22894,
+            22895,
+            22977,
+            22978,
+            22979
+        ],
+        "enrolled_current": 145,
+        "enrolled_max": 435,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3354",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "005",
+            "007"
+        ],
+        "title": "Software Engineering",
+        "instructors": [
+            "Priya Narayanasami"
+        ],
+        "class_numbers": [
+            22637,
+            22638,
+            22639,
+            22797,
+            22802,
+            22803
+        ],
+        "enrolled_current": 157,
+        "enrolled_max": 480,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3354",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "006"
+        ],
+        "title": "Software Engineering",
+        "instructors": [
+            "Mehra Nouroz Borazjany"
+        ],
+        "class_numbers": [
+            23270,
+            23271,
+            23272
+        ],
+        "enrolled_current": 80,
+        "enrolled_max": 240,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3354",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "008",
+            "010"
+        ],
+        "title": "Software Engineering",
+        "instructors": [
+            "Sruthi Chappidi"
+        ],
+        "class_numbers": [
+            23426,
+            23427,
+            23428,
+            29546,
+            29547,
+            29548
+        ],
+        "enrolled_current": 139,
+        "enrolled_max": 420,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4348",
+        "course_prefixes": [
+            "ce",
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001",
+            "501"
+        ],
+        "title": "Operating Systems Concepts",
+        "instructors": [
+            "Erik Peterson"
+        ],
+        "class_numbers": [
+            22217,
+            22219,
+            22520
+        ],
+        "enrolled_current": 144,
+        "enrolled_max": 240,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "1202",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001",
+            "002",
+            "003",
+            "004"
+        ],
+        "title": "Introduction to Electrical and Computer Engineering II",
+        "instructors": [
+            "Haifa Abulaiha"
+        ],
+        "class_numbers": [
+            22210,
+            22226,
+            22227,
+            22716,
+            22717,
+            22718,
+            22949,
+            22950
+        ],
+        "enrolled_current": 252,
+        "enrolled_max": 510,
+        "assistants": [
+            "Sk Nayemuzzaman",
+            "Shakil Ahmed",
+            "Sameer Dhole",
+            "Mushfiqul Abedin Khan"
+        ]
+    },
+    {
+        "course_number": "2301",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Electrical Network Analysis",
+        "instructors": [
+            "Gil Lee"
+        ],
+        "class_numbers": [
+            23585,
+            23586
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2301",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "002",
+            "501"
+        ],
+        "title": "Electrical Network Analysis",
+        "instructors": [
+            "Yun Chiu"
+        ],
+        "class_numbers": [
+            23712,
+            28148,
+            28172,
+            28203
+        ],
+        "enrolled_current": 88,
+        "enrolled_max": 182,
+        "assistants": [
+            "Miriyala Kamal",
+            "Akshay Chitale"
+        ]
+    },
+    {
+        "course_number": "2310",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001",
+            "501"
+        ],
+        "title": "Introduction to Digital Systems",
+        "instructors": [
+            "Shaheen Ahmed"
+        ],
+        "class_numbers": [
+            23282,
+            23283,
+            23408,
+            23409
+        ],
+        "enrolled_current": 168,
+        "enrolled_max": 340,
+        "assistants": [
+            "",
+            "Mostafa Habibi Dehsheikhi",
+            "Omer Eroglu"
+        ]
+    },
+    {
+        "course_number": "3161",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "051",
+            "091"
+        ],
+        "title": "Social Issues and Ethics in Engineering",
+        "instructors": [
+            "Rabah Mezenner"
+        ],
+        "class_numbers": [
+            23159,
+            23160,
+            23161,
+            23162
+        ],
+        "enrolled_current": 136,
+        "enrolled_max": 272,
+        "assistants": [
+            "Farzana Islam"
+        ]
+    },
+    {
+        "course_number": "3201",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Electrical and Computer Engineering Fundamentals-I Laboratory",
+        "instructors": [
+            "Tooraj Nikoubin"
+        ],
+        "class_numbers": [
+            22833,
+            22837,
+            22841,
+            22842
+        ],
+        "enrolled_current": 135,
+        "enrolled_max": 300,
+        "assistants": [
+            "Dipali Jain",
+            "Lena Duraisamy Swamikannan",
+            "Alma Abbasnia",
+            "Nayan Sarker",
+            "Seyed Saeed Hashemi Esmaeilabad"
+        ]
+    },
+    {
+        "course_number": "3202",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Electrical and Computer Engineering Fundamentals-II Laboratory",
+        "instructors": [
+            "Kamran Kiasaleh"
+        ],
+        "class_numbers": [
+            22849,
+            22856
+        ],
+        "enrolled_current": 39,
+        "enrolled_max": 140,
+        "assistants": [
+            "Mohammed Mahbub",
+            "Shideh Tayeb Naimi"
+        ]
+    },
+    {
+        "course_number": "3202",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Electrical and Computer Engineering Fundamentals-II Laboratory",
+        "instructors": [
+            "Shaheen Ahmed"
+        ],
+        "class_numbers": [
+            22853,
+            22857
+        ],
+        "enrolled_current": 60,
+        "enrolled_max": 140,
+        "assistants": [
+            "Mohammed Mahbub",
+            "Mohammed Belal Uddin",
+            "Shideh Tayeb Naimi"
+        ]
+    },
+    {
+        "course_number": "3310",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Electronic Devices",
+        "instructors": [
+            "Mark Tinker"
+        ],
+        "class_numbers": [
+            22001,
+            22003
+        ],
+        "enrolled_current": 54,
+        "enrolled_max": 56,
+        "assistants": [
+            "Mercy Koech"
+        ]
+    },
+    {
+        "course_number": "3310",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Electronic Devices",
+        "instructors": [
+            "Lawrence Overzet"
+        ],
+        "class_numbers": [
+            22002,
+            22004
+        ],
+        "enrolled_current": 55,
+        "enrolled_max": 56,
+        "assistants": [
+            "Mohammad Fahad",
+            "Sahanah Tayab"
+        ]
+    },
+    {
+        "course_number": "3311",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Electronic Circuits",
+        "instructors": [
+            "Jin Liu"
+        ],
+        "class_numbers": [
+            22006,
+            22008
+        ],
+        "enrolled_current": 53,
+        "enrolled_max": 56,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3311",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Electronic Circuits",
+        "instructors": [
+            "Hoi Lee"
+        ],
+        "class_numbers": [
+            23105,
+            23106
+        ],
+        "enrolled_current": 58,
+        "enrolled_max": 58,
+        "assistants": [
+            "Mercy Koech"
+        ]
+    },
+    {
+        "course_number": "3320",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Digital Circuits",
+        "instructors": [
+            "Hossein Pedram"
+        ],
+        "class_numbers": [
+            22009,
+            22011
+        ],
+        "enrolled_current": 75,
+        "enrolled_max": 150,
+        "assistants": [
+            "Danial Kazemikia"
+        ]
+    },
+    {
+        "course_number": "3320",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Digital Circuits",
+        "instructors": [
+            "Dinesh Bhatia",
+            "Poras Balsara"
+        ],
+        "class_numbers": [
+            22010,
+            22012
+        ],
+        "enrolled_current": 69,
+        "enrolled_max": 138,
+        "assistants": [
+            "Baharealsadat Parchamdar"
+        ]
+    },
+    {
+        "course_number": "4204",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Electrical and Computer Engineering Laboratory in Devices",
+        "instructors": [
+            "Chadwin Young"
+        ],
+        "class_numbers": [
+            23274,
+            23278
+        ],
+        "enrolled_current": 80,
+        "enrolled_max": 200,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4205",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001",
+            "303"
+        ],
+        "title": "Electrical and Computer Engineering Laboratory in Power Electronics and Energy Systems",
+        "instructors": [
+            "Bilal Akin"
+        ],
+        "class_numbers": [
+            23596,
+            23614,
+            29347
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 140,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4304",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Computer Architecture",
+        "instructors": [
+            "William Swartz"
+        ],
+        "class_numbers": [
+            22297,
+            22298,
+            22822,
+            22823
+        ],
+        "enrolled_current": 74,
+        "enrolled_max": 176,
+        "assistants": [
+            "",
+            "Apostolos Kontarinis"
+        ]
+    },
+    {
+        "course_number": "4331",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Applied Machine Learning",
+        "instructors": [
+            "Lakshman Tamil"
+        ],
+        "class_numbers": [
+            23092,
+            23246
+        ],
+        "enrolled_current": 48,
+        "enrolled_max": 49,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4370",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Embedded Systems",
+        "instructors": [
+            "Hossein Pedram"
+        ],
+        "class_numbers": [
+            22293,
+            22366
+        ],
+        "enrolled_current": 69,
+        "enrolled_max": 138,
+        "assistants": [
+            "Sabrina Ahmed",
+            "Zeinab Delaram"
+        ]
+    },
+    {
+        "course_number": "4370",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Embedded Systems",
+        "instructors": [
+            "William Swartz"
+        ],
+        "class_numbers": [
+            23163,
+            23166
+        ],
+        "enrolled_current": 67,
+        "enrolled_max": 138,
+        "assistants": [
+            "Dismas Ezechukwu",
+            "Zeinab Delaram"
+        ]
+    },
+    {
+        "course_number": "4388",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Senior Design Project I",
+        "instructors": [
+            "Marco Tacca"
+        ],
+        "class_numbers": [
+            22204,
+            22205
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 70,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4388",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Senior Design Project I",
+        "instructors": [
+            "Neal Skinner"
+        ],
+        "class_numbers": [
+            23418,
+            23431
+        ],
+        "enrolled_current": 32,
+        "enrolled_max": 70,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4389",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "001",
+            "002",
+            "003"
+        ],
+        "title": "Senior Design Project II",
+        "instructors": [
+            "Neal Skinner"
+        ],
+        "class_numbers": [
+            22206,
+            22207,
+            22208,
+            22209,
+            22688,
+            22689
+        ],
+        "enrolled_current": 46,
+        "enrolled_max": 210,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4389",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "004",
+            "005"
+        ],
+        "title": "Senior Design Project II",
+        "instructors": [
+            "Marco Tacca"
+        ],
+        "class_numbers": [
+            22828,
+            22829,
+            23336,
+            23337
+        ],
+        "enrolled_current": 59,
+        "enrolled_max": 130,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4v95",
+        "course_prefixes": [
+            "ce",
+            "ee"
+        ],
+        "sections": [
+            "0s1"
+        ],
+        "title": "Undergraduate Topics in Electrical Engineering",
+        "instructors": [
+            "Matthew Heins"
+        ],
+        "class_numbers": [
+            29167,
+            29168
+        ],
+        "enrolled_current": 12,
+        "enrolled_max": 50,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6325",
+        "course_prefixes": [
+            "ce",
+            "eect"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "VLSI Design",
+        "instructors": [
+            "Joseph Friedman"
+        ],
+        "class_numbers": [
+            23591,
+            23617
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 88,
+        "assistants": [
+            "Tianxi Qi"
+        ]
+    },
+    {
+        "course_number": "7325",
+        "course_prefixes": [
+            "ce",
+            "eect"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Advanced VLSI Design",
+        "instructors": [
+            "Carl Sechen"
+        ],
+        "class_numbers": [
+            29188,
+            29189
+        ],
+        "enrolled_current": 23,
+        "enrolled_max": 100,
+        "assistants": [
+            "Jinkun Feng"
+        ]
+    },
+    {
+        "course_number": "6301",
+        "course_prefixes": [
+            "ce",
+            "eedg"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Advanced Digital Logic",
+        "instructors": [
+            "William Swartz"
+        ],
+        "class_numbers": [
+            22264,
+            22265
+        ],
+        "enrolled_current": 20,
+        "enrolled_max": 100,
+        "assistants": [
+            "Anand Menon"
+        ]
+    },
+    {
+        "course_number": "6302",
+        "course_prefixes": [
+            "ce",
+            "eedg"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Embedded Systems",
+        "instructors": [
+            "Tooraj Nikoubin"
+        ],
+        "class_numbers": [
+            22299,
+            22301
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 120,
+        "assistants": [
+            "Seyed Saeed Hashemi Esmaeilabad"
+        ]
+    },
+    {
+        "course_number": "6303",
+        "course_prefixes": [
+            "ce",
+            "eedg"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Testing and Testable Design",
+        "instructors": [
+            "Mehrdad Nourani"
+        ],
+        "class_numbers": [
+            23433,
+            23434
+        ],
+        "enrolled_current": 36,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6306",
+        "course_prefixes": [
+            "ce",
+            "eedg"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Application Specific Integrated Circuits Design",
+        "instructors": [
+            "Alice Wang"
+        ],
+        "class_numbers": [
+            23698,
+            23699
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 42,
+        "assistants": [
+            "Lucas Wick"
+        ]
+    },
+    {
+        "course_number": "6308",
+        "course_prefixes": [
+            "ce",
+            "eedg"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Real-Time Systems",
+        "instructors": [
+            "Farokh Bastani"
+        ],
+        "class_numbers": [
+            28759,
+            28760
+        ],
+        "enrolled_current": 1,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "1325",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Programming",
+        "instructors": [
+            "Miguel Razo Razo"
+        ],
+        "class_numbers": [
+            22023
+        ],
+        "enrolled_current": 88,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "1325",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Introduction to Programming",
+        "instructors": [
+            "Nidhiben Solanki"
+        ],
+        "class_numbers": [
+            22617
+        ],
+        "enrolled_current": 100,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2337",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Computer Science II",
+        "instructors": [
+            "Doug DeGroot",
+            "Gordon Arnold"
+        ],
+        "class_numbers": [
+            22951
+        ],
+        "enrolled_current": 62,
+        "enrolled_max": 75,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4301",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Special Topics in Computer Science",
+        "instructors": [
+            "Emily Fox"
+        ],
+        "class_numbers": [
+            28958
+        ],
+        "enrolled_current": 59,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4301",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Special Topics in Computer Science",
+        "instructors": [
+            "Kevin Hamlen"
+        ],
+        "class_numbers": [
+            29150
+        ],
+        "enrolled_current": 10,
+        "enrolled_max": 25,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4332",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Programming Video Games",
+        "instructors": [
+            "Rawan Alghofaili"
+        ],
+        "class_numbers": [
+            23169
+        ],
+        "enrolled_current": 94,
+        "enrolled_max": 95,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4334",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Numerical Analysis",
+        "instructors": [
+            "Saikat Biswas"
+        ],
+        "class_numbers": [
+            23313
+        ],
+        "enrolled_current": 12,
+        "enrolled_max": 48,
+        "assistants": [
+            "Soham Sarkar"
+        ]
+    },
+    {
+        "course_number": "4341",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Digital Logic and Computer Design",
+        "instructors": [
+            "Doug DeGroot",
+            "Alice Wang"
+        ],
+        "class_numbers": [
+            21865
+        ],
+        "enrolled_current": 99,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4341",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Digital Logic and Computer Design",
+        "instructors": [
+            "Bingzhe Li"
+        ],
+        "class_numbers": [
+            23300
+        ],
+        "enrolled_current": 90,
+        "enrolled_max": 90,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4341",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Digital Logic and Computer Design",
+        "instructors": [
+            "Omar Hamdy"
+        ],
+        "class_numbers": [
+            23198
+        ],
+        "enrolled_current": 90,
+        "enrolled_max": 90,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4341",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Digital Logic and Computer Design",
+        "instructors": [
+            "Doug DeGroot",
+            "Gity Karami"
+        ],
+        "class_numbers": [
+            23100
+        ],
+        "enrolled_current": 70,
+        "enrolled_max": 70,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4341",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "005"
+        ],
+        "title": "Digital Logic and Computer Design",
+        "instructors": [
+            "Gity Karami"
+        ],
+        "class_numbers": [
+            22874
+        ],
+        "enrolled_current": 100,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4341",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "006"
+        ],
+        "title": "Digital Logic and Computer Design",
+        "instructors": [
+            "Eric Becker"
+        ],
+        "class_numbers": [
+            22527
+        ],
+        "enrolled_current": 100,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4341",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "hon"
+        ],
+        "title": "Digital Logic and Computer Design",
+        "instructors": [
+            "Ebru Cankaya"
+        ],
+        "class_numbers": [
+            22449
+        ],
+        "enrolled_current": 12,
+        "enrolled_max": 25,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4349",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Advanced Algorithm Design and Analysis",
+        "instructors": [
+            "James Willson"
+        ],
+        "class_numbers": [
+            23043,
+            23154
+        ],
+        "enrolled_current": 192,
+        "enrolled_max": 200,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4349",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Advanced Algorithm Design and Analysis",
+        "instructors": [
+            "Ding Du"
+        ],
+        "class_numbers": [
+            23101
+        ],
+        "enrolled_current": 80,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4349",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "004",
+            "006"
+        ],
+        "title": "Advanced Algorithm Design and Analysis",
+        "instructors": [
+            "Bhadrachalam Chitturi"
+        ],
+        "class_numbers": [
+            22642,
+            23184
+        ],
+        "enrolled_current": 176,
+        "enrolled_max": 180,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4349",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "005"
+        ],
+        "title": "Advanced Algorithm Design and Analysis",
+        "instructors": [
+            "Serdar Erbatur"
+        ],
+        "class_numbers": [
+            22880
+        ],
+        "enrolled_current": 100,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4349",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "007"
+        ],
+        "title": "Advanced Algorithm Design and Analysis",
+        "instructors": [
+            "Parisa Darbari"
+        ],
+        "class_numbers": [
+            29542
+        ],
+        "enrolled_current": 44,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4352",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Human-Computer Interaction",
+        "instructors": [
+            "Erika Orrick"
+        ],
+        "class_numbers": [
+            28817
+        ],
+        "enrolled_current": 24,
+        "enrolled_max": 28,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4361",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computer Graphics",
+        "instructors": [
+            "Pushpa Kumar"
+        ],
+        "class_numbers": [
+            22881
+        ],
+        "enrolled_current": 80,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4365",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Artificial Intelligence",
+        "instructors": [
+            "Sanda Harabagiu"
+        ],
+        "class_numbers": [
+            22447
+        ],
+        "enrolled_current": 50,
+        "enrolled_max": 90,
+        "assistants": [
+            "Rakshitha Rao Ailneni",
+            "Maxwell Weinzierl"
+        ]
+    },
+    {
+        "course_number": "4365",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002",
+            "hon"
+        ],
+        "title": "Artificial Intelligence",
+        "instructors": [
+            "Yu Chung Ng"
+        ],
+        "class_numbers": [
+            22634,
+            23293
+        ],
+        "enrolled_current": 82,
+        "enrolled_max": 124,
+        "assistants": [
+            "Shengjie Li"
+        ]
+    },
+    {
+        "course_number": "4365",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Artificial Intelligence",
+        "instructors": [
+            "Vibhav Gogate"
+        ],
+        "class_numbers": [
+            23578
+        ],
+        "enrolled_current": 77,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4365",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Artificial Intelligence",
+        "instructors": [
+            "Vlad Birsan"
+        ],
+        "class_numbers": [
+            23530
+        ],
+        "enrolled_current": 86,
+        "enrolled_max": 90,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4365",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Artificial Intelligence",
+        "instructors": [
+            "Haim Schweitzer"
+        ],
+        "class_numbers": [
+            22963
+        ],
+        "enrolled_current": 68,
+        "enrolled_max": 90,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4375",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Machine Learning",
+        "instructors": [
+            "Sriraam Natarajan"
+        ],
+        "class_numbers": [
+            22882
+        ],
+        "enrolled_current": 78,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4375",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Introduction to Machine Learning",
+        "instructors": [
+            "Feng Chen"
+        ],
+        "class_numbers": [
+            22883
+        ],
+        "enrolled_current": 73,
+        "enrolled_max": 75,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4375",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Introduction to Machine Learning",
+        "instructors": [
+            "Rishabh Iyer"
+        ],
+        "class_numbers": [
+            22645
+        ],
+        "enrolled_current": 98,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4375",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Introduction to Machine Learning",
+        "instructors": [
+            "Tahrima Rahman"
+        ],
+        "class_numbers": [
+            23102
+        ],
+        "enrolled_current": 88,
+        "enrolled_max": 90,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4375",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Introduction to Machine Learning",
+        "instructors": [
+            "Erick Skorupa Parolin"
+        ],
+        "class_numbers": [
+            23153
+        ],
+        "enrolled_current": 100,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4384",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Automata Theory",
+        "instructors": [
+            "Bhadrachalam Chitturi"
+        ],
+        "class_numbers": [
+            22885
+        ],
+        "enrolled_current": 104,
+        "enrolled_max": 105,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4384",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002",
+            "502"
+        ],
+        "title": "Automata Theory",
+        "instructors": [
+            "Simeon Ntafos"
+        ],
+        "class_numbers": [
+            22409,
+            29552
+        ],
+        "enrolled_current": 132,
+        "enrolled_max": 185,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4384",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "003",
+            "004"
+        ],
+        "title": "Automata Theory",
+        "instructors": [
+            "Serdar Erbatur"
+        ],
+        "class_numbers": [
+            22886,
+            23103
+        ],
+        "enrolled_current": 190,
+        "enrolled_max": 190,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4384",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Automata Theory",
+        "instructors": [
+            "Zachary Stallbohm"
+        ],
+        "class_numbers": [
+            22799
+        ],
+        "enrolled_current": 95,
+        "enrolled_max": 95,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4384",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "hon"
+        ],
+        "title": "Automata Theory",
+        "instructors": [
+            "Dung Huynh"
+        ],
+        "class_numbers": [
+            22505
+        ],
+        "enrolled_current": 32,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4386",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Compiler Design",
+        "instructors": [
+            "Neeraj Gupta"
+        ],
+        "class_numbers": [
+            22535
+        ],
+        "enrolled_current": 33,
+        "enrolled_max": 70,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4391",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Introduction to Computer Vision",
+        "instructors": [
+            "Ranran Feng"
+        ],
+        "class_numbers": [
+            29545
+        ],
+        "enrolled_current": 60,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4393",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computer and Network Security",
+        "instructors": [
+            "Nhut Nguyen"
+        ],
+        "class_numbers": [
+            21866
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4395",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Human Language Technologies",
+        "instructors": [
+            "Xinya Du"
+        ],
+        "class_numbers": [
+            29170
+        ],
+        "enrolled_current": 99,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4396",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Networking Laboratory",
+        "instructors": [
+            "Kamil Sarac"
+        ],
+        "class_numbers": [
+            21867
+        ],
+        "enrolled_current": 49,
+        "enrolled_max": 75,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4475",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Capstone Project",
+        "instructors": [
+            "Kemelli Estacio-Hiroms"
+        ],
+        "class_numbers": [
+            23149
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 45,
+        "assistants": [
+            "Tingfang Wang"
+        ]
+    },
+    {
+        "course_number": "4485",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Computer Science Project",
+        "instructors": [
+            "Miguel Razo Razo",
+            "John Cole",
+            "Sridhar Alagar",
+            "Raed Salih",
+            "Eric Becker",
+            "Selim Sarac",
+            "Aditya Srivastava",
+            "Muhammad Ikram"
+        ],
+        "class_numbers": [
+            21868
+        ],
+        "enrolled_current": 590,
+        "enrolled_max": 591,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "5333",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Discrete Structures",
+        "instructors": [
+            "Jorge Cobb"
+        ],
+        "class_numbers": [
+            23507
+        ],
+        "enrolled_current": 12,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "5343",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Algorithm Analysis and Data Structures",
+        "instructors": [
+            "Neeraj Gupta"
+        ],
+        "class_numbers": [
+            22636
+        ],
+        "enrolled_current": 49,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "5348",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Operating Systems Concepts",
+        "instructors": [
+            "Neeraj Mittal"
+        ],
+        "class_numbers": [
+            22887
+        ],
+        "enrolled_current": 16,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "5349",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Automata Theory",
+        "instructors": [
+            "Serdar Erbatur"
+        ],
+        "class_numbers": [
+            23656
+        ],
+        "enrolled_current": 8,
+        "enrolled_max": 20,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "5390",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Computer Networks",
+        "instructors": [
+            "Nidhiben Solanki"
+        ],
+        "class_numbers": [
+            23338
+        ],
+        "enrolled_current": 3,
+        "enrolled_max": 5,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6301",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Special Topics in Computer Science",
+        "instructors": [
+            "Andrew Nemec"
+        ],
+        "class_numbers": [
+            28870
+        ],
+        "enrolled_current": 57,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6305",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Data Security and Privacy for Practitioners",
+        "instructors": [
+            "Ebru Cankaya"
+        ],
+        "class_numbers": [
+            23138
+        ],
+        "enrolled_current": 33,
+        "enrolled_max": 65,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6307",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Introduction to Big Data Management and Analytics for non CS-Majors",
+        "instructors": [
+            "Anurag Nagar"
+        ],
+        "class_numbers": [
+            23724
+        ],
+        "enrolled_current": 39,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6308",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Cyber Physical Systems and Critical Infrastructure Security for Practitioners",
+        "instructors": [
+            "Brian Ricks"
+        ],
+        "class_numbers": [
+            23325
+        ],
+        "enrolled_current": 45,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6313",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Statistical Methods for Data Science",
+        "instructors": [
+            "Xiwei Tang"
+        ],
+        "class_numbers": [
+            28327
+        ],
+        "enrolled_current": 28,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6314",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Web Programming Languages",
+        "instructors": [
+            "Richard Min"
+        ],
+        "class_numbers": [
+            22532
+        ],
+        "enrolled_current": 65,
+        "enrolled_max": 120,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6319",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computational Geometry",
+        "instructors": [
+            "Benjamin Raichel"
+        ],
+        "class_numbers": [
+            23652
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6320",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Natural Language Processing",
+        "instructors": [
+            "Tatiana Erekhinskaya"
+        ],
+        "class_numbers": [
+            22290
+        ],
+        "enrolled_current": 160,
+        "enrolled_max": 160,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6320",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Natural Language Processing",
+        "instructors": [
+            "Zhiyu Chen"
+        ],
+        "class_numbers": [
+            23762
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6322",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Information Retrieval",
+        "instructors": [
+            "Sanda Harabagiu"
+        ],
+        "class_numbers": [
+            22888
+        ],
+        "enrolled_current": 78,
+        "enrolled_max": 80,
+        "assistants": [
+            "Maxwell Weinzierl"
+        ]
+    },
+    {
+        "course_number": "6324",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Information Security",
+        "instructors": [
+            "Chung Hwan Kim"
+        ],
+        "class_numbers": [
+            22289
+        ],
+        "enrolled_current": 75,
+        "enrolled_max": 75,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6334",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Virtual Reality",
+        "instructors": [
+            "Jin Ryong Kim"
+        ],
+        "class_numbers": [
+            23118
+        ],
+        "enrolled_current": 65,
+        "enrolled_max": 80,
+        "assistants": [
+            "Ashish Pratap",
+            "Yatharth Singhal"
+        ]
+    },
+    {
+        "course_number": "6347",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Statistical Methods in AI and Machine Learning",
+        "instructors": [
+            "Nicholas Ruozzi"
+        ],
+        "class_numbers": [
+            22432
+        ],
+        "enrolled_current": 60,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6348",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Data and Applications Security",
+        "instructors": [
+            "Ebru Cankaya"
+        ],
+        "class_numbers": [
+            22539
+        ],
+        "enrolled_current": 86,
+        "enrolled_max": 90,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6349",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Network Security",
+        "instructors": [
+            "Shuang Hao"
+        ],
+        "class_numbers": [
+            22340
+        ],
+        "enrolled_current": 100,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6350",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Big Data Management and Analytics",
+        "instructors": [
+            "Anurag Nagar"
+        ],
+        "class_numbers": [
+            22399,
+            22533
+        ],
+        "enrolled_current": 160,
+        "enrolled_max": 200,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6352",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Performance of Computer Systems and Networks",
+        "instructors": [
+            "Jason Jue"
+        ],
+        "class_numbers": [
+            28778
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6353",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Compiler Construction",
+        "instructors": [
+            "Shiyi Wei"
+        ],
+        "class_numbers": [
+            23111
+        ],
+        "enrolled_current": 47,
+        "enrolled_max": 70,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6359",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Object-Oriented Analysis and Design",
+        "instructors": [
+            "Rym Zalila-Wenkstern"
+        ],
+        "class_numbers": [
+            23155
+        ],
+        "enrolled_current": 8,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6360",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Database Design",
+        "instructors": [
+            "Wei Wu"
+        ],
+        "class_numbers": [
+            22889
+        ],
+        "enrolled_current": 80,
+        "enrolled_max": 80,
+        "assistants": [
+            "Guanghua Wang"
+        ]
+    },
+    {
+        "course_number": "6363",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Design and Analysis of Computer Algorithms",
+        "instructors": [
+            "Dung Huynh"
+        ],
+        "class_numbers": [
+            22624
+        ],
+        "enrolled_current": 62,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6363",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Design and Analysis of Computer Algorithms",
+        "instructors": [
+            "Sergey Bereg"
+        ],
+        "class_numbers": [
+            23273
+        ],
+        "enrolled_current": 55,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6363",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "502"
+        ],
+        "title": "Design and Analysis of Computer Algorithms",
+        "instructors": [
+            "Ding Du"
+        ],
+        "class_numbers": [
+            22890
+        ],
+        "enrolled_current": 59,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6364",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Artificial Intelligence",
+        "instructors": [
+            "Haim Schweitzer"
+        ],
+        "class_numbers": [
+            22291
+        ],
+        "enrolled_current": 90,
+        "enrolled_max": 95,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6366",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computer Graphics",
+        "instructors": [
+            "Xiaohu Guo"
+        ],
+        "class_numbers": [
+            22335
+        ],
+        "enrolled_current": 18,
+        "enrolled_max": 70,
+        "assistants": [
+            "Ningna Wang"
+        ]
+    },
+    {
+        "course_number": "6371",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Advanced Programming Languages",
+        "instructors": [
+            "Kevin Hamlen"
+        ],
+        "class_numbers": [
+            23251
+        ],
+        "enrolled_current": 6,
+        "enrolled_max": 25,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6375",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Machine Learning",
+        "instructors": [
+            "Wei Yang"
+        ],
+        "class_numbers": [
+            22891
+        ],
+        "enrolled_current": 57,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6375",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Machine Learning",
+        "instructors": [
+            "Crystal Maung"
+        ],
+        "class_numbers": [
+            28160
+        ],
+        "enrolled_current": 88,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6378",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Advanced Operating Systems",
+        "instructors": [
+            "Ravi Prakash"
+        ],
+        "class_numbers": [
+            23286
+        ],
+        "enrolled_current": 49,
+        "enrolled_max": 75,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6384",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computer Vision",
+        "instructors": [
+            "Yapeng Tian"
+        ],
+        "class_numbers": [
+            22378
+        ],
+        "enrolled_current": 109,
+        "enrolled_max": 110,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6384",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Computer Vision",
+        "instructors": [
+            "Yunhui Guo"
+        ],
+        "class_numbers": [
+            29291
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6396",
+        "course_prefixes": [
+            "cs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Real-Time Systems",
+        "instructors": [
+            "Farokh Bastani"
+        ],
+        "class_numbers": [
+            28540
+        ],
+        "enrolled_current": 8,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2340",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001",
+            "003",
+            "006"
+        ],
+        "title": "Computer Architecture",
+        "instructors": [
+            "Alice Wang"
+        ],
+        "class_numbers": [
+            23121,
+            23122,
+            23125,
+            23130,
+            23131,
+            23134
+        ],
+        "enrolled_current": 233,
+        "enrolled_max": 480,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2340",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Computer Architecture",
+        "instructors": [
+            "Yvo Desmedt"
+        ],
+        "class_numbers": [
+            23126,
+            23135
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 160,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2340",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "005",
+            "007"
+        ],
+        "title": "Computer Architecture",
+        "instructors": [
+            "Wafa Jaffal"
+        ],
+        "class_numbers": [
+            23124,
+            23127,
+            23133,
+            23136
+        ],
+        "enrolled_current": 160,
+        "enrolled_max": 320,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2340",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "008",
+            "hn1"
+        ],
+        "title": "Computer Architecture",
+        "instructors": [
+            "Nhut Nguyen"
+        ],
+        "class_numbers": [
+            23128,
+            23129,
+            23137
+        ],
+        "enrolled_current": 70,
+        "enrolled_max": 200,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3162",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "051",
+            "052",
+            "091",
+            "092"
+        ],
+        "title": "Professional Responsibility in Computer Science and Software Engineering",
+        "instructors": [
+            "John Cole"
+        ],
+        "class_numbers": [
+            22261,
+            22262,
+            22425,
+            22426,
+            22867,
+            22917,
+            22925,
+            22926
+        ],
+        "enrolled_current": 676,
+        "enrolled_max": 1360,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3341",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001",
+            "006",
+            "501"
+        ],
+        "title": "Probability and Statistics in Computer Science and Software Engineering",
+        "instructors": [
+            "Octavious Smiley"
+        ],
+        "class_numbers": [
+            22254,
+            22260,
+            22971,
+            22973,
+            23570,
+            23571
+        ],
+        "enrolled_current": 204,
+        "enrolled_max": 395,
+        "assistants": [
+            "Kun Zhao",
+            "Yaga Thomas"
+        ]
+    },
+    {
+        "course_number": "3341",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "002",
+            "003",
+            "004"
+        ],
+        "title": "Probability and Statistics in Computer Science and Software Engineering",
+        "instructors": [
+            "Huizhen Guo"
+        ],
+        "class_numbers": [
+            22396,
+            22397,
+            22721,
+            22722,
+            22970,
+            22972
+        ],
+        "enrolled_current": 293,
+        "enrolled_max": 435,
+        "assistants": [
+            "Most Salma Yeasmin Jannaty"
+        ]
+    },
+    {
+        "course_number": "3341",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "005"
+        ],
+        "title": "Probability and Statistics in Computer Science and Software Engineering",
+        "instructors": [
+            "Shengjie Jiang"
+        ],
+        "class_numbers": [
+            21962,
+            22810
+        ],
+        "enrolled_current": 118,
+        "enrolled_max": 145,
+        "assistants": [
+            "Md Maidul Husain"
+        ]
+    },
+    {
+        "course_number": "3377",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001",
+            "502"
+        ],
+        "title": "Systems Programming in UNIX and Other Environments",
+        "instructors": [
+            "Mohamed Amine Belkoura"
+        ],
+        "class_numbers": [
+            22964,
+            22965,
+            28519,
+            28520
+        ],
+        "enrolled_current": 180,
+        "enrolled_max": 360,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3377",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "002",
+            "004"
+        ],
+        "title": "Systems Programming in UNIX and Other Environments",
+        "instructors": [
+            "Richard Min"
+        ],
+        "class_numbers": [
+            22806,
+            22807,
+            23107,
+            23108
+        ],
+        "enrolled_current": 145,
+        "enrolled_max": 340,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3377",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Systems Programming in UNIX and Other Environments",
+        "instructors": [
+            "Sridhar Alagar"
+        ],
+        "class_numbers": [
+            22523,
+            22524
+        ],
+        "enrolled_current": 90,
+        "enrolled_max": 180,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3377",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "005",
+            "006"
+        ],
+        "title": "Systems Programming in UNIX and Other Environments",
+        "instructors": [
+            "Jeyakesavan Veerasamy"
+        ],
+        "class_numbers": [
+            22334,
+            22354,
+            22870,
+            22907
+        ],
+        "enrolled_current": 180,
+        "enrolled_max": 360,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3377",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "5w1"
+        ],
+        "title": "Systems Programming in UNIX and Other Environments",
+        "instructors": [
+            "Scott Dollinger"
+        ],
+        "class_numbers": [
+            22024,
+            22068
+        ],
+        "enrolled_current": 90,
+        "enrolled_max": 180,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4347",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001",
+            "003"
+        ],
+        "title": "Database Systems",
+        "instructors": [
+            "Jalal Omer"
+        ],
+        "class_numbers": [
+            21870,
+            22121,
+            22622,
+            22627
+        ],
+        "enrolled_current": 155,
+        "enrolled_max": 310,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4347",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Database Systems",
+        "instructors": [
+            "Wei Wu"
+        ],
+        "class_numbers": [
+            23296,
+            23299
+        ],
+        "enrolled_current": 80,
+        "enrolled_max": 160,
+        "assistants": [
+            "Guanghua Wang"
+        ]
+    },
+    {
+        "course_number": "4347",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "004",
+            "006"
+        ],
+        "title": "Database Systems",
+        "instructors": [
+            "Pushpa Kumar"
+        ],
+        "class_numbers": [
+            22875,
+            22876,
+            22899,
+            22900
+        ],
+        "enrolled_current": 159,
+        "enrolled_max": 320,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4347",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "005"
+        ],
+        "title": "Database Systems",
+        "instructors": [
+            "Xinda Wang"
+        ],
+        "class_numbers": [
+            22877,
+            22901
+        ],
+        "enrolled_current": 80,
+        "enrolled_max": 160,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4347",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Database Systems",
+        "instructors": [
+            "Chris Davis"
+        ],
+        "class_numbers": [
+            22442,
+            22443
+        ],
+        "enrolled_current": 75,
+        "enrolled_max": 150,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4347",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "502"
+        ],
+        "title": "Database Systems",
+        "instructors": [
+            "Ziaullah Khan"
+        ],
+        "class_numbers": [
+            23297,
+            23298
+        ],
+        "enrolled_current": 110,
+        "enrolled_max": 220,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4348",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Operating Systems Concepts",
+        "instructors": [
+            "I-Ling Yen"
+        ],
+        "class_numbers": [
+            22216,
+            22218
+        ],
+        "enrolled_current": 57,
+        "enrolled_max": 160,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4348",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "003",
+            "501"
+        ],
+        "title": "Operating Systems Concepts",
+        "instructors": [
+            "Elmer Salazar"
+        ],
+        "class_numbers": [
+            23180,
+            23181,
+            23294,
+            23295
+        ],
+        "enrolled_current": 148,
+        "enrolled_max": 300,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4348",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Operating Systems Concepts",
+        "instructors": [
+            "Neeraj Mittal"
+        ],
+        "class_numbers": [
+            22878,
+            22897
+        ],
+        "enrolled_current": 64,
+        "enrolled_max": 160,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4348",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "503"
+        ],
+        "title": "Operating Systems Concepts",
+        "instructors": [
+            "Jonathan Perry"
+        ],
+        "class_numbers": [
+            22623,
+            22626
+        ],
+        "enrolled_current": 68,
+        "enrolled_max": 160,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4376",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Object-Oriented Design",
+        "instructors": [
+            "Mark Paulk"
+        ],
+        "class_numbers": [
+            22884,
+            22896,
+            22967,
+            22968
+        ],
+        "enrolled_current": 179,
+        "enrolled_max": 360,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6356",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Software Maintenance  Evolution  and Re-Engineering",
+        "instructors": [
+            "Shiyi Wei"
+        ],
+        "class_numbers": [
+            23112,
+            23119
+        ],
+        "enrolled_current": 52,
+        "enrolled_max": 120,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6361",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Advanced Requirements Engineering",
+        "instructors": [
+            "Lawrence Chung"
+        ],
+        "class_numbers": [
+            21871,
+            21963
+        ],
+        "enrolled_current": 23,
+        "enrolled_max": 104,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6367",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Software Testing  Validation and Verification",
+        "instructors": [
+            "Mehra Nouroz Borazjany"
+        ],
+        "class_numbers": [
+            22529,
+            22530
+        ],
+        "enrolled_current": 39,
+        "enrolled_max": 130,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "7301",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Recent Advances in Computing",
+        "instructors": [
+            "Ravi Prakash"
+        ],
+        "class_numbers": [
+            23626,
+            23627
+        ],
+        "enrolled_current": 15,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "7301",
+        "course_prefixes": [
+            "cs",
+            "se"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Recent Advances in Computing",
+        "instructors": [
+            "Latifur Khan"
+        ],
+        "class_numbers": [
+            23655,
+            28972
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 120,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "001",
+            "002",
+            "003",
+            "004"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Wade Crowder"
+        ],
+        "class_numbers": [
+            22644,
+            22959,
+            23303,
+            23454
+        ],
+        "enrolled_current": 73,
+        "enrolled_max": 76,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "005"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Letitia Andrews"
+        ],
+        "class_numbers": [
+            23453
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "006",
+            "0h4",
+            "0h6",
+            "hn1"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Melissa Hernandez-Katz"
+        ],
+        "class_numbers": [
+            21964,
+            22255,
+            22952,
+            23301
+        ],
+        "enrolled_current": 76,
+        "enrolled_max": 76,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "007",
+            "008",
+            "012",
+            "0h8",
+            "0h9"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Janece Glauser"
+        ],
+        "class_numbers": [
+            22953,
+            22956,
+            22957,
+            23472,
+            23711
+        ],
+        "enrolled_current": 95,
+        "enrolled_max": 95,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "009",
+            "011",
+            "0h7"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Candie Mckee-Williams"
+        ],
+        "class_numbers": [
+            23457,
+            23669,
+            23700
+        ],
+        "enrolled_current": 57,
+        "enrolled_max": 57,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "010"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Bradley Skiles"
+        ],
+        "class_numbers": [
+            23695
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "013"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Lacey Henderson"
+        ],
+        "class_numbers": [
+            28904
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "014",
+            "015"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Shivika Mathur"
+        ],
+        "class_numbers": [
+            28905,
+            28906
+        ],
+        "enrolled_current": 38,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "016",
+            "017"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Farah Siddiqui"
+        ],
+        "class_numbers": [
+            29154,
+            29341
+        ],
+        "enrolled_current": 38,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "018",
+            "0s2",
+            "0w8",
+            "0w9"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Christina Montgomery"
+        ],
+        "class_numbers": [
+            29163,
+            29176,
+            29177,
+            29526
+        ],
+        "enrolled_current": 77,
+        "enrolled_max": 77,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "019",
+            "0h1"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Janet Johnson"
+        ],
+        "class_numbers": [
+            23455,
+            29527
+        ],
+        "enrolled_current": 38,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "020",
+            "0w3",
+            "501",
+            "502",
+            "505"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Deborah Scally"
+        ],
+        "class_numbers": [
+            22063,
+            22955,
+            23778,
+            28896,
+            29528
+        ],
+        "enrolled_current": 217,
+        "enrolled_max": 217,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "0h3",
+            "0h5"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Jonathan Hartmann"
+        ],
+        "class_numbers": [
+            22958,
+            23456
+        ],
+        "enrolled_current": 37,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "0s1",
+            "0w1",
+            "0w2",
+            "0w7"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Christopher Ryan"
+        ],
+        "class_numbers": [
+            22519,
+            22646,
+            23670,
+            28987
+        ],
+        "enrolled_current": 259,
+        "enrolled_max": 260,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "0w4",
+            "0w5"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Maribeth Schlobohm"
+        ],
+        "class_numbers": [
+            22954,
+            23302
+        ],
+        "enrolled_current": 38,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "0w6"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "David Rheams"
+        ],
+        "class_numbers": [
+            23470
+        ],
+        "enrolled_current": 20,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "2390",
+        "course_prefixes": [
+            "ecs"
+        ],
+        "sections": [
+            "503",
+            "504"
+        ],
+        "title": "Professional and Technical Communication",
+        "instructors": [
+            "Lindsay Moore"
+        ],
+        "class_numbers": [
+            23687,
+            23688
+        ],
+        "enrolled_current": 38,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3310",
+        "course_prefixes": [
+            "ecs",
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Materials Science",
+        "instructors": [
+            "Moon Kim"
+        ],
+        "class_numbers": [
+            23632,
+            23635
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3302",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Signals and Systems",
+        "instructors": [
+            "Issa Panahi"
+        ],
+        "class_numbers": [
+            23203
+        ],
+        "enrolled_current": 43,
+        "enrolled_max": 49,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3350",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Communications Systems",
+        "instructors": [
+            "Murat Torlak"
+        ],
+        "class_numbers": [
+            23588
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 44,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4301",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Electromagnetic Engineering I",
+        "instructors": [
+            "Matthew Heins"
+        ],
+        "class_numbers": [
+            23091
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 40,
+        "assistants": [
+            "Parisa Afsari"
+        ]
+    },
+    {
+        "course_number": "4301",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Electromagnetic Engineering I",
+        "instructors": [
+            "Ifana Mahbub"
+        ],
+        "class_numbers": [
+            22825
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 40,
+        "assistants": [
+            "Adnan Basir Patwary"
+        ]
+    },
+    {
+        "course_number": "4303",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Fundamentals of Power Systems",
+        "instructors": [
+            "Mona Ghassemi"
+        ],
+        "class_numbers": [
+            28422
+        ],
+        "enrolled_current": 26,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4310",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Systems and Controls",
+        "instructors": [
+            "Ramanathan Ramani"
+        ],
+        "class_numbers": [
+            22013
+        ],
+        "enrolled_current": 22,
+        "enrolled_max": 44,
+        "assistants": [
+            "Amisha Srivastava"
+        ]
+    },
+    {
+        "course_number": "4310",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Systems and Controls",
+        "instructors": [
+            "Rabah Mezenner"
+        ],
+        "class_numbers": [
+            22014
+        ],
+        "enrolled_current": 56,
+        "enrolled_max": 56,
+        "assistants": [
+            "Pravin Mote"
+        ]
+    },
+    {
+        "course_number": "4325",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to VLSI Design",
+        "instructors": [
+            "Carl Sechen"
+        ],
+        "class_numbers": [
+            28764
+        ],
+        "enrolled_current": 47,
+        "enrolled_max": 48,
+        "assistants": [
+            "Athanasia Karanika"
+        ]
+    },
+    {
+        "course_number": "4340",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Analog Integrated Circuit Analysis and Design",
+        "instructors": [
+            "Jin Liu"
+        ],
+        "class_numbers": [
+            23064
+        ],
+        "enrolled_current": 39,
+        "enrolled_max": 44,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4360",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Digital Communications",
+        "instructors": [
+            "Hlaing Minn"
+        ],
+        "class_numbers": [
+            22015
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 45,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4367",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Telecommunication Networks",
+        "instructors": [
+            "Andrea Fumagalli"
+        ],
+        "class_numbers": [
+            22292
+        ],
+        "enrolled_current": 42,
+        "enrolled_max": 44,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4368",
+        "course_prefixes": [
+            "ee"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "RF Circuit Design Principles",
+        "instructors": [
+            "Randall Lehmann"
+        ],
+        "class_numbers": [
+            22016,
+            22017
+        ],
+        "enrolled_current": 51,
+        "enrolled_max": 92,
+        "assistants": [
+            "Abu Hena Murshed",
+            "Salek Khan"
+        ]
+    },
+    {
+        "course_number": "4342",
+        "course_prefixes": [
+            "ee",
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Robotics",
+        "instructors": [
+            "Wooram Park"
+        ],
+        "class_numbers": [
+            23402,
+            23432
+        ],
+        "enrolled_current": 43,
+        "enrolled_max": 47,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6336",
+        "course_prefixes": [
+            "eecs"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Nonlinear Systems",
+        "instructors": [
+            "Armin Zare"
+        ],
+        "class_numbers": [
+            28516
+        ],
+        "enrolled_current": 2,
+        "enrolled_max": 10,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "7v90",
+        "course_prefixes": [
+            "eecs"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Special Topics in Control Systems",
+        "instructors": [
+            "James Yurkovich"
+        ],
+        "class_numbers": [
+            29728
+        ],
+        "enrolled_current": 1,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6326",
+        "course_prefixes": [
+            "eect"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Analog Integrated Circuit Design",
+        "instructors": [
+            "Hoi Lee"
+        ],
+        "class_numbers": [
+            22831
+        ],
+        "enrolled_current": 20,
+        "enrolled_max": 30,
+        "assistants": [
+            "Yifan Yao"
+        ]
+    },
+    {
+        "course_number": "7v81",
+        "course_prefixes": [
+            "eedg"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Special Topics in Digital Systems",
+        "instructors": [
+            "Kaveh Shamsi"
+        ],
+        "class_numbers": [
+            28151
+        ],
+        "enrolled_current": 28,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6321",
+        "course_prefixes": [
+            "eemf",
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Active Semiconductor Devices",
+        "instructors": [
+            "Sourav Dutta"
+        ],
+        "class_numbers": [
+            22809,
+            23640
+        ],
+        "enrolled_current": 11,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6324",
+        "course_prefixes": [
+            "eemf",
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Electronic  Optical and Magnetic Materials",
+        "instructors": [
+            "Kevin Brenner"
+        ],
+        "class_numbers": [
+            22606,
+            22610
+        ],
+        "enrolled_current": 18,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6327",
+        "course_prefixes": [
+            "eemf",
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Semiconductor Device Characterization",
+        "instructors": [
+            "Chadwin Young"
+        ],
+        "class_numbers": [
+            22377,
+            22395
+        ],
+        "enrolled_current": 13,
+        "enrolled_max": 38,
+        "assistants": [
+            "Regino Santos Fernandez"
+        ]
+    },
+    {
+        "course_number": "6382",
+        "course_prefixes": [
+            "eemf",
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to MEMS",
+        "instructors": [
+            "Siavash Pourkamali"
+        ],
+        "class_numbers": [
+            22022,
+            23703
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 54,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6311",
+        "course_prefixes": [
+            "eerf"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "RF and Microwave Circuits",
+        "instructors": [
+            "Ricardo Saad"
+        ],
+        "class_numbers": [
+            22830
+        ],
+        "enrolled_current": 17,
+        "enrolled_max": 40,
+        "assistants": [
+            "Pallav Sah"
+        ]
+    },
+    {
+        "course_number": "6330",
+        "course_prefixes": [
+            "eerf"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "RF Integrated Circuit Design",
+        "instructors": [
+            "Kenneth O"
+        ],
+        "class_numbers": [
+            22336
+        ],
+        "enrolled_current": 15,
+        "enrolled_max": 30,
+        "assistants": [
+            "Suhwan Lee"
+        ]
+    },
+    {
+        "course_number": "6351",
+        "course_prefixes": [
+            "eerf"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computational Electromagnetics",
+        "instructors": [
+            "Rashaunda Henderson"
+        ],
+        "class_numbers": [
+            28419
+        ],
+        "enrolled_current": 11,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6355",
+        "course_prefixes": [
+            "eerf"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "RF and Microwave Amplifier Design",
+        "instructors": [
+            "Ricardo Saad"
+        ],
+        "class_numbers": [
+            22020
+        ],
+        "enrolled_current": 11,
+        "enrolled_max": 42,
+        "assistants": [
+            "Jia-Cong Lin"
+        ]
+    },
+    {
+        "course_number": "6393",
+        "course_prefixes": [
+            "eerf"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Microwave Power Amplifiers",
+        "instructors": [
+            "Matthew Heins"
+        ],
+        "class_numbers": [
+            23647
+        ],
+        "enrolled_current": 15,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6395",
+        "course_prefixes": [
+            "eerf"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "RF and Microwave Systems Engineering",
+        "instructors": [
+            "Randall Lehmann"
+        ],
+        "class_numbers": [
+            22021
+        ],
+        "enrolled_current": 10,
+        "enrolled_max": 44,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6349",
+        "course_prefixes": [
+            "eesc"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Probability  Random Variables  and Statistics",
+        "instructors": [
+            "Murat Torlak"
+        ],
+        "class_numbers": [
+            22018
+        ],
+        "enrolled_current": 8,
+        "enrolled_max": 18,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6352",
+        "course_prefixes": [
+            "eesc"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Digital Communication Systems",
+        "instructors": [
+            "Hlaing Minn"
+        ],
+        "class_numbers": [
+            22019
+        ],
+        "enrolled_current": 6,
+        "enrolled_max": 42,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6353",
+        "course_prefixes": [
+            "eesc"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Broadband Digital Communication",
+        "instructors": [
+            "Naofal Al-Dhahir"
+        ],
+        "class_numbers": [
+            28154
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 20,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6363",
+        "course_prefixes": [
+            "eesc"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Digital Image Processing",
+        "instructors": [
+            "Nasser Kehtarnavaz"
+        ],
+        "class_numbers": [
+            28153
+        ],
+        "enrolled_current": 12,
+        "enrolled_max": 40,
+        "assistants": [
+            "Nafisa Zarrin Tasnim"
+        ]
+    },
+    {
+        "course_number": "6395",
+        "course_prefixes": [
+            "eesc"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Wireless Sensor Systems and Networks",
+        "instructors": [
+            "Lakshman Tamil"
+        ],
+        "class_numbers": [
+            22615
+        ],
+        "enrolled_current": 23,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "7v86",
+        "course_prefixes": [
+            "eesc"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Special Topics in Wireless Communications",
+        "instructors": [
+            "Faris Mismar"
+        ],
+        "class_numbers": [
+            29212
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3341",
+        "course_prefixes": [
+            "engr"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Probability Theory and Statistics",
+        "instructors": [
+            "John Fonseka"
+        ],
+        "class_numbers": [
+            23414
+        ],
+        "enrolled_current": 59,
+        "enrolled_max": 59,
+        "assistants": [
+            "Dhanushki Hewawaduge"
+        ]
+    },
+    {
+        "course_number": "3341",
+        "course_prefixes": [
+            "engr"
+        ],
+        "sections": [
+            "002",
+            "004"
+        ],
+        "title": "Probability Theory and Statistics",
+        "instructors": [
+            "Mohammad Saquib"
+        ],
+        "class_numbers": [
+            22614,
+            22832
+        ],
+        "enrolled_current": 96,
+        "enrolled_max": 96,
+        "assistants": [
+            "Srijeet Qazi"
+        ]
+    },
+    {
+        "course_number": "3341",
+        "course_prefixes": [
+            "engr"
+        ],
+        "sections": [
+            "005"
+        ],
+        "title": "Probability Theory and Statistics",
+        "instructors": [
+            "Mohammed Ali"
+        ],
+        "class_numbers": [
+            23036
+        ],
+        "enrolled_current": 44,
+        "enrolled_max": 44,
+        "assistants": [
+            "Dhanushki Hewawaduge"
+        ]
+    },
+    {
+        "course_number": "3341",
+        "course_prefixes": [
+            "engr"
+        ],
+        "sections": [
+            "0h1"
+        ],
+        "title": "Probability Theory and Statistics",
+        "instructors": [
+            "Lev Gelb"
+        ],
+        "class_numbers": [
+            23708
+        ],
+        "enrolled_current": 44,
+        "enrolled_max": 44,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "1208",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Introduction to Mechanical Engineering II",
+        "instructors": [
+            "Dani Fadda",
+            "P.L.Stephan Thamban"
+        ],
+        "class_numbers": [
+            22714
+        ],
+        "enrolled_current": 185,
+        "enrolled_max": 250,
+        "assistants": [
+            "Tousif Jamee",
+            "Md Abdul Kayum"
+        ]
+    },
+    {
+        "course_number": "2310",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Statics",
+        "instructors": [
+            "P.L.Stephan Thamban"
+        ],
+        "class_numbers": [
+            22062,
+            23601
+        ],
+        "enrolled_current": 84,
+        "enrolled_max": 98,
+        "assistants": [
+            "Purna Sai Pavan Kalyan Nandigama"
+        ]
+    },
+    {
+        "course_number": "2320",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Mechanics of Materials",
+        "instructors": [
+            "Juyoung Leem"
+        ],
+        "class_numbers": [
+            23090
+        ],
+        "enrolled_current": 60,
+        "enrolled_max": 60,
+        "assistants": [
+            "Daniel Charles"
+        ]
+    },
+    {
+        "course_number": "2320",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Mechanics of Materials",
+        "instructors": [
+            "Nandika D'Souza"
+        ],
+        "class_numbers": [
+            22364
+        ],
+        "enrolled_current": 34,
+        "enrolled_max": 48,
+        "assistants": [
+            "Pavan Kumar"
+        ]
+    },
+    {
+        "course_number": "2330",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Dynamics",
+        "instructors": [
+            "P.L.Stephan Thamban"
+        ],
+        "class_numbers": [
+            22723
+        ],
+        "enrolled_current": 47,
+        "enrolled_max": 46,
+        "assistants": [
+            "Drew Miles"
+        ]
+    },
+    {
+        "course_number": "2330",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Dynamics",
+        "instructors": [
+            "Xinchen Ni"
+        ],
+        "class_numbers": [
+            22607
+        ],
+        "enrolled_current": 52,
+        "enrolled_max": 58,
+        "assistants": [
+            "Mingyang Ban"
+        ]
+    },
+    {
+        "course_number": "2340",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Circuits and Applied Electronics",
+        "instructors": [
+            "Robert Hart"
+        ],
+        "class_numbers": [
+            23396
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 40,
+        "assistants": [
+            "Justin Chen"
+        ]
+    },
+    {
+        "course_number": "3305",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computer Aided Design",
+        "instructors": [
+            "Wei Li"
+        ],
+        "class_numbers": [
+            28930
+        ],
+        "enrolled_current": 29,
+        "enrolled_max": 80,
+        "assistants": [
+            "Benquan Li"
+        ]
+    },
+    {
+        "course_number": "3305",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Computer Aided Design",
+        "instructors": [
+            "Oziel Rios"
+        ],
+        "class_numbers": [
+            22913
+        ],
+        "enrolled_current": 91,
+        "enrolled_max": 160,
+        "assistants": [
+            "Rituja Kulkarni",
+            "Oredola Adebayo",
+            "Soroush Setayeshpour"
+        ]
+    },
+    {
+        "course_number": "3310",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "0h1",
+            "0w1"
+        ],
+        "title": "Thermodynamics",
+        "instructors": [
+            "Hui Ouyang"
+        ],
+        "class_numbers": [
+            23458,
+            23651
+        ],
+        "enrolled_current": 119,
+        "enrolled_max": 128,
+        "assistants": [
+            "Ashraf Keewan",
+            "Yuhui Guo"
+        ]
+    },
+    {
+        "course_number": "3315",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Fluid Mechanics",
+        "instructors": [
+            "Zhen Liu"
+        ],
+        "class_numbers": [
+            28875
+        ],
+        "enrolled_current": 63,
+        "enrolled_max": 90,
+        "assistants": [
+            "Sankeerthana Manchikatla"
+        ]
+    },
+    {
+        "course_number": "3320",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Heat Transfer",
+        "instructors": [
+            "Shuang Cui"
+        ],
+        "class_numbers": [
+            22251
+        ],
+        "enrolled_current": 49,
+        "enrolled_max": 60,
+        "assistants": [
+            "Abdullahi Olapojoye"
+        ]
+    },
+    {
+        "course_number": "3320",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Heat Transfer",
+        "instructors": [
+            "Guoping Xiong"
+        ],
+        "class_numbers": [
+            22914
+        ],
+        "enrolled_current": 71,
+        "enrolled_max": 75,
+        "assistants": [
+            "Hootan Rahimi"
+        ]
+    },
+    {
+        "course_number": "3340",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "System Dynamics Modeling and Analysis",
+        "instructors": [
+            "Yaoyu Li"
+        ],
+        "class_numbers": [
+            22921
+        ],
+        "enrolled_current": 42,
+        "enrolled_max": 60,
+        "assistants": [
+            "Kazi Angshu"
+        ]
+    },
+    {
+        "course_number": "3340",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "System Dynamics Modeling and Analysis",
+        "instructors": [
+            "Zejiang Wang"
+        ],
+        "class_numbers": [
+            23259
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 60,
+        "assistants": [
+            "Seyedalireza Abootorabi"
+        ]
+    },
+    {
+        "course_number": "3340",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "System Dynamics Modeling and Analysis",
+        "instructors": [
+            "Wooram Park"
+        ],
+        "class_numbers": [
+            28892
+        ],
+        "enrolled_current": 43,
+        "enrolled_max": 49,
+        "assistants": [
+            "Seyedalireza Abootorabi"
+        ]
+    },
+    {
+        "course_number": "3350",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Kinematics and Dynamics of Mechanical Systems",
+        "instructors": [
+            "Oziel Rios"
+        ],
+        "class_numbers": [
+            22724
+        ],
+        "enrolled_current": 64,
+        "enrolled_max": 70,
+        "assistants": [
+            "Md Tareq Chowdhury"
+        ]
+    },
+    {
+        "course_number": "3351",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Design of Mechanical Systems",
+        "instructors": [
+            "Dong Qian"
+        ],
+        "class_numbers": [
+            22252
+        ],
+        "enrolled_current": 39,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3351",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Design of Mechanical Systems",
+        "instructors": [
+            "Rodrigo Bernal Montoya"
+        ],
+        "class_numbers": [
+            22635
+        ],
+        "enrolled_current": 60,
+        "enrolled_max": 60,
+        "assistants": [
+            "Kenny Nonso-Anyakwo"
+        ]
+    },
+    {
+        "course_number": "3360",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Materials Science",
+        "instructors": [
+            "Majid Minary-Jolandan"
+        ],
+        "class_numbers": [
+            23245
+        ],
+        "enrolled_current": 60,
+        "enrolled_max": 60,
+        "assistants": [
+            "Moein Khakzad"
+        ]
+    },
+    {
+        "course_number": "3380",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Introduction to Computational Design and Analysis",
+        "instructors": [
+            "Arif Malik"
+        ],
+        "class_numbers": [
+            28845
+        ],
+        "enrolled_current": 59,
+        "enrolled_max": 80,
+        "assistants": [
+            "Al-Mustasin Hossain"
+        ]
+    },
+    {
+        "course_number": "3382",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Additive Manufacturing",
+        "instructors": [
+            "Wei Li"
+        ],
+        "class_numbers": [
+            28458
+        ],
+        "enrolled_current": 49,
+        "enrolled_max": 60,
+        "assistants": [
+            "Benquan Li"
+        ]
+    },
+    {
+        "course_number": "4310",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Systems and Controls",
+        "instructors": [
+            "Tyler Summers"
+        ],
+        "class_numbers": [
+            22586,
+            28502
+        ],
+        "enrolled_current": 100,
+        "enrolled_max": 104,
+        "assistants": [
+            "Michael Lingad",
+            "Kazi Angshu"
+        ]
+    },
+    {
+        "course_number": "4345",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Soft Robotics",
+        "instructors": [
+            "Yonas Tadesse"
+        ],
+        "class_numbers": [
+            28499
+        ],
+        "enrolled_current": 18,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4365",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Energy Analytics",
+        "instructors": [
+            "Jie Zhang"
+        ],
+        "class_numbers": [
+            23677
+        ],
+        "enrolled_current": 44,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4381",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Senior Design Project I",
+        "instructors": [
+            "Dani Fadda"
+        ],
+        "class_numbers": [
+            23749
+        ],
+        "enrolled_current": 34,
+        "enrolled_max": 49,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4382",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Senior Design Project II",
+        "instructors": [
+            "Robert Hart"
+        ],
+        "class_numbers": [
+            22625
+        ],
+        "enrolled_current": 135,
+        "enrolled_max": 150,
+        "assistants": [
+            "Nathaniel Tjahjono"
+        ]
+    },
+    {
+        "course_number": "4v95",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Topics in Mechanical Engineering",
+        "instructors": [
+            "Majid Minary-Jolandan"
+        ],
+        "class_numbers": [
+            28500
+        ],
+        "enrolled_current": 28,
+        "enrolled_max": 30,
+        "assistants": [
+            "Moein Khakzad"
+        ]
+    },
+    {
+        "course_number": "4v95",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Topics in Mechanical Engineering",
+        "instructors": [
+            "Xinchen Ni"
+        ],
+        "class_numbers": [
+            28931
+        ],
+        "enrolled_current": 16,
+        "enrolled_max": 30,
+        "assistants": [
+            "Mingyang Ban"
+        ]
+    },
+    {
+        "course_number": "4v95",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Topics in Mechanical Engineering",
+        "instructors": [
+            "Kristin Miller"
+        ],
+        "class_numbers": [
+            29299
+        ],
+        "enrolled_current": 16,
+        "enrolled_max": 50,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6309",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Intermediate Dynamics",
+        "instructors": [
+            "Wooram Park"
+        ],
+        "class_numbers": [
+            23088
+        ],
+        "enrolled_current": 26,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6312",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Probability  Random Variables  and Statistics",
+        "instructors": [
+            "Murat Torlak"
+        ],
+        "class_numbers": [
+            22253
+        ],
+        "enrolled_current": 4,
+        "enrolled_max": 18,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6313",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Nonlinear Systems",
+        "instructors": [
+            "Armin Zare"
+        ],
+        "class_numbers": [
+            28448
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 10,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6314",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Engineering Systems  Modeling and Simulation",
+        "instructors": [
+            "Waseem Abbas"
+        ],
+        "class_numbers": [
+            22821
+        ],
+        "enrolled_current": 23,
+        "enrolled_max": 20,
+        "assistants": [
+            "Ali Amoori"
+        ]
+    },
+    {
+        "course_number": "6317",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Dynamics of Complex Networks and Systems",
+        "instructors": [
+            "Mark Spong"
+        ],
+        "class_numbers": [
+            22516
+        ],
+        "enrolled_current": 16,
+        "enrolled_max": 15,
+        "assistants": [
+            "Ali Amoori"
+        ]
+    },
+    {
+        "course_number": "6326",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Optimal Control and Dynamic Programming",
+        "instructors": [
+            "Tyler Summers"
+        ],
+        "class_numbers": [
+            28449
+        ],
+        "enrolled_current": 18,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6334",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Smart Materials and Structures",
+        "instructors": [
+            "Yonas Tadesse"
+        ],
+        "class_numbers": [
+            22912
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6336",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Manufacturing and Characterization of Functional Materials",
+        "instructors": [
+            "Majid Minary-Jolandan"
+        ],
+        "class_numbers": [
+            23692
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 30,
+        "assistants": [
+            "Moein Khakzad"
+        ]
+    },
+    {
+        "course_number": "6339",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Multidisciplinary Design Optimization",
+        "instructors": [
+            "Daniel Griffith"
+        ],
+        "class_numbers": [
+            23089
+        ],
+        "enrolled_current": 4,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6347",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to MEMS",
+        "instructors": [
+            "Siavash Pourkamali"
+        ],
+        "class_numbers": [
+            22222
+        ],
+        "enrolled_current": 5,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6359",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Modern Physical Metallurgy",
+        "instructors": [
+            "Jiyoung Kim"
+        ],
+        "class_numbers": [
+            28423
+        ],
+        "enrolled_current": 1,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6371",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computational Thermal Fluid Science",
+        "instructors": [
+            "Stefano Leonardi"
+        ],
+        "class_numbers": [
+            28497
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6373",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Convective Heat Transfer",
+        "instructors": [
+            "Seung You"
+        ],
+        "class_numbers": [
+            22478
+        ],
+        "enrolled_current": 17,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6398",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Graduate Capstone Project Design I",
+        "instructors": [
+            "Dani Fadda"
+        ],
+        "class_numbers": [
+            29325
+        ],
+        "enrolled_current": 1,
+        "enrolled_max": 49,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6v29",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Special Topics in Dynamic Systems and Control",
+        "instructors": [
+            "Yaoyu Li"
+        ],
+        "class_numbers": [
+            28501
+        ],
+        "enrolled_current": 8,
+        "enrolled_max": 50,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6v49",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Special Topics in Manufacturing and Design Innovation",
+        "instructors": [
+            "Yonas Tadesse"
+        ],
+        "class_numbers": [
+            29532
+        ],
+        "enrolled_current": 17,
+        "enrolled_max": 20,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6v49",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Special Topics in Manufacturing and Design Innovation",
+        "instructors": [
+            "Kristin Miller"
+        ],
+        "class_numbers": [
+            29300
+        ],
+        "enrolled_current": 12,
+        "enrolled_max": 50,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6v69",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Special Topics in Mechanics and Materials",
+        "instructors": [
+            "Xinchen Ni"
+        ],
+        "class_numbers": [
+            28945
+        ],
+        "enrolled_current": 10,
+        "enrolled_max": 30,
+        "assistants": [
+            "Mingyang Ban"
+        ]
+    },
+    {
+        "course_number": "6v89",
+        "course_prefixes": [
+            "mech"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Special Topics in Thermal and Fluid Sciences",
+        "instructors": [
+            "Xinfang Jin"
+        ],
+        "class_numbers": [
+            28876
+        ],
+        "enrolled_current": 17,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "5300",
+        "course_prefixes": [
+            "mech",
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Materials Science",
+        "instructors": [
+            "Laisuo Su"
+        ],
+        "class_numbers": [
+            22439,
+            22808
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 18,
+        "assistants": [
+            "Haimanti Majumder"
+        ]
+    },
+    {
+        "course_number": "3320",
+        "course_prefixes": [
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Electrical  Optical  and Magnetic Properties of Materials",
+        "instructors": [
+            "Rafik Addou"
+        ],
+        "class_numbers": [
+            28855
+        ],
+        "enrolled_current": 3,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3339",
+        "course_prefixes": [
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Materials Characterization",
+        "instructors": [
+            "Rebecca McClain"
+        ],
+        "class_numbers": [
+            23650
+        ],
+        "enrolled_current": 5,
+        "enrolled_max": 16,
+        "assistants": [
+            "Meiyi Li"
+        ]
+    },
+    {
+        "course_number": "5360",
+        "course_prefixes": [
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Materials Characterization",
+        "instructors": [
+            "Amy Walker"
+        ],
+        "class_numbers": [
+            21977
+        ],
+        "enrolled_current": 10,
+        "enrolled_max": 29,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "5377",
+        "course_prefixes": [
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Computational Physics of Nanomaterials",
+        "instructors": [
+            "Massimo Fischetti"
+        ],
+        "class_numbers": [
+            28329
+        ],
+        "enrolled_current": 3,
+        "enrolled_max": 23,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6362",
+        "course_prefixes": [
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Diffraction Science",
+        "instructors": [
+            "Kyle McCall"
+        ],
+        "class_numbers": [
+            28331
+        ],
+        "enrolled_current": 5,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6383",
+        "course_prefixes": [
+            "msen"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Modern Physical Metallurgy",
+        "instructors": [
+            "Jiyoung Kim"
+        ],
+        "class_numbers": [
+            28332
+        ],
+        "enrolled_current": 10,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "3306",
+        "course_prefixes": [
+            "se"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Mathematical Foundations of Software Engineering",
+        "instructors": [
+            "Meghana Satpute"
+        ],
+        "class_numbers": [
+            22067
+        ],
+        "enrolled_current": 61,
+        "enrolled_max": 72,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4351",
+        "course_prefixes": [
+            "se"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Requirements Engineering",
+        "instructors": [
+            "Barbara Maweu"
+        ],
+        "class_numbers": [
+            22448
+        ],
+        "enrolled_current": 68,
+        "enrolled_max": 65,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4352",
+        "course_prefixes": [
+            "se"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Software Architecture and Design",
+        "instructors": [
+            "Tien Nguyen"
+        ],
+        "class_numbers": [
+            22064
+        ],
+        "enrolled_current": 70,
+        "enrolled_max": 70,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4367",
+        "course_prefixes": [
+            "se"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Software Testing  Verification  Validation and Quality Assurance",
+        "instructors": [
+            "Mehra Nouroz Borazjany"
+        ],
+        "class_numbers": [
+            22069
+        ],
+        "enrolled_current": 56,
+        "enrolled_max": 70,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "4381",
+        "course_prefixes": [
+            "se"
+        ],
+        "sections": [
+            "001",
+            "501"
+        ],
+        "title": "Software Project Planning and Management",
+        "instructors": [
+            "Barbara Maweu"
+        ],
+        "class_numbers": [
+            22065,
+            22980
+        ],
+        "enrolled_current": 187,
+        "enrolled_max": 200,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "5354",
+        "course_prefixes": [
+            "se"
+        ],
+        "sections": [
+            "006"
+        ],
+        "title": "Software Engineering",
+        "instructors": [
+            "Mehra Nouroz Borazjany"
+        ],
+        "class_numbers": [
+            23312
+        ],
+        "enrolled_current": 0,
+        "enrolled_max": 70,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6387",
+        "course_prefixes": [
+            "se"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Advanced Software Engineering Project",
+        "instructors": [
+            "Rym Zalila-Wenkstern"
+        ],
+        "class_numbers": [
+            22643
+        ],
+        "enrolled_current": 21,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6388",
+        "course_prefixes": [
+            "se"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Software Project Planning and Management",
+        "instructors": [
+            "Mark Paulk"
+        ],
+        "class_numbers": [
+            28539
+        ],
+        "enrolled_current": 21,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6324",
+        "course_prefixes": [
+            "syse"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Nonlinear Systems",
+        "instructors": [
+            "Armin Zare"
+        ],
+        "class_numbers": [
+            28517
+        ],
+        "enrolled_current": 0,
+        "enrolled_max": 5,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6v80",
+        "course_prefixes": [
+            "syse"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Special Topics",
+        "instructors": [
+            "Tyler Summers"
+        ],
+        "class_numbers": [
+            28541
+        ],
+        "enrolled_current": 0,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6306",
+        "course_prefixes": [
+            "sysm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Engineering Systems  Modeling and Simulation",
+        "instructors": [
+            "Waseem Abbas"
+        ],
+        "class_numbers": [
+            22819
+        ],
+        "enrolled_current": 2,
+        "enrolled_max": 10,
+        "assistants": [
+            "Ali Amoori"
+        ]
+    },
+    {
+        "course_number": "6308",
+        "course_prefixes": [
+            "sysm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Software Maintenance  Evolution  and Re-Engineering",
+        "instructors": [
+            "Shiyi Wei"
+        ],
+        "class_numbers": [
+            23120
+        ],
+        "enrolled_current": 0,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6310",
+        "course_prefixes": [
+            "sysm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Software Testing  Validation and Verification",
+        "instructors": [
+            "Mehra Nouroz Borazjany"
+        ],
+        "class_numbers": [
+            22531
+        ],
+        "enrolled_current": 1,
+        "enrolled_max": 65,
+        "assistants": [
+            ""
+        ]
+    },
+    {
+        "course_number": "6325",
+        "course_prefixes": [
+            "sysm"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Requirements Design  Development  and Integration for Complex Systems",
+        "instructors": [
+            "Ramakrishna Koganti"
+        ],
+        "class_numbers": [
+            28066
+        ],
+        "enrolled_current": 23,
+        "enrolled_max": 25,
+        "assistants": [
+            ""
+        ]
+    }
+]
