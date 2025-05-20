@@ -2,3 +2,8 @@ node_modules/
 package-lock.json
 .env
 *.log
+dist/
+.env
+node_modules
+backend/
+service-account.json
