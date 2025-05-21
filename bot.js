@@ -1,7 +1,7 @@
 require('dotenv/config');
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
 const {getUser} = require('./firebase_utils/getUserByDiscordId');
-const {makeTextChannel} = require('./discord_utils/makeTextChannel')
+const {makeTextChannelByCourse} = require('./discord_utils/makeTextChannel.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -40,28 +40,30 @@ for (const file of eventFiles) {
 	}
 }
 
-
-
-
-client.login(process.env.DISCORD_BOT_TOKEN);
-
-
-client.on(Events, async(interaction)=>{
-	const userId = interaction.userid; 
-	const guild = await client.guilds.fetch(interaction.guildId); 
-	const guildMember = await guild.members.fetch(userid);
+client.on(Events.GuildMemberAdd, async(member)=>{
+	console.log('New guild memeber joined');
+	const guildMember = member;
 	try{
-		const userData = await getUser(userid);
+		const userData = await getUser(member.user.id);
 		const courses = userData.courses 
-		courses.array.forEach(course => async()=>{
+		courses.forEach(async(course)=>{
 			const courseCode = course.id.split(" ");
-			await makeTextChannel(interaction,courseCode[0],courseCode[1]);
+			await makeTextChannelByCourse(member.guild,member.user,courseCode[0],courseCode[1]);
 		});
 	}catch(error){
 		if(error.code === 'not-found'){
 			guildMember.send("Please make a nexus account to link with discord:(link)"); 
 			guildMember.kick("After you have linked with nexus, you will have the abilty to join again");
 		}
+		else{
+			console.error(error);
+		}
 	}
 });
+
+
+client.login(process.env.DISCORD_BOT_TOKEN);
+
+
+
 

@@ -19,18 +19,17 @@ if (!admin.apps.length) {
 
 const getUser = async (discordId) => {
     const usersRef = admin.firestore().collection('users');
-    const q = query(usersRef, where('discordId', '==', discordId));
-    const querySnapshot = await getDocs(q);
+    const querySnapshot = await usersRef.where('discordId', '==', discordId).get();
     //If user is not verified in Nexus/discord, throw errors
+    console.log('QuerySnapshot:', querySnapshot);
     if (querySnapshot.empty)
-        throw new FirestoreError('not-found',"User not found");
+        throw new FirestoreError('not-found', "User not found");
 
-    //returns user's data
     querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
-        return doc.data();
     });
+    return querySnapshot.docs[0].data();
+
 };
 
 module.exports = getUser;
