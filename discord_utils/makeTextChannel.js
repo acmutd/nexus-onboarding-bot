@@ -2,15 +2,16 @@
 
 const{ChannelType, PermissionsBitField} = require('discord.js'); 
 
-const makeTextChannelByCourse = async(guild,user,courseCode,courseNumber)=>{
+const makeTextChannelByCourse = async(guild,user,courseCode)=>{
 //If channel is already made then early return
-    const assumingChannel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase()+'-'+courseNumber.toLowerCase());
+//courseCode.toLowerCase()+'-'+courseNumber.toLowerCase()
+    const assumingChannel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase());
     if(assumingChannel)
         return {channel:assumingChannel,hasExisted:true}; 
     
     try{
         const channel = await guild.channels.create({
-            name: courseCode+'-'+courseNumber,
+            name: courseCode,
             type: 0, // 0 = Text channel
             permissionOverwrites: [
                 {
@@ -42,17 +43,17 @@ const makeTextChannelByCourse = async(guild,user,courseCode,courseNumber)=>{
 
     return undefined; 
 }
-const makeTextChannel =  async(interaction, courseCode, courseNumber)=>{
+const makeTextChannel =  async(interaction, courseName)=>{
     
     //If channel is already made then it applies user perms to channel and continues
-    const assumingChannel = interaction.guild.channels.cache.find(c => c.name === courseCode.toLowerCase()+'-'+courseNumber.toLowerCase());
+    const assumingChannel = interaction.guild.channels.cache.find(c => c.name === courseName.toLowerCase());
     if(assumingChannel){
         return assumingChannel; 
 
     }
     try{
         const channel = await interaction.guild.channels.create({
-            name: courseCode+'-'+courseNumber,
+            name: courseName,
             type: 0, // 0 = Text channel
             permissionOverwrites: [
                 {

@@ -1,7 +1,12 @@
 {
+  "scripts": {
+    "deploy": "node deploy-commands.js",
+    "dev": "nodemon bot.js"
+  },
   "dependencies": {
     "discord.js": "^14.18.0",
     "dotenv": "^16.4.7",
+    "express": "^5.1.0",
     "firebase": "^11.8.0",
     "firebase-admin": "^13.4.0",
     "firestore": "^1.1.6",
