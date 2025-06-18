@@ -1,6 +1,7 @@
-const { SlashCommandBuilder, MessageFlags, PermissionsBitField } = require('discord.js');
+const { SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate } = require('discord.js');
 const { makeTextChannel } = require('../../discord_utils/makeTextChannel');
 const { makeTextThread } = require('../../discord_utils/makeTextThread');
+const path = require("path")
 const fs = require("fs");
 module.exports = {
     data: new SlashCommandBuilder()
@@ -19,35 +20,48 @@ module.exports = {
             });
         }
 
-        //Reading all courses from json file 
-        fs.readFile("data/ecs_courses.json", "utf8", (err, data) => {
-            if (err) {
-                console.log("File read failed:", err)
-                return;
-            }
-            //creating a channel and a superdoc thread for each course w/professor
-            const courses = JSON.parse(data);
-            courses.forEach(async (course) => {
-                let courseName = course.course_number;
-                course.instructors.forEach(instructor => {
-                    const splitName = instructor.split(" ")
-                    courseName += '-' + splitName[splitName.length - 1];
-                });
-                const channel = await makeTextChannel(interaction,courseName);
-                /** add chanel permission handeling if u wish */
-                await channel.permissionOverwrites.edit(userId, {
-                    ViewChannel: true,
-                    SendMessages: true,
-                });
 
-                //make and or set permission to section thread 
-                const thread = await makeTextThread(interaction, channel, courseName);
-                // Set thread permissions for the user
-                console.log("Thread data:", thread);
-                await thread.members.add(userId);
-                const sdthread = await makeTextThread(interaction, channel, 'superdoc-' + courseName);
-                await sdthread.members.add(userId);
-            });
+        const files = fs.readdirSync("data/alternate_schools")
+        const guildManager = interaction.client.guilds
+
+        files.forEach(async (file) => {
+            const serverName = file.split('_')[0]
+            console.log("Server name:", serverName)
+            const guild = await guildManager.create({
+                name: serverName,
+                channels: [
+                    {
+                        name: "general",
+                    }
+                ]
+            })
+            const guildChannel = await guild.channels.cache.find(channel => channel.name == "general");
+            const Invite = await guildChannel.createInvite({maxAge: 0, unique: true, reason: "Testing."});
+            await interaction.channel.send(`Created guild. Here's the invite code: ${Invite.url}`)
+            await fs.readFile(path.join("data/alternate_schools", file), "utf-8", async (err, data) => {
+                if (err) {
+                    console.log("File read failed:", err)
+                    return;
+                }
+                const courses = JSON.parse(data);
+                courses.forEach(async (course) => {
+
+                    let courseName = course.course_number;
+                    course.instructors.forEach(instructor => {
+                        const splitName = instructor.split(" ")
+                        courseName += '-' + splitName[splitName.length - 1];
+                    });
+                    const channel = await makeTextChannel(courseName, guild, interaction.user);
+                    
+                    /*await channel.channel.permissionOverwrites.edit(userId, {
+                        ViewChannel: true,
+                        SendMessages: true,
+                    });*/
+                  
+                })
+
+            })
+
         })
         //make and or set permission to course channel
         await interaction.reply({

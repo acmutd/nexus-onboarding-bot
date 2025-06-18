@@ -7,3 +7,4 @@ dist/
 node_modules
 backend/
 service-account.json
+venv
