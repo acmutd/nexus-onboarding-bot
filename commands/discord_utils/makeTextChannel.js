@@ -2,7 +2,7 @@ const { ChannelType, PermissionsBitField, SlashCommandBuilder } = require('disco
 const fs = require('fs');
 const path = require('path');
 
-const makeTextChannel = async (interaction, coursePrefixes, courseNumber, courseTeachers) => {
+const makeTextChannel = async (interaction, coursePrefixes, courseNumber, courseTeachers, parentId = null) => {
     const channelName = `${coursePrefixes}-${courseNumber}-${courseTeachers}`;
 
     const existingChannel = interaction.guild.channels.cache.find(
@@ -15,7 +15,8 @@ const makeTextChannel = async (interaction, coursePrefixes, courseNumber, course
         const channel = await interaction.guild.channels.create({
             name: channelName,
             type: ChannelType.GuildText,
-            permission_overwrites: [  // <-- corrected here
+            parent: parentId ?? undefined,
+            permission_overwrites: [
                 {
                     id: interaction.guild.id,
                     deny: [PermissionsBitField.Flags.ViewChannel],
@@ -45,6 +46,10 @@ const makeTextChannel = async (interaction, coursePrefixes, courseNumber, course
     }
 };
 
+function isUndergraduateCourse(courseNumber) {
+    const num = parseInt(courseNumber, 10);
+    return !isNaN(num) && num < 5000;
+}
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -62,23 +67,60 @@ module.exports = {
 
             const existingChannels = interaction.guild.channels.cache.filter(c => c.type === ChannelType.GuildText);
 
+            let teacherCategory = interaction.guild.channels.cache.find(
+                c => c.type === ChannelType.GuildCategory && c.name === 'Teacher Sections'
+            );
+            
+            if (!teacherCategory) {
+                teacherCategory = await interaction.guild.channels.create({
+                    name: 'Teacher Sections',
+                    type: ChannelType.GuildCategory,
+                });
+            }
+            
+
+
             for (const course of courses) {
                 const coursePrefixes = Array.isArray(course.course_prefixes)
-                    ? course.course_prefixes.map(prefix => prefix.toLowerCase()).join('/')
+                    ? course.course_prefixes.map(prefix => prefix.toLowerCase()).join('-')  
                     : course.course_prefixes.toLowerCase();
-
-                const courseNumber = course.course_number.toLowerCase();
-
-                if(length(course.instructors) >= 2){
-                    for (let i = 0; i < course.instructors.length; i++){
+                
+                if(isUndergraduateCourse(course.course_number)) {
+                    const courseNumber = course.course_number.toLowerCase();
                 }
-            }
 
                 const courseTeachers = Array.isArray(course.instructors)
-                    ? course.instructors.map(teacher => teacher.toLowerCase()).join('/')
+                    ? course.instructors.map(teacher => teacher.toLowerCase()).join('-')
                     : course.instructors
                     ? course.instructors.toLowerCase()
                     : 'unknown';
+
+                if (instructors.length > 1) {
+                    for (const instructor of instructors) {
+                        const teacherName = instructor.toLowerCase();
+                        const channelName = `${coursePrefixes}-${courseNumber}-${teacherName}`;
+                
+                        if (existingChannels.find(c => c.name === channelName)) {
+                            skippedChannels.push(channelName);
+                            continue;
+                        }
+                
+                        const channel = await makeTextChannel(
+                            interaction,
+                            coursePrefixes,
+                            courseNumber,
+                            teacherName,
+                            teacherCategory.id 
+                        );
+                
+                        if (channel) {
+                            createdChannels.push(channel.name);
+                        }
+                    }
+                    continue; // Skip default combined channel logic
+                }
+                
+                    
 
                 const channelName = `${coursePrefixes}-${courseNumber}-${courseTeachers}`;
 
