@@ -1,92 +1,97 @@
-const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
-const { ChannelType, PermissionsBitField } = require('discord.js');
-const fs = require("fs");
-
+const { PermissionsBitField } = require('discord.js');
+const fs = require("fs").promises;  // Use promises API for cleaner await
 
 const allocateCourseByServer = async (courses, guild, user) => {
-    fs.readFile("data/prefix_map.json", "utf-8", async (err, data) => {
-        if (err) {
-            console.log("File read failed:", err)
-            return;
-        }
-        const prefixMap = JSON.parse(data);
-        courses.forEach(async(course)=>{
-            const prefix = course.course_id.split('-')[0].toLowerCase();
-            const courseCode = course.course_id.split('-')[1]+course.course_id.split('-')[2].toLowerCase();
-            if(prefixMap[prefix]==guild.name)
-                makeTextChannel(courseCode,guild,user);
-        })
-    })
-}
+  try {
+    const data = await fs.readFile("data/prefix_map.json", "utf-8");
+    const prefixMap = JSON.parse(data);
+
+    for (const course of courses) {
+      const parts = course.course_id.split('-');
+      const prefix = parts[0].toLowerCase();
+      const courseCode = (parts[1] + parts[2]).toLowerCase();
+
+      if (prefixMap[prefix] === guild.name) {
+        console.log(`✅ Match found for prefix ${prefix} in guild ${guild.name}, creating/updating ${courseCode}`);
+        await makeTextChannel(courseCode, guild, user);
+      }
+    }
+  } catch (err) {
+    console.error("❌ allocateCourseByServer error:", err);
+  }
+};
 
 const makeTextChannel = async (courseCode, medium, user = undefined) => {
-    let guild = medium
-    //Checks if we are passing an interaction or guild to the function 
-    if (medium.type) {
-        guild = medium.guild
-        user = medium.user
-    }
+  let guild = medium;
+  if (medium.type) {
+    guild = medium.guild;
+    user = medium.user;
+  }
 
-    const assumingChannel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase());
-    if (assumingChannel)
-        return { channel: assumingChannel, hasExisted: true };
-
-    const channel = await guild.channels.create({
-        name: courseCode,
-        type: 0, // 0 = Text channel
-        permissionOverwrites: [
-            {
-                id: guild.id, // Default everyone role
-                deny: [PermissionsBitField.Flags.ViewChannel], // Hide the channel from everyone
-            },
-            {
-                id: user.id, // Grant access to the command user
-                allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages],
-            },
-            {
-                id: guild.members.me.id, // Bot
-                allow: [
-                    PermissionsBitField.Flags.ViewChannel,
-                    PermissionsBitField.Flags.ManageChannels,
-                    //PermissionsBitField.Flags.ManageRoles,
-                ],
-            }
-        ],
+  let channel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase());
+  if (channel) {
+    console.log(`ℹ️ Channel ${courseCode} already exists. Updating permissions for ${user.username}`);
+    await channel.permissionOverwrites.edit(user.id, {
+      ViewChannel: true,
+      SendMessages: true
     });
-    //await interaction.reply(`Created channel: ${channel.name}`);
-    return { channel: channel, hasExisted: false };
-}
+    return { channel, hasExisted: true };
+  }
+
+  console.log(`✅ Creating channel: ${courseCode}`);
+  channel = await guild.channels.create({
+    name: courseCode,
+    type: 0,  // GUILD_TEXT
+    permissionOverwrites: [
+      {
+        id: guild.id,
+        deny: [PermissionsBitField.Flags.ViewChannel]
+      },
+      {
+        id: user.id,
+        allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages]
+      },
+      {
+        id: guild.members.me.id,
+        allow: [
+          PermissionsBitField.Flags.ViewChannel,
+          PermissionsBitField.Flags.ManageChannels,
+        ]
+      }
+    ]
+  });
+
+  return { channel, hasExisted: false };
+};
 
 const makeTextThread = async (interaction, channel, courseSection) => {
+  if (!channel) {
+    console.log("❌ makeTextThread: undefined channel");
+    return;
+  }
 
-    //If there is a channel
-    if (!channel) {
-        console.log("makeTextThread: undefined channel");
-        return;
+  try {
+    const activeThreads = await channel.threads.fetchActive();
+    const existingThread = activeThreads.threads.find(x => x.name === courseSection);
+
+    if (existingThread) {
+      console.log(`ℹ️ Thread ${courseSection} already exists`);
+      return existingThread;
     }
-    try {
-        const activeThreads = await channel.threads.fetchActive();
-        console.log("Active Threads in Channel: ", activeThreads.threads);
-        const assumingThread = channel.threads.cache.find(x => x.name === courseSection);// 
 
-        if (assumingThread)
-            return assumingThread;
+    console.log(`✅ Creating thread: ${courseSection}`);
+    const thread = await channel.threads.create({
+      name: courseSection,
+      autoArchiveDuration: 60,
+      type: 11,  // PUBLIC_THREAD
+      reason: 'Discussion for the course',
+    });
 
-        //else make thread  
-        const thread = await channel.threads.create({
-            name: courseSection,
-            autoArchiveDuration: 60, // Auto-archive after 60 minutes of inactivity
-            type: 11, // 11 = Public thread
-            reason: 'Discussion for the course',
-        });
-        //await interaction.reply(`Thread created: ${thread.name}`);
-        return thread;
-    } catch (error) {
-        console.log("makeTextThread Error:", error);
-
-    }
+    return thread;
+  } catch (err) {
+    console.error("❌ makeTextThread error:", err);
     return undefined;
-    //If the thread already exists, return it      
-}
+  }
+};
 
-module.exports = {makeTextChannel, makeTextThread, allocateCourseByServer}
+module.exports = { makeTextChannel, makeTextThread, allocateCourseByServer };

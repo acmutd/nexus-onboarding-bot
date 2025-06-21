@@ -1,30 +1,56 @@
+const { SlashCommandBuilder, PermissionsBitField, MessageFlags } = require('discord.js');
 
-const { SlashCommandBuilder, MessageFlags, PermissionsBitField } = require('discord.js');
-const fs = require("fs");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('delete-all-servers')
-        .setDescription("delete all servers"),
+        .setDescription("Delete all servers the bot can delete"),
     async execute(interaction) {
-        const userId = interaction.user.id;
-        //const member = await interaction.guild.members.fetch(userId); 
+        // Defer reply with ephemeral flag (no deprecated warning)
+        await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+
         if (!interaction.guild.members.me.permissions.has([
             PermissionsBitField.Flags.ManageChannels,
             PermissionsBitField.Flags.ManageRoles,
         ])) {
-            return await interaction.reply({
-                content: "I don't have permission to create channels or manage roles!",
-                flags: MessageFlags.Ephemeral,
-            });
+            try {
+                await interaction.editReply({
+                    content: "❌ I don't have permission to manage channels or roles!",
+                });
+            } catch (err) {
+                console.error('❌ Failed to send permission error reply:', err);
+            }
+            return;
         }
-        const guilds = interaction.client.guilds.cache
-        guilds.forEach(async(guild) =>{if(!guild.name.includes('server')) guild.delete()})
-        //make and or set permission to course channel
-        await interaction.reply({
-            content: "Succesfully Deleted all servers",
-            flags: MessageFlags.Ephemeral,
-        });
 
-    },
+        const guilds = interaction.client.guilds.cache;
+        let deletedCount = 0;
+        let failedCount = 0;
 
-}
+        for (const guild of guilds.values()) {
+            if (!guild.name.includes('server')) {
+                try {
+                    if (guild.ownerId !== interaction.client.user.id) {
+                        console.warn(`Cannot delete ${guild.name} — bot is not the owner.`);
+                        failedCount++;
+                        continue;
+                    }
+
+                    await guild.delete();
+                    console.log(`Deleted guild: ${guild.name}`);
+                    deletedCount++;
+                } catch (err) {
+                    console.error(`Failed to delete guild ${guild.name}:`, err);
+                    failedCount++;
+                }
+            }
+        }
+
+        try {
+            await interaction.editReply({
+                content: `✅ Deleted ${deletedCount} servers.\n❌ Failed to delete ${failedCount} servers.`,
+            });
+        } catch (err) {
+            console.error('❌ Failed to send final interaction reply:', err);
+        }
+    }
+};
