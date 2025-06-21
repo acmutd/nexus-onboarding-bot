@@ -1,6 +1,6 @@
 require('dotenv/config');
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
-const { getUserData, makeUserByDiscord, manUser } = require('./firebase_utils/firebaseUtils.js');
+const { getUserData, makeUserByDiscord } = require('./firebase_utils/firebaseUtils.js');
 const { allocateCourseByServer } = require('./discord_utils/discordUtils.js');
 const discordRoutes = require('./api/routes/discord.routes.js');
 const fs = require('node:fs');
@@ -99,6 +99,19 @@ async function fetchMemberWithRetry(guild, userId, retries = 3) {
   return null;
 }
 
+async function sendWelcomeMessage(guild, userId) {
+  const welcomeChannel = guild.channels.cache.find(c => c.name === 'welcome' && c.isTextBased());
+  if (welcomeChannel) {
+    await welcomeChannel.send({
+      content: `👋 <@${userId}> Please verify your account here: [http://localhost:5173/home](http://localhost:5173/home)`,
+      allowedMentions: { users: [userId] }
+    });
+    console.log(`✅ Sent welcome message to ${userId}`);
+  } else {
+    console.log(`⚠️ No welcome channel found in ${guild.name}`);
+  }
+}
+
 // Expose bot guilds
 app.get('/bot/guilds', (req, res) => {
   const guilds = client.guilds.cache.map(g => ({
@@ -178,62 +191,32 @@ client.on(Events.GuildCreate, async (guild) => {
 // Handle GuildMemberAdd
 client.on(Events.GuildMemberAdd, async (member) => {
   console.log(`New guild member joined: ${member.user.tag} (${member.user.id})`);
-  console.log(`New guild member joined: ${member.user.tag} (${member.user.id})`);
-const guild = member.guild;
-const userId = member.user.id;
+  const guild = member.guild;
+  const userId = member.user.id;
 
-try {
-  const userData = await getUserData(userId);
-  console.log(`User data found for ${userId}:`, userData);
+  try {
+    const userData = await getUserData(userId);
+    console.log(`User data found for ${userId}:`, userData);
 
-  if (!userData.discordId) {
-    console.log(`User ${userId} has no linked Discord account. Sending verification message.`);
-
-    await manUser(userId, async (userRef, snapshot) => {
-      let servers = snapshot.data().servers || [];
-      if (!servers.includes(guild.id)) {
-        servers.push(guild.id);
-        await userRef.update({ servers });
-        console.log(`✅ Updated servers for ${userId}:`, servers);
-      }
-    });
-
-    const welcomeChannel = guild.channels.cache.find(c => c.name === 'welcome' && c.isTextBased());
-    if (welcomeChannel) {
-      await welcomeChannel.send({
-        content: `👋 <@${userId}> Please verify your account here: [http://localhost:5173/home](http://localhost:5173/home)`,
-        allowedMentions: { users: [userId] }
-      });
+    if (!userData.discordId) {
+      console.log(`User ${userId} has no Discord linked. Sending welcome message.`);
+      await sendWelcomeMessage(guild, userId);
+    } else if (!userData.courses || userData.courses.length === 0) {
+      console.log(`User ${userId} has Discord linked but no courses. Sending welcome message.`);
+      await sendWelcomeMessage(guild, userId);
     } else {
-      console.log(`⚠️ No welcome channel found in ${guild.name}`);
+      console.log(`Allocating courses for ${userId}`);
+      await allocateCourseByServer(userData.courses, guild, member.user);
     }
-
-  } else if (userData.courses && userData.courses.length > 0) {
-    console.log(`Allocating courses for ${userId}`);
-    await allocateCourseByServer(userData.courses, guild, member.user);
-  } else {
-    console.log(`User ${userId} has linked Discord but no courses yet.`);
-  }
-
-} catch (err) {
-  if (err.code === 'not-found') {
-    console.log(`User not found in Firestore. Creating guest record.`);
-    await makeUserByDiscord(member);
-
-    const welcomeChannel = guild.channels.cache.find(c => c.name === 'welcome' && c.isTextBased());
-    if (welcomeChannel) {
-      await welcomeChannel.send({
-        content: `👋 <@${userId}> Please verify your account here: [http://localhost:5173/home](http://localhost:5173/home)`,
-        allowedMentions: { users: [userId] }
-      });
+  } catch (err) {
+    if (err.code === 'not-found') {
+      console.log(`User not found in Firestore. Creating guest record.`);
+      await makeUserByDiscord(member);
+      await sendWelcomeMessage(guild, userId);
     } else {
-      console.log(`⚠️ No welcome channel found in ${guild.name}`);
+      console.error(` GuildMemberAdd error:`, err);
     }
-  } else {
-    console.error(`❌ GuildMemberAdd error:`, err);
   }
-}
-
 });
 
 // Bot login
