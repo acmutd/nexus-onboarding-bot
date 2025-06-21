@@ -18,7 +18,7 @@ module.exports = {
             });
         }
         const guilds = interaction.client.guilds.cache
-        guilds.forEach(async(guild) =>{if(!guild.name.includes('server')) guild.leave()})
+        guilds.forEach(async(guild) =>{if(!guild.name.includes('server')) guild.delete()})
         //make and or set permission to course channel
         await interaction.reply({
             content: "Succesfully Deleted all servers",

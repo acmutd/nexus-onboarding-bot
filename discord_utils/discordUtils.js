@@ -3,11 +3,6 @@ const { ChannelType, PermissionsBitField } = require('discord.js');
 const fs = require("fs");
 
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
-const getClient = ()=>{
-    return new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
-}
-
 const allocateCourseByServer = async (courses, guild, user) => {
     fs.readFile("data/prefix_map.json", "utf-8", async (err, data) => {
         if (err) {
@@ -17,8 +12,9 @@ const allocateCourseByServer = async (courses, guild, user) => {
         const prefixMap = JSON.parse(data);
         courses.forEach(async(course)=>{
             const prefix = course.split('-')[0].toLowerCase();
+            const courseCode = course.split('-')[1]+course.split('-')[2].toLowerCase();
             if(prefixMap[prefix]==guild.name)
-                makeTextChannel(course,guild,user);
+                makeTextChannel(courseCode,guild,user);
         })
     })
 }
@@ -93,4 +89,4 @@ const makeTextThread = async (interaction, channel, courseSection) => {
     //If the thread already exists, return it      
 }
 
-module.exports = [makeTextChannel, makeTextThread, allocateCourseByServer]
+module.exports = {makeTextChannel, makeTextThread, allocateCourseByServer}

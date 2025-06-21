@@ -65,4 +65,4 @@ const allocateToJoinedServer = async (req, res) => {
 };
 
 
-module.exports = [allocateCourseByServer]
+module.exports = {allocateToJoinedServer}

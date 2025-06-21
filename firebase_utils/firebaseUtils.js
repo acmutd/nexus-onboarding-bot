@@ -7,6 +7,12 @@ const {
     GOOGLE_APPLICATION_CREDENTIALS,
     FIREBASE_PROJECT_ID
 } = process.env;
+// Initialize Firebase Admin SDK
+admin.initializeApp({
+  credential: admin.credential.applicationDefault(),
+  projectId: FIREBASE_PROJECT_ID
+});
+
 const auth = admin.auth();
 
 // Initialize Firebase Admin if not already initialized
@@ -41,15 +47,7 @@ const manUser = async (discordId,callback) =>{
     const result = await callback(userRef); 
     return result   
 }
-/* {
-        uid: user.uid,
-        email: user.email,
-        netId: netId,
-        discordUsername: null,
-        discordId: null,
-        createdAt: new Date().toISOString(),
-        courses: courses
-      }*/ 
+
 const makeUserByDiscord = async(member) =>{
     const usersRef = await admin.firestore().collection('users'); 
     await usersRef.add({

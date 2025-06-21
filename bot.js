@@ -2,7 +2,7 @@ require('dotenv/config');
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
 const {getUserData,makeUserByDiscord} = require('./firebase_utils/firebaseUtils.js');
 const {allocateCourseByServer} = require('./discord_utils/discordUtils.js');
-const {discordRoutes} = require('./api/routes/discord.routes.js');
+const discordRoutes = require('./api/routes/discord.routes.js');
 const fs = require('node:fs');
 const path = require('node:path');
 const express = require('express');
@@ -12,7 +12,7 @@ const bodyParser = require('body-parser');
 const app = express(); 
 
 app.use(cors()); 
-app.user(bodyParser.json());
+app.use(bodyParser.json());
 
 const PORT = 3000; 
 app.listen(PORT,()=> console.log(`Endpoint opened on port ${PORT}`));

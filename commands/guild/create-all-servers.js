@@ -2,6 +2,8 @@ const { SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate } 
 const { makeTextChannel } = require('../../discord_utils/discordUtils');
 const path = require("path")
 const fs = require("fs");
+
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('create-all-servers')
@@ -23,10 +25,10 @@ module.exports = {
         const files = fs.readdirSync("data/alternate_schools")
         const guildManager = interaction.client.guilds
 
-        files.forEach(async (file) => {
+        await files.forEach(async (file) => {
             const serverName = file.split('_')[0]
             console.log("Server name:", serverName)
-            const guild = await guildManager.create({
+            let guild = await guildManager.create({
                 name: serverName,
                 channels: [
                     {
@@ -35,7 +37,7 @@ module.exports = {
                 ]
             })
             const guildChannel = await guild.channels.cache.find(channel => channel.name == "general");
-            const Invite = await guildChannel.createInvite({maxAge: 0, unique: true, reason: "Testing."});
+            const Invite = await guildChannel.createInvite({ maxAge: 0, unique: true, reason: "Testing." });
             await interaction.channel.send(`Created guild. Here's the invite code: ${Invite.url}`)
             await fs.readFile(path.join("data/alternate_schools", file), "utf-8", async (err, data) => {
                 if (err) {
@@ -43,7 +45,7 @@ module.exports = {
                     return;
                 }
                 const courses = JSON.parse(data);
-                courses.forEach(async (course) => {
+                await courses.forEach(async (course) => {
 
                     let courseName = course.course_number;
                     course.instructors.forEach(instructor => {
@@ -51,15 +53,18 @@ module.exports = {
                         courseName += '-' + splitName[splitName.length - 1];
                     });
                     const channel = await makeTextChannel(courseName, guild, interaction.user);
-                    
+
                     /*await channel.channel.permissionOverwrites.edit(userId, {
                         ViewChannel: true,
                         SendMessages: true,
                     });*/
-                  
+
                 })
 
             })
+            console.log("waiting for login to:", serverName)
+
+         
 
         })
         //make and or set permission to course channel
