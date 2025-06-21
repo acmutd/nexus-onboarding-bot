@@ -4,8 +4,8 @@ const path = require("path")
 const fs = require("fs");
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('create-all-courses')
-        .setDescription("create all courses from jsons"),
+        .setName('create-all-servers')
+        .setDescription("create all servers and courses"),
     async execute(interaction) {
         const userId = interaction.user.id;
         //const member = await interaction.guild.members.fetch(userId); 
@@ -19,8 +19,26 @@ module.exports = {
             });
         }
 
-        fs.readFile("data/alternate_schools/ecs_courses.json","utf-8",async(err,data)=>{
-            if (err) {
+
+        const files = fs.readdirSync("data/alternate_schools")
+        const guildManager = interaction.client.guilds
+
+        files.forEach(async (file) => {
+            const serverName = file.split('_')[0]
+            console.log("Server name:", serverName)
+            const guild = await guildManager.create({
+                name: serverName,
+                channels: [
+                    {
+                        name: "general",
+                    }
+                ]
+            })
+            const guildChannel = await guild.channels.cache.find(channel => channel.name == "general");
+            const Invite = await guildChannel.createInvite({maxAge: 0, unique: true, reason: "Testing."});
+            await interaction.channel.send(`Created guild. Here's the invite code: ${Invite.url}`)
+            await fs.readFile(path.join("data/alternate_schools", file), "utf-8", async (err, data) => {
+                if (err) {
                     console.log("File read failed:", err)
                     return;
                 }
@@ -40,6 +58,9 @@ module.exports = {
                     });*/
                   
                 })
+
+            })
+
         })
         //make and or set permission to course channel
         await interaction.reply({
