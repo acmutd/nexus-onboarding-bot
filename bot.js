@@ -10,23 +10,23 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const admin = require('firebase-admin');
 
-// ✅ Initialize Firebase Admin (if not already)
+//  Initialize Firebase Admin (if not already)
 if (!admin.apps.length) {
   const serviceAccount = require('./service-account.json');
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     projectId: process.env.FIREBASE_PROJECT_ID
   });
-  console.log("✅ Firebase Admin initialized");
+  console.log(" Firebase Admin initialized");
 }
 
-// ✅ Setup Express
+// Setup Express
 const app = express();
 const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// ✅ Bot client
+// Bot client
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -37,7 +37,7 @@ const client = new Client({
 });
 client.commands = new Collection();
 
-// ✅ Load commands
+// Load commands
 const foldersPath = path.join(__dirname, 'commands');
 if (fs.existsSync(foldersPath)) {
   const commandFolders = fs.readdirSync(foldersPath);
@@ -56,7 +56,7 @@ if (fs.existsSync(foldersPath)) {
   }
 }
 
-// ✅ Load events
+// Load events
 const eventsPath = path.join(__dirname, 'events');
 if (fs.existsSync(eventsPath)) {
   const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
@@ -71,11 +71,11 @@ if (fs.existsSync(eventsPath)) {
   }
 }
 
-// ✅ Handle /bot/allocate POST
+//  Handle /bot/allocate POST
 app.post('/bot/allocate', async (req, res) => {
   try {
     const { discordId, courses } = req.body;
-    console.log("👉 Bot /bot/allocate request received:", req.body);
+    console.log(" Bot /bot/allocate request received:", req.body);
 
     if (!discordId || !courses || !Array.isArray(courses)) {
       return res.status(400).json({ error: "Missing or invalid discordId or courses" });
@@ -89,24 +89,24 @@ app.post('/bot/allocate', async (req, res) => {
 
     const userDoc = userQuery.docs[0].data();
     const servers = userDoc.servers || [];
-    console.log(`✅ Found servers: ${servers}`);
+    console.log(` Found servers: ${servers}`);
 
     let allocated = 0;
     for (const serverId of servers) {
       const guild = client.guilds.cache.get(serverId);
       if (!guild) {
-        console.log(`⚠️ Guild ${serverId} not found`);
+        console.log(` Guild ${serverId} not found`);
         continue;
       }
 
       const member = await guild.members.fetch(discordId).catch(() => null);
       if (!member) {
-        console.log(`⚠️ Member ${discordId} not found in ${guild.name}`);
+        console.log(` Member ${discordId} not found in ${guild.name}`);
         continue;
       }
 
       await allocateCourseByServer(courses, guild, member.user);
-      console.log(`✅ Allocated courses in ${guild.name}`);
+      console.log(` Allocated courses in ${guild.name}`);
       allocated++;
     }
 
@@ -116,34 +116,83 @@ app.post('/bot/allocate', async (req, res) => {
 
     res.json({ success: true, allocated });
   } catch (err) {
-    console.error("❌ Bot /bot/allocate error:", err);
+    console.error(" Bot /bot/allocate error:", err);
     res.status(500).json({ error: "Failed to allocate courses", details: err.message || err });
   }
 });
 
-// ✅ Attach Discord routes (optional)
+// Attach Discord routes
 app.use('/discord', (req, res, next) => {
   req.client = client;
   next();
 }, discordRoutes);
 
-// ✅ Start server
-app.listen(PORT, () => console.log(`✅ Bot server running at http://localhost:${PORT}`));
+// Start server
+app.listen(PORT, () => console.log(` Bot server running at http://localhost:${PORT}`));
 
-// ✅ Handle GuildCreate
+// Handle GuildCreate
 client.on(Events.GuildCreate, async (guild) => {
   await guild.members.fetch().catch(console.error);
 });
 
-// ✅ Handle GuildMemberAdd
+// Handle GuildMemberAdd
 client.on(Events.GuildMemberAdd, async (member) => {
   console.log(`New guild member joined: ${member.user.tag} (${member.user.id})`);
-  // Your existing GuildMemberAdd logic unchanged
-  // ...
+  const guild = member.guild;
+  const userId = member.user.id;
+
+  try {
+    const userData = await getUserData(userId);
+    console.log(`User data found for ${userId}:`, userData);
+
+    if (!userData.courses || userData.courses.length === 0) {
+      console.log(`No courses found. Sending welcome message.`);
+
+      await manUser(userId, async (userRef, snapshot) => {
+        let servers = snapshot.data().servers || [];
+        if (!servers.includes(guild.id)) {
+          servers.push(guild.id);
+          await userRef.update({ servers });
+          console.log(` Updated servers for ${userId}:`, servers);
+        }
+      });
+
+      const welcomeChannel = guild.channels.cache.find(c => c.name === 'welcome' && c.isTextBased());
+      if (welcomeChannel) {
+        await welcomeChannel.send({
+          content: ` <@${userId}> Please verify your account here: [http://localhost:5173/home](http://localhost:5173/home)`,
+          allowedMentions: { users: [userId] }
+        });
+      } else {
+        console.log(` No welcome channel found in ${guild.name}`);
+      }
+    } else {
+      console.log(`Allocating courses for ${userId}`);
+      await allocateCourseByServer(userData.courses, guild, member.user);
+    }
+
+  } catch (err) {
+    if (err.code === 'not-found') {
+      console.log(`User not found in Firestore. Creating guest record.`);
+      await makeUserByDiscord(member);
+
+      const welcomeChannel = guild.channels.cache.find(c => c.name === 'welcome' && c.isTextBased());
+      if (welcomeChannel) {
+        await welcomeChannel.send({
+          content: ` <@${userId}> Please verify your account here: [http://localhost:5173/home](http://localhost:5173/home)`,
+          allowedMentions: { users: [userId] }
+        });
+      } else {
+        console.log(` No welcome channel found in ${guild.name}`);
+      }
+    } else {
+      console.error(` GuildMemberAdd error:`, err);
+    }
+  }
 });
 
-// ✅ Bot login
+//  Bot login
 console.log('Attempting bot login...');
 client.login(process.env.DISCORD_TOKEN)
-  .then(() => console.log(`✅ Bot logged in successfully as ${client.user.tag}`))
-  .catch(err => console.error('❌ Bot login failed:', err));
+  .then(() => console.log(` Bot logged in successfully as ${client.user.tag}`))
+  .catch(err => console.error(' Bot login failed:', err));
