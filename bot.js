@@ -20,7 +20,7 @@ app.listen(PORT,()=> console.log(`Endpoint opened on port ${PORT}`));
 
 
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers] });
 
 client.commands = new Collection();
 
@@ -53,6 +53,10 @@ for (const file of eventFiles) {
 		client.on(event.name, (...args) => event.execute(...args));
 	}
 }
+client.on(Events.GuildCreate, async (guild) => {
+  await guild.members.fetch().catch(console.error);
+});
+
 
 client.on(Events.GuildMemberAdd, async(member)=>{
 	console.log('New guild memeber joined');
@@ -82,6 +86,7 @@ client.on(Events.GuildMemberAdd, async(member)=>{
 		else{
 			//Make guest discord user
 			await makeUserByDiscord(member);
+			console.log("unregistered user stored")
 		}
 
 	}

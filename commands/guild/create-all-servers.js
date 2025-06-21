@@ -21,8 +21,8 @@ module.exports = {
             });
         }
 
-
-        const files = fs.readdirSync("data/alternate_schools")
+        const folderPath = "data/ecs_only"
+        const files = fs.readdirSync(folderPath)
         const guildManager = interaction.client.guilds
 
         await files.forEach(async (file) => {
@@ -39,7 +39,7 @@ module.exports = {
             const guildChannel = await guild.channels.cache.find(channel => channel.name == "general");
             const Invite = await guildChannel.createInvite({ maxAge: 0, unique: true, reason: "Testing." });
             await interaction.channel.send(`Created guild. Here's the invite code: ${Invite.url}`)
-            await fs.readFile(path.join("data/alternate_schools", file), "utf-8", async (err, data) => {
+            await fs.readFile(path.join(folderPath, file), "utf-8", async (err, data) => {
                 if (err) {
                     console.log("File read failed:", err)
                     return;

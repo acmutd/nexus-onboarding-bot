@@ -59,5 +59,5 @@ const makeUserByDiscord = async(member) =>{
     })
 
 }
-module.exports = [getUserSnapshot,getUserData,manUser,makeUserByDiscord]
+module.exports = {getUserSnapshot,getUserData,manUser,makeUserByDiscord}
 

@@ -11,8 +11,8 @@ const allocateCourseByServer = async (courses, guild, user) => {
         }
         const prefixMap = JSON.parse(data);
         courses.forEach(async(course)=>{
-            const prefix = course.split('-')[0].toLowerCase();
-            const courseCode = course.split('-')[1]+course.split('-')[2].toLowerCase();
+            const prefix = course.course_id.split('-')[0].toLowerCase();
+            const courseCode = course.course_id.split('-')[1]+course.course_id.split('-')[2].toLowerCase();
             if(prefixMap[prefix]==guild.name)
                 makeTextChannel(courseCode,guild,user);
         })
