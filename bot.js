@@ -71,34 +71,6 @@ if (fs.existsSync(eventsPath)) {
   }
 }
 
-// Helper functions
-async function fetchGuildById(client, guildId) {
-  let guild = client.guilds.cache.get(guildId);
-  if (!guild) {
-    try {
-      guild = await client.guilds.fetch(guildId);
-      console.log(`✅ Successfully fetched guild ${guildId}`);
-    } catch (err) {
-      console.log(`⚠️ Failed to fetch guild ${guildId}: ${err.message}`);
-      return null;
-    }
-  }
-  return guild;
-}
-
-async function fetchMemberWithRetry(guild, userId, retries = 3) {
-  for (let i = 0; i < retries; i++) {
-    try {
-      const member = await guild.members.fetch(userId);
-      if (member) return member;
-    } catch (err) {
-      console.log(`⚠️ Attempt ${i + 1}: Failed to fetch member ${userId} in ${guild.name}: ${err.message}`);
-    }
-    await new Promise(res => setTimeout(res, 1000));
-  }
-  return null;
-}
-
 async function sendWelcomeMessage(guild, userId) {
   const welcomeChannel = guild.channels.cache.find(c => c.name === 'welcome' && c.isTextBased());
   if (welcomeChannel) {
@@ -111,7 +83,7 @@ async function sendWelcomeMessage(guild, userId) {
     console.log(`⚠️ No welcome channel found in ${guild.name}`);
   }
 }
-
+/*
 // Expose bot guilds
 app.get('/bot/guilds', (req, res) => {
   const guilds = client.guilds.cache.map(g => ({
@@ -173,9 +145,9 @@ app.post('/bot/allocate', async (req, res) => {
     res.status(500).json({ error: "Failed to allocate courses", details: err.message || err });
   }
 });
-
+*/
 // Attach Discord routes
-app.use('/discord', (req, res, next) => {
+app.use('/bot', (req, res, next) => {
   req.client = client;
   next();
 }, discordRoutes);
@@ -221,6 +193,6 @@ client.on(Events.GuildMemberAdd, async (member) => {
 
 // Bot login
 console.log('Attempting bot login...');
-client.login(process.env.DISCORD_TOKEN)
+client.login(process.env.DISCORD_BOT_TOKEN)
   .then(() => console.log(`✅ Bot logged in successfully as ${client.user.tag}`))
   .catch(err => console.error('❌ Bot login failed:', err));

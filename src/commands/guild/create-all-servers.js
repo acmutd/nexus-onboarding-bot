@@ -20,7 +20,7 @@ module.exports = {
 
         await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
-        const folderPath = "data/ecs_only";
+        const folderPath = "data/alternate_schools";
         const files = fs.readdirSync(folderPath);
         const guildManager = interaction.client.guilds;
 

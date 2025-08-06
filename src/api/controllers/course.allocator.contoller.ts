@@ -1,15 +1,14 @@
-const { allocateCourseByServer } = require('../../discord_utils/discordUtils.js');
-const { getUserData } = require('../../firebase_utils/firebaseUtils.js');
-// Helper functions
+import { allocateCourseByServer } from '../../discord_utils/discordUtils'
+import { getUserData } from '../../utils/firebaseUtils'
+import { Request, Response, NextFunction } from 'express';
 
-const allocateToJoinedServer = async (req, res) => {
+const allocateToJoinedServer = async (req: Request, res: Response) => {
+  const client = req.client;
+  const { discordId, courses } = req.body;
+  if (!discordId || !courses || !Array.isArray(courses)) {
+    return res.status(400).json({ error: "Missing or invalid discordId or courses" });
+  }
   try {
-    const client = req.client;
-    const { discordId, courses } = req.body;
-    if (!discordId || !courses || !Array.isArray(courses)) {
-      return res.status(400).json({ error: "Missing or invalid discordId or courses" });
-    }
-
     await getUserData(discordId)
 
     let allocated = 0;
@@ -34,17 +33,19 @@ const allocateToJoinedServer = async (req, res) => {
 
     res.json({ success: true, allocated });
 
-  } catch (err) {
-    if (err.code = "not-found") {
+  } catch (err: unknown) {
+    if (err instanceof Error && err.message === "not-found") {
       console.log(`❌ User with Discord ID ${discordId} not found in Firestore`);
       return res.status(404).json({ error: "User not found" });
-    }
-    else {
+    } else {
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error';
       console.error("❌ Bot /bot/allocate error:", err);
-      res.status(500).json({ error: "Failed to allocate courses", details: err.message || err });
+      res.status(500).json({
+        error: "Failed to allocate courses",
+        details: errorMessage
+      });
     }
   }
 };
 
 
-module.exports = { allocateToJoinedServer }
