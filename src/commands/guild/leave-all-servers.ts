@@ -1,14 +1,16 @@
+import {SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate } from 'discord.js'
+import { ChatInputCommandInteraction,GuildMember,Guild} from 'discord.js'
+import {DiscordjsError,DiscordjsErrorCodes } from 'discord.js'
 
-const { SlashCommandBuilder, MessageFlags, PermissionsBitField } = require('discord.js');
-const fs = require("fs");
+import fs from 'fs'
 
-async function waitForMember(guild, userId, timeout = 10000) {
+async function waitForMember(guild:Guild, userId:string, timeout:number = 10000):Promise<boolean> {
     const start = Date.now();
     while (Date.now() - start < timeout) {
         try {
             await guild.members.fetch(); // Refresh cache
         } catch (error) {
-            if (error.code == "GuildMembersTimeout")
+            if (error instanceof DiscordjsError && error.code == DiscordjsErrorCodes.GuildMembersTimeout)
                 continue;
             else
                 throw error
@@ -22,10 +24,11 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('leave-all-servers')
         .setDescription("leave all servers and transferownership to user created"),
-    async execute(interaction) {
+    async execute(interaction:ChatInputCommandInteraction) {
         const userId = interaction.user.id;
+        const bot = interaction.guild?.members.me
         //const member = await interaction.guild.members.fetch(userId); 
-        if (!interaction.guild.members.me.permissions.has([
+        if (bot && !bot.permissions.has([
             PermissionsBitField.Flags.ManageChannels,
             PermissionsBitField.Flags.ManageRoles,
         ])) {
@@ -43,8 +46,10 @@ module.exports = {
             try {
                 await waitForMember(guild, userId)
             } catch (error) {
-                if (error.message.includes('Timeout'))
-                    console.log(`${serverName} skipped`)
+                if(error instanceof DiscordjsError)
+                    throw error
+                if (error instanceof Error && error.message.includes('Timeout'))
+                    console.log(`${guild.name} skipped`)
                 else
                     throw error
             }
@@ -65,3 +70,4 @@ module.exports = {
     },
 
 }
+

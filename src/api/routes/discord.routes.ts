@@ -9,4 +9,4 @@ const { guildsFetch} = require('../controllers/guilds.fetch.controller');
 router.post('/allocate', allocateToJoinedServer);
 router.get('/guilds',guildsFetch)
 
-module.exports = router;
+export default router;

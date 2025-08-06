@@ -1,8 +1,8 @@
-import { allocateCourseByServer } from '../../discord_utils/discordUtils'
+import { allocateCourseByServer } from '../../utils/discordUtils'
 import { getUserData } from '../../utils/firebaseUtils'
 import { Request, Response, NextFunction } from 'express';
 
-const allocateToJoinedServer = async (req: Request, res: Response) => {
+export async function allocateToJoinedServer(req: Request, res: Response){
   const client = req.client;
   const { discordId, courses } = req.body;
   if (!discordId || !courses || !Array.isArray(courses)) {

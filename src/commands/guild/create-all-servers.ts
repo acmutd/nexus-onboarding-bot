@@ -1,14 +1,27 @@
-const { SlashCommandBuilder, PermissionsBitField, MessageFlags, ChannelType } = require('discord.js');
-const { makeTextChannel } = require('../../discord_utils/discordUtils');
-const path = require("path");
-const fs = require("fs");
-
+import {SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate } from 'discord.js'
+import { ChatInputCommandInteraction, ChannelType } from 'discord.js'
+import { makeTextChannel } from '../../utils/discordUtils'
+import path from 'path'
+import fs from 'fs'
+interface Course{
+    course_number:string,
+    course_prefixes:string[], 
+    sections:string[],
+    title:string,
+    instructors:string[],
+    class_numbers:string[], 
+    enrolled_current:number, 
+    enrolled_max: number,
+    assistants:string[],
+    dept:string
+}
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('create-all-servers')
         .setDescription("Create all servers and courses"),
-    async execute(interaction) {
-        if (!interaction.guild.members.me.permissions.has([
+    async execute(interaction:ChatInputCommandInteraction) {
+        const bot = interaction.guild?.members.me
+        if (bot && !bot.permissions.has([
             PermissionsBitField.Flags.ManageChannels,
             PermissionsBitField.Flags.ManageRoles,
         ])) {
@@ -66,7 +79,7 @@ module.exports = {
             const filePath = path.join(folderPath, file);
             try {
                 const data = fs.readFileSync(filePath, 'utf-8');
-                const courses = JSON.parse(data);
+                const courses:Course[] = JSON.parse(data);
 
                 for (const course of courses) {
                     let courseName = course.course_number;
@@ -75,7 +88,7 @@ module.exports = {
                         courseName += '-' + splitName[splitName.length - 1];
                     });
 
-                    await makeTextChannel(courseName, guild, interaction.user);
+                    const channel = await makeTextChannel(courseName,interaction.user, interaction.guild);
                 }
 
             } catch (err) {

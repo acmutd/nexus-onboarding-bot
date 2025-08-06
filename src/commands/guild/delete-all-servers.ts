@@ -1,14 +1,15 @@
-const { SlashCommandBuilder, PermissionsBitField, MessageFlags } = require('discord.js');
+import {SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate } from 'discord.js'
+import { ChatInputCommandInteraction } from 'discord.js'
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('delete-all-servers')
         .setDescription("Delete all servers the bot can delete"),
-    async execute(interaction) {
+    async execute(interaction:ChatInputCommandInteraction) {
         // Defer reply with ephemeral flag (no deprecated warning)
         await interaction.deferReply({ flags: MessageFlags.Ephemeral });
-
-        if (!interaction.guild.members.me.permissions.has([
+        const bot = interaction.guild?.members.me
+        if (bot && !bot.permissions.has([
             PermissionsBitField.Flags.ManageChannels,
             PermissionsBitField.Flags.ManageRoles,
         ])) {

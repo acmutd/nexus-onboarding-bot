@@ -68,7 +68,9 @@ export async function provideUserAccess(courseCode:string, user:User, guild:Guil
  * Why: Utility method so it's easier to make channels when needed
  */
 
-export async function makeTextChannel(courseCode: string, user: User, guild: Guild) {
+export async function makeTextChannel(courseCode: string, user: User, guild: Guild | null) {
+  if(!guild)
+    throw new Error(`Guild Not Found!`)
   let channel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase());
   if (channel) {
     throw new Error(`${channel.name} already exists`);

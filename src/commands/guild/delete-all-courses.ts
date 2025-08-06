@@ -1,14 +1,17 @@
 
-const { SlashCommandBuilder, MessageFlags, PermissionsBitField } = require('discord.js');
-const fs = require("fs");
+import {SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate } from 'discord.js'
+import { ChatInputCommandInteraction } from 'discord.js'
+
+import fs from 'fs'
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('delete-all-courses')
         .setDescription("delete all courses"),
-    async execute(interaction) {
+    async execute(interaction:ChatInputCommandInteraction) {
         const userId = interaction.user.id;
+        const bot = interaction.guild?.members.me
         //const member = await interaction.guild.members.fetch(userId); 
-        if (!interaction.guild.members.me.permissions.has([
+        if (bot && !bot.permissions.has([
             PermissionsBitField.Flags.ManageChannels,
             PermissionsBitField.Flags.ManageRoles,
         ])) {
@@ -17,10 +20,12 @@ module.exports = {
                 flags: MessageFlags.Ephemeral,
             });
         }
-
-        interaction.guild.channels.cache.forEach(async(channel)=>{
+        const guild = interaction.guild
+        if(!guild)
+            throw Error('Guild not found')
+        guild.channels.cache.forEach(async(channel)=>{
             if(channel.name.toLowerCase() != "general")
-                interaction.guild.channels.delete(channel.id)
+                guild.channels.delete(channel.id)
         })
         //make and or set permission to course channel
         await interaction.reply({
