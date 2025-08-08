@@ -54,10 +54,11 @@ module.exports = {
                     throw error
             }
 
-            console.log("transfering ownership")
-            await guild.edit({
+            //console.log("transfering ownership")
+            /*await guild.edit({
                 owner: interaction.user.id
             })
+            */
             guild.leave()
 
         })

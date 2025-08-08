@@ -1,5 +1,5 @@
 require('dotenv/config');
-import { Client, ClientApplication, Events, GatewayIntentBits, Collection, ClientOptions,SlashCommandBuilder }  from 'discord.js';
+import { Client, ClientApplication, Events, GatewayIntentBits, Collection, ClientOptions,SlashCommandBuilder, MessageFlags }  from 'discord.js';
 import { getUserData, makeUserByDiscord }  from './utils/firebaseUtils';
 import { allocateCourseByServer }  from './utils/discordUtils';
 import discordRoutes from './api/routes/discord.routes';
@@ -27,13 +27,15 @@ app.use(cors());
 app.use(bodyParser.json());
 
 class ModClient extends Client {
-  public commands: Collection<string, SlashCommandBuilder>; // Replace 'Command' with your command type
+  public commands: Collection<string, Command>; 
 
   constructor(options: ClientOptions) {
     super(options);
     this.commands = new Collection(); // Initialize the Collection
   }
 }
+
+
 // Bot client
 const client = new ModClient({
   intents: [
@@ -62,6 +64,7 @@ if (fs.existsSync(foldersPath)) {
       const command = require(filePath);
       if ('data' in command && 'execute' in command) {
         client.commands.set(command.data.name, command);
+        console.log(`${command.data.name} is processed`)
       } else {
         console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
       }
@@ -102,6 +105,30 @@ app.use('/bot', discordRoutes);
 
 // Start server
 app.listen(PORT, () => console.log(`✅ Bot server running at http://localhost:${PORT}`));
+
+
+client.on(Events.InteractionCreate, async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	const command = client.commands.get(interaction.commandName);
+
+	if (!command) {
+		console.error(`No command matching ${interaction.commandName} was found.`);
+		return;
+	}
+
+	try {
+		await command.execute(interaction);
+	} catch (error) {
+		console.error(error);
+		if (interaction.replied || interaction.deferred) {
+			await interaction.followUp({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+		} else {
+			await interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+		}
+	}
+});
+
 
 // Handle GuildCreate
 client.on(Events.GuildCreate, async (guild) => {

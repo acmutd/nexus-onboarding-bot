@@ -1,4 +1,4 @@
-import { Client } from 'discord.js'; // or whatever type your client is
+import { Client, SlashCommandBuilder } from 'discord.js'; // or whatever type your client is
 
 declare global {
   namespace Express {
@@ -20,5 +20,9 @@ declare global{
     enrolled_max: number,
     assistants:string[],
     dept:string
+  }
+  interface Command{
+    execute:Function,
+    data:SlashCommandBuilder
   }
 }

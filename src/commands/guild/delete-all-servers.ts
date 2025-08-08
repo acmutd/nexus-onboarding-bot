@@ -31,7 +31,7 @@ module.exports = {
             if (!guild.name.includes('server')) {
                 try {
                     if (guild.ownerId !== interaction.client.user.id) {
-                        console.warn(`Cannot delete ${guild.name} — bot is not the owner.`);
+                        console.error(`Cannot delete ${guild.name} — bot is not the owner.`);
                         failedCount++;
                         continue;
                     }

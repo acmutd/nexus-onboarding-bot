@@ -1,7 +1,7 @@
 require('dotenv/config');
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
-const { getUserData, makeUserByDiscord } = require('./firebase_utils/firebaseUtils.js');
-const { allocateCourseByServer } = require('./discord_utils/discordUtils.js');
+const { getUserData, makeUserByDiscord } = require('./utils/firebaseUtils.js');
+const { allocateCourseByServer } = require('./utils/discordUtils.js');
 const discordRoutes = require('./api/routes/discord.routes.js');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -38,7 +38,7 @@ const client = new Client({
 client.commands = new Collection();
 
 // Load commands
-const foldersPath = path.join(__dirname, 'commands');
+const foldersPath = path.join(__dirname, 'dist/commands');
 if (fs.existsSync(foldersPath)) {
   const commandFolders = fs.readdirSync(foldersPath);
   for (const folder of commandFolders) {

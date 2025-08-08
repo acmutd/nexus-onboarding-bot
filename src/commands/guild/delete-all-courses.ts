@@ -25,7 +25,7 @@ module.exports = {
             throw Error('Guild not found')
         guild.channels.cache.forEach(async(channel)=>{
             if(channel.name.toLowerCase() != "general")
-                guild.channels.delete(channel.id)
+                await guild.channels.delete(channel.id)
         })
         //make and or set permission to course channel
         await interaction.reply({
