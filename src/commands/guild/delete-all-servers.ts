@@ -51,6 +51,11 @@ module.exports = {
                 content: `✅ Deleted ${deletedCount} servers.\n❌ Failed to delete ${failedCount} servers.`,
             });
         } catch (err) {
+            if(!(err instanceof Error))
+                return
+            await interaction.editReply({
+                content: `Error when deleting all servers:${err.message}`
+            })
             console.error('❌ Failed to send final interaction reply:', err);
         }
     }

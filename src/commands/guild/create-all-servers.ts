@@ -1,105 +1,134 @@
-import {SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate } from 'discord.js'
+import { SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate, TextChannel } from 'discord.js'
 import { ChatInputCommandInteraction, ChannelType } from 'discord.js'
 import { makeTextChannel } from '../../utils/discordUtils'
-import path from 'path'
+import path, { dirname } from 'path'
 import fs from 'fs'
-interface Course{
-    course_number:string,
-    course_prefixes:string[], 
-    sections:string[],
-    title:string,
-    instructors:string[],
-    class_numbers:string[], 
-    enrolled_current:number, 
+interface Course {
+    course_number: string,
+    course_prefixes: string[],
+    sections: string[],
+    title: string,
+    instructors: string[],
+    class_numbers: string[],
+    enrolled_current: number,
     enrolled_max: number,
-    assistants:string[],
-    dept:string
+    assistants: string[],
+    dept: string
 }
+
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('create-all-servers')
         .setDescription("Create all servers and courses"),
-    async execute(interaction:ChatInputCommandInteraction) {
-        const bot = interaction.guild?.members.me
-        if (bot && !bot.permissions.has([
-            PermissionsBitField.Flags.ManageChannels,
-            PermissionsBitField.Flags.ManageRoles,
-        ])) {
-            return await interaction.reply({
-                content: "❌ I don't have permission to manage channels or roles!",
-                flags: MessageFlags.Ephemeral,
-            });
-        }
-
-        await interaction.deferReply({ flags: MessageFlags.Ephemeral });
-
-        const folderPath = "data/alternate_schools";
-        const files = fs.readdirSync(folderPath);
-        const guildManager = interaction.client.guilds;
-
-        for (const file of files) {
-            const serverName = file.split('_')[0];
-            console.log("Server name:", serverName);
-
-            // Create the server (no initial channels)
-            const guild = await guildManager.create({
-                name: serverName
-            });
-
-            // Delete any default channels (just in case)
-            for (const channel of guild.channels.cache.values()) {
-                await channel.delete().catch(console.error);
+    async execute(interaction: ChatInputCommandInteraction) {
+        try {
+            const bot = interaction.guild?.members.me
+            if (bot && !bot.permissions.has([
+                PermissionsBitField.Flags.ManageChannels,
+                PermissionsBitField.Flags.ManageRoles,
+            ])) {
+                return await interaction.reply({
+                    content: "❌ I don't have permission to manage channels or roles!",
+                    flags: MessageFlags.Ephemeral,
+                });
             }
 
-            // Create #welcome first
-            const welcomeChannel = await guild.channels.create({
-                name: "welcome",
-                type: ChannelType.GuildText
-            });
+            await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
-            // Create #general second
-            const generalChannel = await guild.channels.create({
-                name: "general",
-                type: ChannelType.GuildText
-            });
+            const folderPath = path.join(__dirname, "../../../data/alternate_schools");
+            const files = fs.readdirSync(folderPath);
+            const guildManager = interaction.client.guilds;
+            console.log(`Num Guilds:${guildManager.cache.size}`)
+            console.log("Client user:", interaction.client.user?.tag);
+            console.log("Is bot:", interaction.client.user?.bot);
+            console.log("Guilds count:", interaction.client.guilds.cache.size);
+            console.log("guilds.create type:", typeof interaction.client.guilds.create);
+            for (const file of files) {
+                const serverName = file.split('_')[0];
+                console.log("Server name:", serverName);
 
-            // Create invite that lands in #welcome
-            const invite = await welcomeChannel.createInvite({
-                maxAge: 0,
-                unique: true,
-                reason: "Landing in #welcome"
-            });
+                // Create the server (no initial channels)
+                const guild = await guildManager.create({
+                    name: serverName
+                });
 
-            await interaction.followUp({
-                content: `✅ Created **${serverName}**. Invite: ${invite.url}`,
-                flags: MessageFlags.Ephemeral
-            });
-
-            // Read file and create course channels
-            const filePath = path.join(folderPath, file);
-            try {
-                const data = fs.readFileSync(filePath, 'utf-8');
-                const courses:Course[] = JSON.parse(data);
-
-                for (const course of courses) {
-                    let courseName = course.course_number;
-                    course.instructors.forEach(instructor => {
-                        const splitName = instructor.split(" ");
-                        courseName += '-' + splitName[splitName.length - 1];
-                    });
-
-                    const channel = await makeTextChannel(courseName,interaction.user, interaction.guild);
+                // Delete any default channels (just in case)
+                for (const channel of guild.channels.cache.values()) {
+                    await channel.delete().catch(console.error);
                 }
 
-            } catch (err) {
-                console.error(`❌ Failed to process ${file}:`, err);
+                // Create #welcome first
+                const welcomeChannel = await guild.channels.create({
+                    name: "welcome",
+                    type: ChannelType.GuildText
+                });
+
+                // Create #general second
+                const generalChannel = await guild.channels.create({
+                    name: "general",
+                    type: ChannelType.GuildText
+                });
+
+                // Create invite that lands in #welcome
+                const invite = await welcomeChannel.createInvite({
+                    maxAge: 0,
+                    unique: true,
+                    reason: "Landing in #welcome"
+                });
+
+
+                //Admin Role Creation: 
+
+                const admin = await guild.roles.create({
+                    name: 'Admin', permissions: [
+                        PermissionsBitField.Flags.SendMessages,
+                        PermissionsBitField.Flags.KickMembers,
+                        PermissionsBitField.Flags.Administrator
+
+                    ]
+                });
+
+
+                //Interaction response 
+                await interaction.followUp({
+                    content: `✅ Created **${serverName}**. Invite: ${invite.url}`,
+                    flags: MessageFlags.Ephemeral
+                });
+
+                // Read file and create course channels
+                const filePath = path.join(folderPath, file);
+                try {
+                    const data = fs.readFileSync(filePath, 'utf-8');
+                    const courses: Course[] = JSON.parse(data);
+
+                    for (const course of courses) {
+                        let courseName = course.course_number;
+                        course.instructors.forEach(instructor => {
+                            const splitName = instructor.split(" ");
+                            courseName += '-' + splitName[splitName.length - 1];
+                        });
+
+                        const channel = await makeTextChannel(courseName, interaction.user, interaction.guild);
+                        channel.permissionOverwrites.create(admin.id, { ViewChannel: true })
+                    }
+
+                } catch (err) {
+                    console.error(`❌ Failed to process ${file}:`, err);
+                }
+
+                console.log(`Finished setting up: ${serverName}`);
             }
 
-            console.log(`Finished setting up: ${serverName}`);
+            await interaction.editReply({
+                content: "✅ Successfully created all servers with proper channel order!"
+            });
+        } catch (error) {
+            console.error(`Error when creating all servers:${error}`);
+            await interaction.editReply({
+                content: "Error when creating servers"
+            });
         }
 
-        await interaction.editReply({
-            content: "✅ Successfully created all servers with proper channel order!"
-        });
     }
 };

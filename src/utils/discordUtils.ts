@@ -1,10 +1,130 @@
-import { Guild, User, Interaction, TextChannel } from "discord.js";
+import { Guild, User, Interaction, TextChannel, BaseGuildTextChannel, GuildMember } from "discord.js";
 import { PermissionsBitField, PermissionOverwriteManager } from "discord.js";
 const fs = require("fs").promises;  // Use promises API for cleaner await
+import { readFile, writeFile } from 'fs/promises';
 
 interface Course {
   course_id: string
 }
+interface Admins {
+  admins: string[]
+}
+export class AdminError extends Error{
+    constructor(mssg:string){
+        super(mssg)
+    }
+}
+
+const ADMIN_FILE = "data/admin.json"
+
+export async function addAdmin(target:unknown, guild: Guild) {
+    if (!(target instanceof GuildMember)) {
+        throw new AdminError("Can only promote Guild Members")
+    }
+    const adminRole = guild?.roles.cache.get("admin");
+    if (!adminRole) {
+        throw new AdminError("admin role not found")
+    }
+    await addAdminJson(target.id);
+    if (target.roles.cache.has("admin")) {
+        throw new AdminError(`${target.displayName} is already an Admin`)
+    }
+
+    await target.roles.add(adminRole)
+    
+}
+
+export async function addAdminJson(userId: string) {
+  try {
+    // 1. Read the JSON file
+    const data = await readFile(ADMIN_FILE, 'utf8');
+    let json: Admins = JSON.parse(data);
+    // 2. If the user is not already in the list, add them
+    if (!json.admins) {
+      json = { admins: [] };
+    }
+    if (!json.admins.includes(userId)) {
+      json.admins.push(userId);
+    }
+
+    // 3. Save back to file
+    await writeFile(ADMIN_FILE, JSON.stringify(json, null, 2));
+    console.log(`✅ Added ${userId} to admins list`);
+  } catch (err) {
+    if (!(err instanceof Error))
+      throw new Error(`Unkown Error:${err}`);
+    if (!err.message.includes("no such file or directory")) {
+      console.error('Error adding admin:', err);
+      throw err;
+    }
+    //If file is not found, write to a file with new admin info 
+    const json = { admins: [userId] };
+    await writeFile(ADMIN_FILE, JSON.stringify(json, null, 2))
+
+  }
+
+}
+export async function findAdminJson(userId: string): Promise<boolean> {
+  // 1. Read the JSON file
+  try {
+    const data = await readFile(ADMIN_FILE, 'utf8');
+    let json: Admins = JSON.parse(data);
+    // 2. If the user is not already in the list, add them
+    if (!json.admins) {
+      throw new Error("Admins not found")
+    }
+    if (json.admins.includes(userId)) {
+      return true;
+    }
+    return false;
+  } catch (err) {
+    if (!(err instanceof Error))
+      throw new Error(`Unkown Error:${err}`);
+    if (!err.message.includes("no such file or directory")) {
+      console.error('Error adding admin:', err);
+      throw err;
+    }
+    //If file is not found, write to a file with new admin info 
+    const json = { admins: [] };
+    await writeFile(ADMIN_FILE, JSON.stringify(json, null, 2))
+    return false;
+  }
+
+
+}
+
+export async function removeAdminJson(userId: string) {
+  try {
+    // 1. Read the JSON file
+    const data = await readFile(ADMIN_FILE, 'utf8');
+    const json: Admins = JSON.parse(data);
+    const admins = json.admins;
+    // 2. If the user is not already in the list, add them
+    if (!admins) {
+      throw new Error("Admins not found")
+    }
+    if (!admins.includes(userId)) {
+      throw new Error(`${userId} isn't in admins`)
+    }
+    admins.splice(admins.indexOf(userId), 1)
+
+    await writeFile(ADMIN_FILE, JSON.stringify(json, null, 2));
+    console.log(`✅ Added ${userId} to admins list`);
+  } catch (err) {
+    if (!(err instanceof Error))
+      throw new Error(`Unkown Error:${err}`);
+    if (!err.message.includes("no such file or directory")) {
+      console.error('Error adding admin:', err);
+      throw err;
+    }
+    //If file is not found, write to a file with new admin info 
+    const json = { admins: [] };
+    await writeFile(ADMIN_FILE, JSON.stringify(json, null, 2))
+
+  }
+
+}
+
 
 /**
  * 
@@ -46,7 +166,7 @@ export async function allocateCourseByServer(courses: Course[], guild: Guild, us
  * What: Overwrites default("private-channel/can't see") permissions for the specific user
  * Why: So we can provide user's access to their proper channels after they have been verifed 
  */
-export async function provideUserAccess(courseCode:string, user:User, guild:Guild){
+export async function provideUserAccess(courseCode: string, user: User, guild: Guild) {
   const channel: TextChannel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase()) as TextChannel;
   if (channel) {
     console.log(`ℹ️ Channel ${courseCode} already exists. Updating permissions for ${user.username}`);
@@ -68,8 +188,8 @@ export async function provideUserAccess(courseCode:string, user:User, guild:Guil
  * Why: Utility method so it's easier to make channels when needed
  */
 
-export async function makeTextChannel(courseCode: string, user: User, guild: Guild | null) {
-  if(!guild)
+export async function makeTextChannel(courseCode: string, user: User, guild: Guild | null): Promise<BaseGuildTextChannel> {
+  if (!guild)
     throw new Error(`Guild Not Found!`)
   let channel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase());
   if (channel) {
@@ -98,6 +218,7 @@ export async function makeTextChannel(courseCode: string, user: User, guild: Gui
       }
     ]
   });
+  return channel as BaseGuildTextChannel;
 }
 
 /*

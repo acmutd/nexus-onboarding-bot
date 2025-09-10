@@ -1,18 +1,18 @@
 require('dotenv/config');
-import { Client, ClientApplication, Events, GatewayIntentBits, Collection, ClientOptions,SlashCommandBuilder, MessageFlags }  from 'discord.js';
-import { getUserData, makeUserByDiscord }  from './utils/firebaseUtils';
-import { allocateCourseByServer }  from './utils/discordUtils';
+import { Client, ClientApplication, Events, GatewayIntentBits, Collection, ClientOptions, SlashCommandBuilder, MessageFlags } from 'discord.js';
+import { getUserData, makeUserByDiscord } from './utils/firebaseUtils';
+import { allocateCourseByServer, findAdminJson, addAdmin, AdminError } from './utils/discordUtils';
 import discordRoutes from './api/routes/discord.routes';
-import fs  from 'node:fs';
-import path  from 'node:path';
-import express  from 'express';
-import cors  from 'cors';
-import bodyParser  from 'body-parser';
-import admin  from 'firebase-admin';
+import fs from 'node:fs';
+import path from 'node:path';
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import admin from 'firebase-admin';
 
 // Initialize Firebase Admin
 if (!admin.apps.length) {
-  const serviceAccount  = require('./service-account.json');
+  const serviceAccount = require('./service-account.json');
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     projectId: process.env.FIREBASE_PROJECT_ID
@@ -27,7 +27,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 class ModClient extends Client {
-  public commands: Collection<string, Command>; 
+  public commands: Collection<string, Command>;
 
   constructor(options: ClientOptions) {
     super(options);
@@ -106,27 +106,36 @@ app.use('/bot', discordRoutes);
 // Start server
 app.listen(PORT, () => console.log(`✅ Bot server running at http://localhost:${PORT}`));
 
+client.once('ready', async () => {
+  console.log('Ready!');
+  try {
+    const guild = await client.guilds.create({ name: 'TestGuild' });
+    console.log('Created guild:', guild.id);
+  } catch (e) {
+    console.error('Error creating guild:', e);
+  }
+});
 
 client.on(Events.InteractionCreate, async interaction => {
-	if (!interaction.isChatInputCommand()) return;
+  if (!interaction.isChatInputCommand()) return;
 
-	const command = client.commands.get(interaction.commandName);
+  const command = client.commands.get(interaction.commandName);
 
-	if (!command) {
-		console.error(`No command matching ${interaction.commandName} was found.`);
-		return;
-	}
+  if (!command) {
+    console.error(`No command matching ${interaction.commandName} was found.`);
+    return;
+  }
 
-	try {
-		await command.execute(interaction);
-	} catch (error) {
-		console.error(error);
-		if (interaction.replied || interaction.deferred) {
-			await interaction.followUp({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
-		} else {
-			await interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
-		}
-	}
+  try {
+    await command.execute(interaction);
+  } catch (error) {
+    console.error(error);
+    if (interaction.replied || interaction.deferred) {
+      await interaction.followUp({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+    } else {
+      await interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+    }
+  }
 });
 
 
@@ -144,7 +153,15 @@ client.on(Events.GuildMemberAdd, async (member) => {
   try {
     const userData = await getUserData(userId);
     console.log(`User data found for ${userId}:`, userData);
-
+    if (await findAdminJson(userId)) {
+      try {
+        await addAdmin(member, guild).catch(error => {
+          if (error instanceof AdminError)
+            return;
+        });
+      }
+      catch (err) {if(err instanceof AdminError) return;}
+    }
     if (!userData.discordId) {
       console.log(`User ${userId} has no Discord linked. Sending welcome message.`);
       await sendWelcomeMessage(guild, userId);
