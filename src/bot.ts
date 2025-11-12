@@ -15,7 +15,7 @@ import {
   ChannelType,
 } from 'discord.js';
 
-import { getUserData, makeUserByDiscord } from './utils/firebaseUtils';
+import { getUserData } from './utils/firebaseUtils';
 import { allocateCourseByServer, findAdminJson, addAdmin, AdminError, removeAllCourseAccess } from './utils/discordUtils';
 import discordRoutes from './api/routes/discord.routes';
 
@@ -347,8 +347,7 @@ client.on(Events.GuildMemberAdd, async (member) => {
     }
   } catch (err: any) {
     if (err instanceof Error && err.message === 'User not found') {
-      console.log(` User not found in Firestore. Creating guest record for ${userId}.`);
-      await makeUserByDiscord(member);
+      console.log(` User not found in Firestore (no account yet). Sending welcome message to ${userId}.`);
       await sendWelcomeMessage(guild, userId);
     } else {
       console.error(` GuildMemberAdd error for ${userId}:`, err);

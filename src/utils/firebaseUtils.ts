@@ -33,20 +33,3 @@ export async function manUser(discordId:string, callback:Function):Promise<any>{
   const userRef = userSnapshot.ref;
   return await callback(userRef, userSnapshot);
 }
-
-export async function makeUserByDiscord(member:GuildMember){
-    const usersRef = admin.firestore().collection('users');
-    await usersRef.add({
-        discord: {
-            username: member.user.username,
-            id: member.user.id,
-            avatarHash: member.user.avatar,
-            globalName: member.user.globalName,
-            linkedAt: new Date().toISOString()
-        },
-        email: "tempd@email.com", // Temporary email as seen in your structure
-        lastUpdated: new Date().toISOString(),
-        servers: [member.guild.id]
-    });
-    console.log(` Guest user created for ${member.user.tag}`);
-}
