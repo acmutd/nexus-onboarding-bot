@@ -29,7 +29,7 @@ module.exports = {
                 PermissionsBitField.Flags.ManageRoles,
             ])) {
                 return await interaction.reply({
-                    content: "❌ I don't have permission to manage channels or roles!",
+                    content: "I don't have permission to manage channels or roles!",
                     flags: MessageFlags.Ephemeral,
                 });
             }
@@ -92,7 +92,7 @@ module.exports = {
 
                 //Interaction response 
                 await interaction.followUp({
-                    content: `✅ Created **${serverName}**. Invite: ${invite.url}`,
+                    content: `Created **${serverName}**. Invite: ${invite.url}`,
                     flags: MessageFlags.Ephemeral
                 });
 
@@ -114,14 +114,14 @@ module.exports = {
                     }
 
                 } catch (err) {
-                    console.error(`❌ Failed to process ${file}:`, err);
+                    console.error(`Failed to process ${file}:`, err);
                 }
 
                 console.log(`Finished setting up: ${serverName}`);
             }
 
             await interaction.editReply({
-                content: "✅ Successfully created all servers with proper channel order!"
+                content: "Successfully created all servers with proper channel order!"
             });
         } catch (error) {
             console.error(`Error when creating all servers:${error}`);

@@ -27,12 +27,12 @@ export async function allocateCourseByServer(courses: Course[], guild: Guild, us
       const courseCode = (parts[1] + parts[2]).toLowerCase();
 
       if (prefixMap[prefix] === guild.name) {
-        console.log(`✅ Match found for prefix ${prefix} in guild ${guild.name}, creating/updating ${courseCode}`);
+        console.log(` Match found for prefix ${prefix} in guild ${guild.name}, creating/updating ${courseCode}`);
         await makeTextChannel(courseCode, user, guild);
       }
     }
   } catch (err) {
-    console.error("❌ allocateCourseByServer error:", err);
+    console.error(" allocateCourseByServer error:", err);
   }
 }
 
@@ -49,7 +49,7 @@ export async function allocateCourseByServer(courses: Course[], guild: Guild, us
 export async function provideUserAccess(courseCode:string, user:User, guild:Guild){
   const channel: TextChannel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase()) as TextChannel;
   if (channel) {
-    console.log(`ℹ️ Channel ${courseCode} already exists. Updating permissions for ${user.username}`);
+    console.log(` Channel ${courseCode} already exists. Updating permissions for ${user.username}`);
     await channel.permissionOverwrites.edit(user.id, {
       ViewChannel: true,
       SendMessages: true
@@ -101,7 +101,7 @@ export async function makeTextChannel(courseCode: string, user: User, guild: Gui
 /*
 const makeTextThread = async (interaction, channel, courseSection) => {
   if (!channel) {
-    console.log("❌ makeTextThread: undefined channel");
+    console.log(" makeTextThread: undefined channel");
     return;
   }
 
@@ -110,11 +110,11 @@ const makeTextThread = async (interaction, channel, courseSection) => {
     const existingThread = activeThreads.threads.find(x => x.name === courseSection);
 
     if (existingThread) {
-      console.log(`ℹ️ Thread ${courseSection} already exists`);
+      console.log(` Thread ${courseSection} already exists`);
       return existingThread;
     }
 
-    console.log(`✅ Creating thread: ${courseSection}`);
+    console.log(` Creating thread: ${courseSection}`);
     const thread = await channel.threads.create({
       name: courseSection,
       autoArchiveDuration: 60,
@@ -124,7 +124,7 @@ const makeTextThread = async (interaction, channel, courseSection) => {
 
     return thread;
   } catch (err) {
-    console.error("❌ makeTextThread error:", err);
+    console.error(" makeTextThread error:", err);
     return undefined;
   }
 };

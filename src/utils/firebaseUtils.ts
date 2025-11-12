@@ -2,17 +2,17 @@
 import * as admin from 'firebase-admin'
 import {GuildMember} from 'discord.js'
 const { FIREBASE_PROJECT_ID } = process.env;
-const serviceAccount = require('../service-account.json');
+const serviceAccount = require('../../service-account.json');
 if (!admin.apps.length) {
     admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
         projectId: FIREBASE_PROJECT_ID
     });
-    console.log('✅ Firebase Admin initialized');
+    console.log(' Firebase Admin initialized');
 }
 export async function getUserSnapshot(discordId:string):Promise<admin.firestore.QueryDocumentSnapshot<FirebaseFirestore.DocumentData, FirebaseFirestore.DocumentData>>{
     const usersRef = admin.firestore().collection('users');
-    const querySnapshot = await usersRef.where('discordId', '==', discordId).get();
+    const querySnapshot = await usersRef.where('discord.id', '==', discordId).get();
     console.log(`QuerySnapshot size for ${discordId}:`, querySnapshot.size);
 
     if (querySnapshot.empty) {
@@ -37,12 +37,16 @@ export async function manUser(discordId:string, callback:Function):Promise<any>{
 export async function makeUserByDiscord(member:GuildMember){
     const usersRef = admin.firestore().collection('users');
     await usersRef.add({
-        discordUsername: member.user.username,
-        discordId: member.user.id,
-        discordAvatar: member.user.avatar,
-        createdAt: new Date().toISOString(),
+        discord: {
+            username: member.user.username,
+            id: member.user.id,
+            avatarHash: member.user.avatar,
+            globalName: member.user.globalName,
+            linkedAt: new Date().toISOString()
+        },
+        email: "tempd@email.com", // Temporary email as seen in your structure
+        lastUpdated: new Date().toISOString(),
         servers: [member.guild.id]
     });
-    console.log(`✅ Guest user created for ${member.user.tag}`);
+    console.log(` Guest user created for ${member.user.tag}`);
 }
-

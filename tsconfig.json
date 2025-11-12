@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",               // Modern JavaScript features
-    "module": "CommonJS",             // Discord.js typically uses CommonJS
+    "module": "Node16",               // Changed to Node16 to match moduleResolution
     "outDir": "./dist",               // Output directory for compiled JS
     "rootDir": "./src",               // Source directory (adjust if needed)
     "strict": true,                   // Enable all strict type-checking

@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "deploy": "node deploy-commands.js",
-    "dev": "nodemon dist/bot.js"
+    "dev:ts": "ts-node --files src/bot.ts",
+    "build": "tsc",
+    "start": "node dist/bot.js"
   },
   "dependencies": {
     "body-parser": "^2.2.0",

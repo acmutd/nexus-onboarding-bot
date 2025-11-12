@@ -17,16 +17,78 @@ export class AdminError extends Error{
 
 const ADMIN_FILE = "data/admin.json"
 
+/**
+ * Remove all course channel permissions for a user when they unlink Discord
+ * @param user - The Discord user
+ * @param guild - The Discord guild
+ */
+export async function removeAllCourseAccess(user: User, guild: Guild) {
+  try {
+    const data = await fs.readFile("data/prefix_map.json", "utf-8");
+    const prefixMap = JSON.parse(data);
+    
+    // Get all course prefixes that belong to this guild
+    const guildPrefixes = Object.keys(prefixMap).filter(prefix => 
+      prefixMap[prefix].toLowerCase() === guild.name.toLowerCase()
+    );
+    
+    console.log(` Removing course access for ${user.username} in guild ${guild.name}`);
+    
+    // Find all channels that might be course channels
+    const channels = guild.channels.cache.filter(channel => 
+      channel.type === 0 && // Text channel
+      guildPrefixes.some(prefix => 
+        channel.name.toLowerCase().startsWith(prefix.toLowerCase())
+      )
+    );
+    
+    for (const [channelId, channel] of channels) {
+      if (channel instanceof TextChannel) {
+        try {
+          // Check if user has permissions on this channel
+          const userOverwrite = channel.permissionOverwrites.cache.get(user.id);
+          if (userOverwrite) {
+            await channel.permissionOverwrites.delete(user.id);
+          }
+        } catch (err) {
+          console.warn(` Could not remove permissions from channel ${channel.name}:`, err);
+        }
+      }
+    }
+    
+    console.log(` Removed course access from ${user.username}`);
+  } catch (err) {
+    console.error("removeAllCourseAccess error:", err);
+  }
+}
+
 export async function addAdmin(target:unknown, guild: Guild) {
     if (!(target instanceof GuildMember)) {
         throw new AdminError("Can only promote Guild Members")
     }
-    const adminRole = guild?.roles.cache.get("admin");
+    
+    // Look for admin role by name, not by ID
+    let adminRole = guild.roles.cache.find(role => role.name.toLowerCase() === "admin");
+    
     if (!adminRole) {
-        throw new AdminError("admin role not found")
+        // Create admin role if it doesn't exist
+        console.log(`Creating admin role in guild ${guild.name}`);
+        adminRole = await guild.roles.create({
+            name: "Admin",
+            permissions: [
+                PermissionsBitField.Flags.Administrator
+            ],
+            color: 0x0052CC, // Role color
+            hoist: true, // Show separately in member list
+            mentionable: true,
+            reason: "Auto-created admin role for promotion command"
+        });
+        console.log(`Admin role created with ID: ${adminRole.id}`);
     }
+    
     await addAdminJson(target.id);
-    if (target.roles.cache.has("admin")) {
+    
+    if (target.roles.cache.has(adminRole.id)) {
         throw new AdminError(`${target.displayName} is already an Admin`)
     }
 
@@ -49,7 +111,7 @@ export async function addAdminJson(userId: string) {
 
     // 3. Save back to file
     await writeFile(ADMIN_FILE, JSON.stringify(json, null, 2));
-    console.log(`✅ Added ${userId} to admins list`);
+    console.log(` Added ${userId} to admins list`);
   } catch (err) {
     if (!(err instanceof Error))
       throw new Error(`Unkown Error:${err}`);
@@ -109,7 +171,7 @@ export async function removeAdminJson(userId: string) {
     admins.splice(admins.indexOf(userId), 1)
 
     await writeFile(ADMIN_FILE, JSON.stringify(json, null, 2));
-    console.log(`✅ Added ${userId} to admins list`);
+    console.log(` Added ${userId} to admins list`);
   } catch (err) {
     if (!(err instanceof Error))
       throw new Error(`Unkown Error:${err}`);
@@ -140,19 +202,49 @@ export async function allocateCourseByServer(courses: Course[], guild: Guild, us
   try {
     const data = await fs.readFile("data/prefix_map.json", "utf-8");
     const prefixMap = JSON.parse(data);
+    
+    console.log(` Processing ${courses.length} courses for ${user.username} in guild "${guild.name}"`);
 
     for (const course of courses) {
       const parts = course.course_id.split('-');
+      
+      if (parts.length < 3) {
+        console.warn(`   Invalid course format: ${course.course_id} (expected format: prefix-code-professor)`);
+        continue;
+      }
+      
       const prefix = parts[0].toLowerCase();
-      const courseCode = (parts[1] + parts[2]).toLowerCase();
-
-      if (prefixMap[prefix] === guild.name) {
-        console.log(`✅ Match found for prefix ${prefix} in guild ${guild.name}, creating/updating ${courseCode}`);
-        await makeTextChannel(courseCode, user, guild);
+      const courseNumber = parts[1];
+      const professorName = parts.slice(2).join(' ');
+      
+      // Extract last name from professor (same logic as create-all-courses)
+      const profParts = professorName.trim().split(/\s+/);
+      const profLastName = profParts[profParts.length - 1] || 'staff';
+      
+      // Sanitize professor name (remove non-alphanumeric characters, lowercase)
+      const sanitizedProf = profLastName.toLowerCase().replace(/[^a-z0-9-_]/g, '');
+      
+      // Build channel name in same format as create-all-courses: prefix-number-prof
+      const channelName = `${prefix}-${courseNumber}-${sanitizedProf}`;
+      
+      if (prefixMap[prefix] && prefixMap[prefix].toLowerCase() === guild.name.toLowerCase()) {
+        console.log(`   Granted access to ${channelName}`);
+        
+        try {
+          await provideUserAccess(channelName, user, guild);
+        } catch (accessErr) {
+          // If channel doesn't exist, try to create it
+          try {
+            await makeTextChannel(channelName, user, guild);
+            console.log(`   Created new channel: ${channelName}`);
+          } catch (createErr) {
+            console.warn(`   Could not create/access channel ${channelName}:`, createErr);
+          }
+        }
       }
     }
   } catch (err) {
-    console.error("❌ allocateCourseByServer error:", err);
+    console.error(" allocateCourseByServer error:", err);
   }
 }
 
@@ -169,11 +261,12 @@ export async function allocateCourseByServer(courses: Course[], guild: Guild, us
 export async function provideUserAccess(courseCode: string, user: User, guild: Guild) {
   const channel: TextChannel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase()) as TextChannel;
   if (channel) {
-    console.log(`ℹ️ Channel ${courseCode} already exists. Updating permissions for ${user.username}`);
     await channel.permissionOverwrites.edit(user.id, {
       ViewChannel: true,
       SendMessages: true
     });
+  } else {
+    throw new Error(`Channel ${courseCode} not found`);
   }
 }
 
@@ -191,26 +284,29 @@ export async function provideUserAccess(courseCode: string, user: User, guild: G
 export async function makeTextChannel(courseCode: string, user: User, guild: Guild | null): Promise<BaseGuildTextChannel> {
   if (!guild)
     throw new Error(`Guild Not Found!`)
+  
   let channel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase());
   if (channel) {
-    throw new Error(`${channel.name} already exists`);
+    console.log(`   Channel ${courseCode} already exists. Providing access to ${user.username}`);
+    await provideUserAccess(courseCode, user, guild);
+    return channel as BaseGuildTextChannel;
   }
 
-  console.log(`Creating channel: ${courseCode}`);
+  console.log(`   Creating new channel: ${courseCode}`);
   channel = await guild.channels.create({
     name: courseCode,
     type: 0,  // GUILD_TEXT
     permissionOverwrites: [
       {
-        id: guild.id,
+        id: guild.id, // @everyone role
         deny: [PermissionsBitField.Flags.ViewChannel]
       },
       {
-        id: user.id,
+        id: user.id, // Specific user who gets access
         allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages]
       },
       {
-        id: guild.members.me?.id ?? user.id,
+        id: guild.members.me?.id ?? user.id, // Bot permissions
         allow: [
           PermissionsBitField.Flags.ViewChannel,
           PermissionsBitField.Flags.ManageChannels,
@@ -224,7 +320,7 @@ export async function makeTextChannel(courseCode: string, user: User, guild: Gui
 /*
 const makeTextThread = async (interaction, channel, courseSection) => {
   if (!channel) {
-    console.log("❌ makeTextThread: undefined channel");
+    console.log(" makeTextThread: undefined channel");
     return;
   }
 
@@ -233,11 +329,11 @@ const makeTextThread = async (interaction, channel, courseSection) => {
     const existingThread = activeThreads.threads.find(x => x.name === courseSection);
 
     if (existingThread) {
-      console.log(`ℹ️ Thread ${courseSection} already exists`);
+      console.log(` Thread ${courseSection} already exists`);
       return existingThread;
     }
 
-    console.log(`✅ Creating thread: ${courseSection}`);
+    console.log(` Creating thread: ${courseSection}`);
     const thread = await channel.threads.create({
       name: courseSection,
       autoArchiveDuration: 60,
@@ -247,7 +343,7 @@ const makeTextThread = async (interaction, channel, courseSection) => {
 
     return thread;
   } catch (err) {
-    console.error("❌ makeTextThread error:", err);
+    console.error(" makeTextThread error:", err);
     return undefined;
   }
 };
