@@ -96,6 +96,30 @@ export async function addAdmin(target:unknown, guild: Guild) {
     
 }
 
+export async function removeAdmin(target:unknown, guild: Guild) {
+    if (!(target instanceof GuildMember)) {
+        throw new AdminError("Can only demote Guild Members")
+    }
+    
+    // Look for admin role by name
+    const adminRole = guild.roles.cache.find(role => role.name.toLowerCase() === "admin");
+    
+    if (!adminRole) {
+        throw new AdminError("Admin role not found in this server")
+    }
+    
+    if (!target.roles.cache.has(adminRole.id)) {
+        throw new AdminError(`${target.displayName} is not an Admin`)
+    }
+
+    // Remove from JSON file first
+    await removeAdminJson(target.id);
+    
+    // Remove admin role
+    await target.roles.remove(adminRole)
+    
+}
+
 export async function addAdminJson(userId: string) {
   try {
     // 1. Read the JSON file
@@ -171,7 +195,7 @@ export async function removeAdminJson(userId: string) {
     admins.splice(admins.indexOf(userId), 1)
 
     await writeFile(ADMIN_FILE, JSON.stringify(json, null, 2));
-    console.log(` Added ${userId} to admins list`);
+    console.log(` Removed ${userId} from admins list`);
   } catch (err) {
     if (!(err instanceof Error))
       throw new Error(`Unkown Error:${err}`);
