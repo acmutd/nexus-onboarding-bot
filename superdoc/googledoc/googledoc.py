@@ -114,7 +114,7 @@ class GoogleDocsEditor(GoogleDocsAPI):
         except Exception as err:
             print(f'Error creating document: {err}')
             return None
-         
+      
     def get_document_structure(self, document_id):
         """Fetch the current document state"""
         try:
@@ -123,6 +123,9 @@ class GoogleDocsEditor(GoogleDocsAPI):
         except Exception as e:
             print(f"Error fetching document: {e}")
             return None
+    
+    def text_utf16_len(self,text:str): 
+        return len((text).encode("utf-16-le"))//2
         
     def descending_sort_inserttext(self,requests):
         return sorted(requests, 
@@ -132,7 +135,7 @@ class GoogleDocsEditor(GoogleDocsAPI):
                  reverse=True) 
             
     def batch_update(self,requests):
-        if not requests: 
+        if not requests or len(requests) == 0: 
             return
         try: 
             # Execute the batch update
@@ -295,7 +298,54 @@ class GoogleDocsEditor(GoogleDocsAPI):
         print(f"Printing to {content[-1].get('endIndex') - 1}")
         return (content[-1].get('endIndex'),content[-1].get('endIndex') - 1,-1)
 
-    
+    #Before modifying the google doc, we run a quick check on all of the 
+    def mutate_named_ranges(self,document_id:str):
+        document = self.doc
+        named_ranges = document.get("namedRanges",{})
+        sorted_items = sorted(named_ranges.items(),key=lambda item: item[1].get("namedRanges", [{}])[0]
+                               .get("ranges", [{}])[0]
+                               .get("endIndex", 0)) 
+        print(sorted_items)
+        requests= []
+        for i in range(1,len(sorted_items)):
+            prev_ranges = sorted_items[i-1][1]\
+                        .get("namedRanges",[{}])[0]\
+                        .get("ranges",[{}])[0]
+            curr_ranges = sorted_items[i][1]\
+                        .get("namedRanges",[{}])[0]\
+                        .get("ranges",[{}])[0]
+            prevEndIdx = prev_ranges.get("endIndex",0)
+            currStartIdx = curr_ranges.get("startIndex",0)
+            #heading = sorted_items[i][0]
+            diff = currStartIdx - prevEndIdx
+            print(diff)
+            if((diff)>self.text_utf16_len('\n')): 
+                print("hit")
+                requests.append(
+                    {
+                        'deleteNamedRange': {
+                            'name': sorted_items[i-1][0]#prev_heading
+                        }
+                    }
+                    )
+                requests.append(# Create a new named range for the updated heading
+                    {
+                        'createNamedRange': {
+                            'name': sorted_items[i-1][0],
+                            'range': {
+                                'startIndex': prev_ranges.get("startIndex",0),
+                                'endIndex': prevEndIdx-1+(diff)
+                            }
+                        }
+                    }
+                )
+        #print(requests,self.text_utf16_len('\n'))
+        self.batch_update(requests=requests) 
+        self.get_document_structure(document_id=document_id) 
+        #named_ranges = document.get("namedRanges",{})
+              
+            
+            
     #Ideally, force each of those documents to go through a quick query and search,
     #if the headings are well comparable, change the headings the document contains to
     #frick, have to order documents by the heading/endIndex position(in reverse), then append it to requests,
@@ -383,22 +433,6 @@ class GoogleDocsEditor(GoogleDocsAPI):
             #We want to insert text to the end of our namedRange(i.e after our heading-paragraph combo)
             insertion_index = namedRangeEnd
             #First lets delete the paragraphBullets(google docs is gae and won't lemme update a namedRange)
-            '''
-            delete_range_requests.append({
-                    'deleteParagraphBullets': {
-                    'range': {
-                            'startIndex': namedRangeStart,
-                            'endIndex':  namedRangeEnd -1
-                        },
-                    }
-                })
-            
-            delete_range_requests.append({
-                    'deleteNamedRange': {
-                        'name': heading
-                    }
-                })    
-            '''
             para_bulletin = chunk.page_content+'\n'
             startIndex = insertion_index
             endIndex = insertion_index+len((para_bulletin).encode("utf-16-le"))//2
@@ -436,32 +470,7 @@ class GoogleDocsEditor(GoogleDocsAPI):
                             }
                     }   
                 }]
-            '''
-            create_range_requests.append(
-                {
-                    'createParagraphBullets': {
-                        'range': {
-                            #Using namedRangeStart because if there was a heading, then we want to re-up the original start of the paragraph
-                            'startIndex': namedRangeStart+len((heading+":").encode("utf-16-le"))//2,
-                            'endIndex': endIndex-1
-                        },
-                        'bulletPreset': 'BULLET_DISC_CIRCLE_SQUARE',
-                    }
-                })
-            create_range_requests.append(
-                {
-                    'createNamedRange': {
-                        'name': heading,
-                        'range': {
-                            'startIndex': namedRangeStart,
-                            'endIndex': endIndex-1
-                            }
-                    }   
-                }
-            )'''
-            #self.batch_update(requests=requests)
-            #self.get_document_structure(document_id=document_id)
-            requests = []
+    
         text_requests = self.descending_sort_inserttext(text_requests)
         #self.batch_update(requests=delete_range_requests)
         self.batch_update(requests=text_requests)
@@ -524,7 +533,6 @@ def insert_text_ex():
     docs_editor = GoogleDocsEditor()
     drive_activity = GoogleDriveActivity()
     
-    AUTHOR_DISPLAY_NAME = "Indrajith Thyagaraja"
     converter = DocumentConverter()
     doc = converter.convert("./files/ResearchPaperTurnIn.pdf").document 
     chunker = DocSemChunker() 
@@ -547,13 +555,15 @@ def insert_text_ex():
 def main():
     # Initialize the editorpinecone_api_key = os.environ.get("PINECONE_API_KEY")
     #drive_activity = GoogleDriveActivity()
-    insert_text_ex()
+    #insert_text_ex()
     DOCUMENT_ID = '1zjQClSEUE587kPrupY5fplFtUcB3OGEj5mKhplmiFxM'
     docs_editor = GoogleDocsEditor()
     docs_editor.get_document_structure(document_id=DOCUMENT_ID)
     #docs_editor.update_heading(old_heading="Introduction",new_heading="Goofy Goober")
-    print(docs_editor.find_named_range(heading="Introduction"))
-   # print(f"Doc structure:{docs_editor.doc}")
+    #print(docs_editor.find_named_range(heading="Introduction"))
+    docs_editor.mutate_named_ranges(document_id=DOCUMENT_ID)
+    
+    # print(f"Doc structure:{docs_editor.doc}")
     #print(docs_editor.find_insertion_point("stuff"))
     #print("Appending to end of document...")
     #docs_editor.insert_text(document_id=DOCUMENT_ID, chunk_docs=chunk_iter)

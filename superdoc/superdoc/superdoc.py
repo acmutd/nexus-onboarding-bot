@@ -33,7 +33,7 @@ class superdoc():
         chunk_iter = self.db.modify_doc_heading(documents=chunk_iter,superdoc_id=self.DOCUMENT_ID,course_id=self.COURSE_ID)
         #may need this everytime I call this method depending on of there are gdoc manipulations before this method
         self.docs_editor.get_document_structure(document_id=self.DOCUMENT_ID)
-        
+        self.docs_editor.mutate_named_ranges()
         self.docs_editor.insert_text(document_id=self.DOCUMENT_ID, chunk_docs=chunk_iter)
 
 
