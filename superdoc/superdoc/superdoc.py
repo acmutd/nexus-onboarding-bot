@@ -12,6 +12,8 @@ import numpy as np
 
 
 class superdoc():
+    
+    #Clean up init
     def __init__(self,DOCUMENT_ID:str|None,COURSE_ID:str,index_name='sdtest1'):
         self.DOCUMENT_ID = DOCUMENT_ID
         self.COURSE_ID = COURSE_ID
@@ -33,7 +35,7 @@ class superdoc():
         chunk_iter = self.db.modify_doc_heading(documents=chunk_iter,superdoc_id=self.DOCUMENT_ID,course_id=self.COURSE_ID)
         #may need this everytime I call this method depending on of there are gdoc manipulations before this method
         self.docs_editor.get_document_structure(document_id=self.DOCUMENT_ID)
-        self.docs_editor.mutate_named_ranges()
+        self.docs_editor.mutate_named_ranges(document_id=self.DOCUMENT_ID)
         self.docs_editor.insert_text(document_id=self.DOCUMENT_ID, chunk_docs=chunk_iter)
 
 
@@ -50,90 +52,8 @@ class superdoc():
         self.docs_editor.update_heading(old_heading=old_heading,new_heading=new_heading)
         self.db.replace_vectordb_heading_with_text(old_heading=old_heading,new_heading_text=new_heading,course_id=self.COURSE_ID,superdoc_id=self.DOCUMENT_ID)
 
-    def group_embedded_chunks(self, chunks: list[Document]):
-        groups = []
-        used = set()  # Use set for O(1) lookups
-
-        for i in range(len(chunks)): 
-            if chunks[i] in used:
-                continue
-
-            # Start new group
-            similar = [chunks[i]]
-            used.add(chunks[i])
-            i_embedding = chunks[i].metadata['mean_embedding']
-
-            # Find similar chunks
-            for j in range(len(chunks)): 
-                if chunks[j] in used:
-                    continue
-
-                j_embedding = chunks[j].metadata['mean_embedding']
-                if cosine_similarity([i_embedding], [j_embedding])[0][0] > 0.9:
-                    similar.append(chunks[j])
-                    used.add(chunks[j])
-
-            # Calculate mean embedding CORRECTLY
-            embeddings = [chunk.metadata['mean_embedding'] for chunk in similar]
-            mean_embedding = np.array(embeddings).mean(axis=0)
-
-            groups.append({
-                'mean_embedding': mean_embedding,
-                'chunks': similar
-            })
-
-        return groups
-
-    def improved_greedy_clustering(self, chunks: list[Document], threshold: float = 0.85):
-        """
-        Improved version of your original approach with better similarity checking.
-        """
-        clusters = []
-        used = set()
-
-        # Sort by embedding magnitude to start with "prototypical" documents
-        sorted_chunks = sorted(chunks, 
-            key=lambda x: np.linalg.norm(x.metadata['mean_embedding']), 
-            reverse=True)
-
-        for i, chunk in enumerate(sorted_chunks):
-            if chunk in used:
-                continue
-
-            # Start new cluster
-            cluster = [chunk]
-            used.add(chunk)
-            center_embedding = chunk.metadata['mean_embedding']
-
-            # Find similar chunks (check against cluster center)
-            for other_chunk in sorted_chunks[i+1:]:
-                if other_chunk in used:
-                    continue
-
-                similarity = cosine_similarity(
-                    [center_embedding], 
-                    [other_chunk.metadata['mean_embedding']]
-                )[0][0]
-
-                if similarity >= threshold:
-                    cluster.append(other_chunk)
-                    used.add(other_chunk)
-                    # Update cluster center as we add members
-                    cluster_embeddings = [c.metadata['mean_embedding'] for c in cluster]
-                    center_embedding = np.array(cluster_embeddings).mean(axis=0)
-
-            # Final mean embedding for the cluster
-            cluster_embeddings = [c.metadata['mean_embedding'] for c in cluster]
-            mean_embedding = np.array(cluster_embeddings).mean(axis=0)
-
-            clusters.append({
-                'mean_embedding': mean_embedding,
-                'chunks': cluster,
-                'size': len(cluster)
-            })
-
-        return clusters
-
+    def get_docids(self,course_id:str): 
+        return self.docs_editor.get_idstore_docids(courseid=course_id)
             
         
         

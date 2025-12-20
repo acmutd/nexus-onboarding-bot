@@ -1,14 +1,34 @@
 from flask import Flask, request, jsonify
 from superdoc.superdoc import superdoc
+from googledoc.googledoc import DocumentIDStore
 import os
 import sys
 import tempfile
 import traceback
+import logging
 
 # Add parent directory to path to import modules
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# Configure logging to output to stdout
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    stream=sys.stdout,
+    force=True  # Override any existing configuration
+)
+
+# Configure Flask's logger
 app = Flask(__name__)
+app.logger.setLevel(logging.INFO)
+app.logger.handlers = []  # Clear existing handlers
+handler = logging.StreamHandler(sys.stdout)
+handler.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+app.logger.addHandler(handler)
+
+INDEX_NAME = 'sdtest1'
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -26,6 +46,12 @@ def merge_pdf():
     - index_name (optional): Pinecone index name (defaults to 'sdtest1')
     """
     try:
+        # Debug: Check what Flask received
+        print(f"Content-Type: {request.content_type}", flush=True)
+        print(f"Form data: {request.form}", flush=True)
+        print(f"Form keys: {list(request.form.keys())}", flush=True)
+        print(f"Files: {list(request.files.keys())}", flush=True)
+        
         # Check if PDF file is present
         if 'pdf_file' not in request.files:
             return jsonify({"error": "pdf_file is required"}), 400
@@ -38,10 +64,11 @@ def merge_pdf():
         # Get form data
         course_id = request.form.get('course_id')
         if not course_id:
+            print(f"Warning: course_id not found in form. Available form keys: {list(request.form.keys())}", flush=True)
             return jsonify({"error": "course_id is required"}), 400
         
         document_id = request.form.get('document_id', None)
-        index_name = request.form.get('index_name', 'sdtest1')
+        index_name = INDEX_NAME
         
         # Read PDF bytes and save to temporary file
         # DocumentConverter requires a file path, not BytesIO
@@ -105,7 +132,7 @@ def delete_heading():
         course_id = data['course_id']
         old_heading = data['old_heading']
         document_id = data.get('document_id', None)
-        index_name = data.get('index_name', 'sdtest1')
+        index_name = INDEX_NAME
         
         # Initialize superdoc instance
         sd = superdoc(DOCUMENT_ID=document_id, COURSE_ID=course_id, index_name=index_name)
@@ -147,7 +174,7 @@ def create_heading():
         course_id = data['course_id']
         new_heading = data['new_heading']
         document_id = data.get('document_id', None)
-        index_name = data.get('index_name', 'sdtest1')
+        index_name = INDEX_NAME
         
         # Initialize superdoc instance
         sd = superdoc(DOCUMENT_ID=document_id, COURSE_ID=course_id, index_name=index_name)
@@ -194,7 +221,7 @@ def update_heading():
         old_heading = data['old_heading']
         new_heading = data['new_heading']
         document_id = data.get('document_id', None)
-        index_name = data.get('index_name', 'sdtest1')
+        index_name = INDEX_NAME
         
         # Initialize superdoc instance
         sd = superdoc(DOCUMENT_ID=document_id, COURSE_ID=course_id, index_name=index_name)
@@ -211,6 +238,85 @@ def update_heading():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route('/get_docids', methods=['PUT','POST', 'PATCH'])
+def get_docids():
+    """
+    Get document IDs for a course.
+    Expects JSON body with:
+    - course_id (required): Course ID
+    - index_name (optional): Pinecone index name (defaults to 'sdtest1')
+    """
+    try:
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({"error": "Request body is required"}), 400
+        
+        if 'course_id' not in data:
+            return jsonify({"error": "course_id is required"}), 400
+        
+        course_id = data['course_id']
+        index_name = INDEX_NAME
+        idstore = DocumentIDStore()
+        # Initialize idstore instance
+        ids = idstore.get_docids(courseid=course_id)
+        
+        
+        return jsonify({
+            "status": "success",
+            "message": f"Retrieved {len(ids) if ids else 0} from {course_id}",
+            "ids": ids
+        }), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/create_document', methods=['POST'])
+def create_document():
+    """
+    Create a new document.
+    Expects JSON body with:
+    - course_id (required): Course ID
+    - document_name (required): Name of the document to create
+    - index_name (optional): Pinecone index name (defaults to 'sdtest1')
+    """
+    try:
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({"error": "Request body is required"}), 400
+        
+        if 'course_id' not in data:
+            return jsonify({"error": "course_id is required"}), 400
+        
+        if 'document_name' not in data:
+            return jsonify({"error": "document_name is required"}), 400
+        
+        course_id = data['course_id']
+        document_name = data['document_name']
+        index_name = INDEX_NAME
+        
+        # Create document using GoogleDocsEditor
+        from googledoc.googledoc import GoogleDocsEditor
+        docs_editor = GoogleDocsEditor()
+        response = docs_editor.create_google_doc(name=document_name, courseid=course_id)
+        
+        if response is None:
+            return jsonify({"error": "Failed to create document"}), 500
+        
+        document_id = response.get('documentId')
+        
+        return jsonify({
+            "status": "success",
+            "message": f"Document '{document_name}' created successfully",
+            "document_id": document_id
+        }), 200
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    print("Starting Flask server on http://0.0.0.0:5000", flush=True)
+    app.logger.info("Flask server starting...")
+    app.run(debug=True, host='0.0.0.0', port=5000, use_reloader=False)
 

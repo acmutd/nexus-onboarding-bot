@@ -1,28 +1,29 @@
-FROM node:20-bullseye
+FROM python:3.12-bookworm
 
 #set workd directory
 WORKDIR /app 
-RUN apt-get update && apt-get install python3-pip -y
-
-COPY ./ ./
-#installing node_modules first
-RUN ls ./ > files.txt
-RUN cat files.txt
-#RUN npm install 
-
-#RUN python3 --version
-
-#changing word dir to superdoc dir 
-#RUN apt-get install python3-venv -y
-WORKDIR /app/superdoc 
-
-#installing all of the needed requirements
-#RUN python3 -m venv venv
-#RUN source venv/bin/activate
-RUN pip install -r requirements.txt
+RUN apt-get update && apt-get install -y \
+    curl \
+    gnupg \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists
 
 WORKDIR /app
+COPY . .
 
+# Install Python dependencies
+WORKDIR /app/superdoc
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Install Node.js dependencies
+WORKDIR /app
+RUN npm install
+
+EXPOSE 8080
+CMD ["npm", "dev:ts"]
 EXPOSE 8080
 
 #docker run -p 9000:8080 --rm --init  nexus_bot

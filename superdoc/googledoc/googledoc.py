@@ -7,7 +7,7 @@ from vectordb.vector_db_manager import VectorDBManager
 from langchain_openai import OpenAIEmbeddings
 from pinecone import Pinecone, IndexModel, ServerlessSpec
 from itertools import chain
-
+from diskcache import Index
 
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build, Resource
@@ -17,7 +17,7 @@ from chunking.doc_chunking import DocSemChunker
 from docling.document_converter import DocumentConverter
 
 # If modifying these SCOPES, delete the file token.json.
-SCOPES = ["https://www.googleapis.com/auth/documents","https://www.googleapis.com/auth/drive"] # Use full scope like 'https://www.googleapis.com/auth/documents' for write operations
+SCOPES = ["https://www.googleapis.com/auth/documents","https://www.googleapis.com/auth/drive.file"] # Use full scope like 'https://www.googleapis.com/auth/documents' for write operations
 
 class GoogleDocsAPI:
     def __init__(self, credentials_file='credentials.json', token_file='token.json'):
@@ -26,8 +26,29 @@ class GoogleDocsAPI:
         (self.doc_service,self.drive_service) = self.authenticate()
     
     def authenticate(self):
+        creds = None
+        # The token.json stores the user's access and refresh tokens
+        if os.path.exists(self.token_file):
+            creds = Credentials.from_authorized_user_file(self.token_file, SCOPES)
+            
+        # If there are no (valid) credentials available, let the user log in.
+        if not creds or not creds.valid:
+            if creds and creds.expired and creds.refresh_token:
+                creds.refresh(Request())
+            else:
+                flow = InstalledAppFlow.from_client_secrets_file(
+                    self.credentials_file, SCOPES)
+                # This will open a browser window for you to sign in
+                creds = flow.run_local_server(port=0)
+                
+            # Save the credentials for the next run
+            with open(self.token_file, 'w') as token:
+                token.write(creds.to_json())
+        return (build('docs', 'v1', credentials=creds),build('drive', 'v3', credentials=creds))
+    '''
+    def authenticate(self):
         """Authenticate and build the Google Docs service"""
-        '''
+        
         # If you have OAuth 2.0 credentials
         creds = None
         # The file token.json stores the user's access and refresh tokens.
@@ -52,7 +73,6 @@ class GoogleDocsAPI:
                 token.write(creds.to_json())
         
         return build('docs', 'v1', credentials=creds)
-        '''
         try:
             #print(f"OS:{os.getenv("GOOGLE_SERVICE_ACCT")}")
             creds = service_account.Credentials.from_service_account_file(
@@ -63,39 +83,66 @@ class GoogleDocsAPI:
         except Exception as e:
             print(f"Error authenticating with service account: {e}")
             raise
+        '''
     
-class GoogleDriveActivity(GoogleDocsAPI):
-    def list_comments_by_author(self, file_id, author_display_name):
-        """Lists all comments on a file made by a specific author, based on display name."""
-        try:
-        # Get all comments for the file
-            response = self.drive_service.comments().list(
-                fileId=file_id,
-                fields="comments(author(displayName),content,createdTime,id)"
-            ).execute()
-
-            comments = response.get('comments', [])
-        
-            # Filter comments by the author's display name
-            authors_comments = [
-                comment for comment in comments 
-                if comment.get('author', {}).get('displayName') == author_display_name
-            ]
-        
-            return authors_comments
-        
-        except TypeError as error:
-            print(f"An API error occurred: {error}")
-            return None
+class IDSError(Exception): 
+        def __init__(self,msg:str):
+            self.msg = msg
+class DocumentIDStore(): 
     
+    def __init__(self):
+        self.cache = Index("idstore")
+    
+    def push_new_docId(self,courseid:str,docname:str,docid:str):
+        temp_dict = {}
+        if courseid in self.cache: 
+            temp_dict = self.cache[courseid]
+        if docname in temp_dict: 
+            raise IDSError("document name taken")
+        temp_dict[docname] = docid
+        self.cache[courseid] = temp_dict
+        
+    def get_docids(self,courseid:str): 
+        if courseid in self.cache:
+            return self.cache[courseid]
+        return None 
     
     
 class GoogleDocsEditor(GoogleDocsAPI):
-    def create_google_doc(self, name:str):
+    def __init__(self):
+        super().__init__()
+        self.idstore = DocumentIDStore()
+        
+    def get_text_in_range_from_doc_obj(doc, start_index, end_index):
+        """Helper to extract text from a doc object already in memory."""
+        extracted = []
+        content = doc.get('body').get('content', [])
+
+        for element in content:
+            el_start = element.get('startIndex')
+            el_end = element.get('endIndex')
+
+            if el_start is not None and el_end is not None:
+                if el_start < end_index and el_end > start_index:
+                    if 'paragraph' in element:
+                        for part in element['paragraph']['elements']:
+                            if 'textRun' in part:
+                                text = part['textRun']['content']
+                                p_start = part.get('startIndex')
+
+                                rel_start = max(0, start_index - p_start)
+                                rel_end = min(len(text), end_index - p_start)
+
+                                if rel_start < rel_end:
+                                    extracted.append(text[rel_start:rel_end])
+        return "".join(extracted)
+    def create_google_doc(self, name:str, courseid:str):
         try:
             # Create the document using the Docs API
+            #print(f"Service Account Email: {self.doc_service._http.credentials.service_account_email}")
             response = self.doc_service.documents().create(body={'title': name}).execute()
             document_id = response.get('documentId')
+            self.idstore.push_new_docId(courseid=courseid,docname=name,docid=document_id)
             print(f'Created Document ID: {document_id}')
 
             # Set the document to be editable by anyone with the link
@@ -106,6 +153,7 @@ class GoogleDocsEditor(GoogleDocsAPI):
                     'type': 'anyone'
                 }
             ).execute()
+            print(permission_result)
             print("Document sharing permissions updated.")
             print(document_id)
 
@@ -114,6 +162,9 @@ class GoogleDocsEditor(GoogleDocsAPI):
         except Exception as err:
             print(f'Error creating document: {err}')
             return None
+    
+    def get_idstore_docids(self,courseid:str): 
+        return self.idstore.get_docids(courseid=courseid)
       
     def get_document_structure(self, document_id):
         """Fetch the current document state"""
@@ -558,10 +609,10 @@ def main():
     #insert_text_ex()
     DOCUMENT_ID = '1zjQClSEUE587kPrupY5fplFtUcB3OGEj5mKhplmiFxM'
     docs_editor = GoogleDocsEditor()
-    docs_editor.get_document_structure(document_id=DOCUMENT_ID)
     #docs_editor.update_heading(old_heading="Introduction",new_heading="Goofy Goober")
     #print(docs_editor.find_named_range(heading="Introduction"))
-    docs_editor.mutate_named_ranges(document_id=DOCUMENT_ID)
+    
+    docs_editor.create_google_doc(name="cholorplasts",courseid="RHET1302")
     
     # print(f"Doc structure:{docs_editor.doc}")
     #print(docs_editor.find_insertion_point("stuff"))

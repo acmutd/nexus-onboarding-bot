@@ -1,12 +1,12 @@
 /// <reference path="./@types/express.d.ts" />
 require('dotenv/config');
-
+const pidusage = require('pidusage');
 import {
   Client,
   Events,
   GatewayIntentBits,
   Collection,
-  ClientOptions,
+  ClientOptions,         
   MessageFlags,
   ChatInputCommandInteraction,
   REST,
@@ -25,6 +25,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import admin from 'firebase-admin';
+import { spawn, ChildProcess } from 'child_process';
 
 // ---------- Firebase Admin ----------
 if (!admin.apps.length) {
@@ -355,6 +356,91 @@ client.on(Events.GuildMemberAdd, async (member) => {
   }
 });
 
+// ---------- Start Superdoc Flask Server ----------
+let superdocProcess: ChildProcess | null = null;
+
+function startSuperdocServer() {
+  const pythonRoot = path.resolve(__dirname, '../superdoc');
+  console.log(` Starting Superdoc Flask server from ${pythonRoot}...`);
+  
+  // Use -u flag for unbuffered output, or set PYTHONUNBUFFERED environment variable
+  superdocProcess = spawn('python', ['-u', '-m', 'flask_api.app'], {
+    cwd: pythonRoot,
+    stdio: ['ignore', 'pipe', 'pipe'],
+    env: {
+      ...process.env,
+      PYTHONUNBUFFERED: '1', // Ensure Python output is unbuffered
+    },
+  });
+
+  if (superdocProcess.stdout) {
+    superdocProcess.stdout.on('data', (data) => {
+      const lines = data.toString().split('\n').filter((line: string) => line.trim());
+      lines.forEach((line: string) => {
+        console.log(`[Superdoc] ${line.trim()}`);
+      });
+    });
+  }
+
+  if (superdocProcess.stderr) {
+    superdocProcess.stderr.on('data', (data) => {
+      const lines = data.toString().split('\n').filter((line: string) => line.trim());
+      lines.forEach((line: string) => {
+        console.error(`[Superdoc Error] ${line.trim()}`);
+      });
+    });
+  }
+
+  superdocProcess.on('close', (code) => {
+    console.log(`[Superdoc] Flask server exited with code ${code}`);
+    superdocProcess = null;
+  });
+
+  superdocProcess.on('error', (error) => {
+    console.error(`[Superdoc] Failed to start Flask server:`, error);
+    superdocProcess = null;
+  });
+
+  // Graceful shutdown
+  process.on('SIGINT', () => {
+    if (superdocProcess) {
+      console.log('[Superdoc] Shutting down Flask server...');
+      superdocProcess.kill();
+    }
+    process.exit(0);
+  });
+
+  process.on('SIGTERM', () => {
+    if (superdocProcess) {
+      console.log('[Superdoc] Shutting down Flask server...');
+      superdocProcess.kill();
+    }
+    process.exit(0);
+  });
+}
+
+// Start the Flask server
+startSuperdocServer();
+const formatMB = (bytes) => `${(bytes / 1024 / 1024).toFixed(2)} MB`;
+
+/*
+setInterval(async () => {
+  // 1. Report Node.js Memory
+  const mem = process.memoryUsage();
+  console.log(`[Node Parent] RSS: ${formatMB(mem.rss)}`);
+
+  // 2. Report Python Memory (if it's running)
+  if (superdocProcess && superdocProcess.pid) {
+    try {
+      const stats = await pidusage(superdocProcess.pid);
+      // stats.memory is in bytes
+      console.log(`[Python Child] RSS: ${formatMB(stats.memory)} | CPU: ${stats.cpu.toFixed(2)}%`);
+    } catch (err) {
+      console.error("Could not retrieve child process stats", err);
+    }
+  }
+}, 2000);
+*/
 // ---------- Login (uses DISCORD_TOKEN) ----------
 const TOKEN = process.env.DISCORD_TOKEN || process.env.DISCORD_BOT_TOKEN;
 if (!TOKEN) {

@@ -16,6 +16,7 @@ click==8.2.1
 colorama==0.4.6
 dataclasses-json==0.6.7
 dill==0.4.0
+diskcache==5.6.3
 distro==1.9.0
 docling==2.43.0
 docling-core==2.44.0

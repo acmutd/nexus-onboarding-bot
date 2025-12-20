@@ -98,6 +98,8 @@ export async function makeTextChannel(courseCode: string, user: User, guild: Gui
   });
 }
 
+
+
 /*
 const makeTextThread = async (interaction, channel, courseSection) => {
   if (!channel) {
