@@ -38,6 +38,36 @@ if (!admin.apps.length) {
 
 // ---------- Firestore Listener for Discord Unlinks ----------
 const db = admin.firestore();
+
+// Debouncing: Store pending unlink operations to prevent redundant processing
+const pendingUnlinks = new Map<string, NodeJS.Timeout>();
+const DEBOUNCE_DELAY = 2000; // 2 seconds
+
+// cascade into a function
+async function handleDiscordUnlink(discordId: string) {
+  try {
+    console.log(`Processing unlink for ${discordId}`);
+    
+    // Get all guilds and remove access
+    const guilds = await client.guilds.fetch();
+    for (const [guildId, guild] of guilds) {
+      try {
+        const fullGuild = await client.guilds.fetch(guildId);
+        const member = await fullGuild.members.fetch(discordId).catch(() => null);
+        
+        if (member) {
+          await removeAllCourseAccess(member.user, fullGuild);
+          console.log(`Removed course access for ${member.user.username} in ${fullGuild.name}`);
+        }
+      } catch (err) {
+        // User not in this guild or other error, continue
+      }
+    }
+  } catch (error) {
+    console.error('Error removing course access on unlink:', error);
+  }
+}
+
 db.collection('users').onSnapshot((snapshot) => {
   snapshot.docChanges().forEach(async (change) => {
     if (change.type === 'modified') {
@@ -47,27 +77,25 @@ db.collection('users').onSnapshot((snapshot) => {
       // Check if Discord was unlinked (had discord.id before, doesn't now)
       if (before.discord?.id && !after.discord?.id) {
         const discordId = before.discord.id;
-        console.log(` Discord unlinked detected for user ${discordId}, removing channel access`);
+        console.log(`⏰ Discord unlink detected for user ${discordId}`);
         
-        try {
-          // Get all guilds and remove access
-          const guilds = await client.guilds.fetch();
-          for (const [guildId, guild] of guilds) {
-            try {
-              const fullGuild = await client.guilds.fetch(guildId);
-              const member = await fullGuild.members.fetch(discordId).catch(() => null);
-              
-              if (member) {
-                await removeAllCourseAccess(member.user, fullGuild);
-                console.log(` Removed course access for ${member.user.username} in ${fullGuild.name}`);
-              }
-            } catch (err) {
-              // User not in this guild or other error, continue
-            }
-          }
-        } catch (error) {
-          console.error(' Error removing course access on unlink:', error);
+        // If there's already a pending operation for this user, cancel it
+        if (pendingUnlinks.has(discordId)) {
+          clearTimeout(pendingUnlinks.get(discordId)!);
+          console.log(`⏱️  Reset debounce timer for ${discordId}`);
         }
+        
+        // Schedule the operation after the delay
+        const timeoutId = setTimeout(async () => {
+          await handleDiscordUnlink(discordId);
+          
+          // Clean up
+          pendingUnlinks.delete(discordId);
+        }, DEBOUNCE_DELAY);
+        
+        // Store the timeout so we can cancel it if needed
+        pendingUnlinks.set(discordId, timeoutId);
+        console.log(`⏰ Scheduled unlink processing for ${discordId} in ${DEBOUNCE_DELAY}ms`);
       }
     }
   });
@@ -222,21 +250,47 @@ function logMemoryStats() {
   console.log(`External: ${formatMB(mem.external)}`);
 }
 
+// ---------- Periodic Member Cache Clearing (Memory Optimization) ----------
+// Clears member cache every hour to free RAM
+// Safe because: member data can be refetched, Firestore has all critical data
+const CACHE_CLEAR_INTERVAL = 60 * 60 * 1000; // 1 hour
+
+function clearMemberCache() {
+  let totalCleared = 0;
+  let totalMemoryFreed = 0;
+  
+  client.guilds.cache.forEach(guild => {
+    const memberCount = guild.members.cache.size;
+    totalCleared += memberCount;
+    totalMemoryFreed += memberCount * 30; // ~30KB per member
+    
+    guild.members.cache.clear();
+  });
+  
+  if (totalCleared > 0) {
+    console.log(`🧹 Cleared ${totalCleared} cached members, freed ~${Math.round(totalMemoryFreed / 1024)}MB`);
+  }
+}
+
 // ---------- Auto-deploy to ALL joined guilds on Ready ----------
 client.once(Events.ClientReady, async (c) => {
   await c.application?.fetch();
   console.log(` Ready as ${c.user.tag} (app id: ${c.application?.id})`);
   
   // Log initial memory usage
-  // logMemoryStats();
+   logMemoryStats();
   
   // Log memory every 5 minutes 
-  // setInterval(logMemoryStats, 5 * 60 * 1000);
+   setInterval(logMemoryStats, 5 * 60 * 1000);
+  
+  // Clear member cache every hour to keep memory usage low
+  setInterval(clearMemberCache, CACHE_CLEAR_INTERVAL);
+  console.log(`Member cache clearing scheduled every ${CACHE_CLEAR_INTERVAL / 60000} minutes`);
 
   const token = process.env.DISCORD_TOKEN || process.env.DISCORD_BOT_TOKEN;
   const clientId = c.application?.id;
   if (!token || !clientId) {
-    console.error(' Missing DISCORD_TOKEN (or DISCORD_BOT_TOKEN) or client/application ID');
+    console.error(' Missing DISCORD_TOKEN or DISCORD_BOT_TOKEN or client/application ID');
     return;
   }
 

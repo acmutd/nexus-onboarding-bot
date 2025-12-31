@@ -1,0 +1,4898 @@
+[
+    {
+        "course_number": "1303",
+        "course_prefixes": [
+            "ahst"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Survey of Western Art History  Ancient to Medieval",
+        "instructors": [
+            "Jacquelyn McDonald"
+        ],
+        "class_numbers": [
+            23854,
+            24010
+        ],
+        "enrolled_current": 186,
+        "enrolled_max": 231,
+        "assistants": [
+            "Mahdi Dolatyari",
+            "Joseph Harper",
+            "Ahmad Khoshniat",
+            "George Morgan"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2331",
+        "course_prefixes": [
+            "ahst"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Understanding Art",
+        "instructors": [
+            "Ali Asgar Alibhai"
+        ],
+        "class_numbers": [
+            23855
+        ],
+        "enrolled_current": 79,
+        "enrolled_max": 80,
+        "assistants": [
+            "Fatima Esmail",
+            "Farzana Razzaque"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2331",
+        "course_prefixes": [
+            "ahst"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Understanding Art",
+        "instructors": [
+            "Charissa Terranova"
+        ],
+        "class_numbers": [
+            29453
+        ],
+        "enrolled_current": 13,
+        "enrolled_max": 25,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3316",
+        "course_prefixes": [
+            "ahst"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Baroque Art and Architecture",
+        "instructors": [
+            "Mark Rosen"
+        ],
+        "class_numbers": [
+            28485
+        ],
+        "enrolled_current": 27,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3322",
+        "course_prefixes": [
+            "ahst"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Modern Architecture",
+        "instructors": [
+            "Charissa Terranova"
+        ],
+        "class_numbers": [
+            28205
+        ],
+        "enrolled_current": 10,
+        "enrolled_max": 49,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4342",
+        "course_prefixes": [
+            "ahst"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Topics in Art History",
+        "instructors": [
+            "Erika Doss"
+        ],
+        "class_numbers": [
+            28962
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2310",
+        "course_prefixes": [
+            "angm"
+        ],
+        "sections": [
+            "0h1"
+        ],
+        "title": "Animation and Game Fundamentals",
+        "instructors": [
+            "Timothy Lewis"
+        ],
+        "class_numbers": [
+            24738
+        ],
+        "enrolled_current": 156,
+        "enrolled_max": 180,
+        "assistants": [
+            "Michael Plueger",
+            "Zeinab Abri",
+            "Anish Kusupati",
+            "Da Hyun Kim",
+            "Michael Cabrera"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2325",
+        "course_prefixes": [
+            "angm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "History of Visual Effects",
+        "instructors": [
+            "Bryon Caldwell"
+        ],
+        "class_numbers": [
+            24913
+        ],
+        "enrolled_current": 102,
+        "enrolled_max": 100,
+        "assistants": [
+            "Joseph Gutierrez",
+            "Andrei Subochev"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2375",
+        "course_prefixes": [
+            "angm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "History of Games",
+        "instructors": [
+            "Monica Evans"
+        ],
+        "class_numbers": [
+            24739
+        ],
+        "enrolled_current": 101,
+        "enrolled_max": 100,
+        "assistants": [
+            "Mikey Bess",
+            "Lintai Shi"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3315",
+        "course_prefixes": [
+            "angm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Animation Studies",
+        "instructors": [
+            "Amy Grieshaber"
+        ],
+        "class_numbers": [
+            24776
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3315",
+        "course_prefixes": [
+            "angm"
+        ],
+        "sections": [
+            "002",
+            "0s1"
+        ],
+        "title": "Animation Studies",
+        "instructors": [
+            "Christine Veras"
+        ],
+        "class_numbers": [
+            24777,
+            28831
+        ],
+        "enrolled_current": 55,
+        "enrolled_max": 55,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4338",
+        "course_prefixes": [
+            "angm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Motion Design II",
+        "instructors": [
+            "Eric Farrar"
+        ],
+        "class_numbers": [
+            24799
+        ],
+        "enrolled_current": 29,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4369",
+        "course_prefixes": [
+            "angm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Games and Narrative II",
+        "instructors": [
+            "Monica Evans"
+        ],
+        "class_numbers": [
+            24924
+        ],
+        "enrolled_current": 16,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6335",
+        "course_prefixes": [
+            "angm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Game Design and Development",
+        "instructors": [
+            "Timothy Christopher"
+        ],
+        "class_numbers": [
+            28239
+        ],
+        "enrolled_current": 10,
+        "enrolled_max": 10,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "arab"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Beginning Arabic I",
+        "instructors": [
+            "Zafar Anjum"
+        ],
+        "class_numbers": [
+            24995
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1312",
+        "course_prefixes": [
+            "arab"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Beginning Arabic II",
+        "instructors": [
+            "Zafar Anjum"
+        ],
+        "class_numbers": [
+            23837
+        ],
+        "enrolled_current": 5,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2312",
+        "course_prefixes": [
+            "arab"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Intermediate Arabic II",
+        "instructors": [
+            "Zafar Anjum"
+        ],
+        "class_numbers": [
+            29187
+        ],
+        "enrolled_current": 5,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3351",
+        "course_prefixes": [
+            "arab",
+            "rels"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Islamic Culture",
+        "instructors": [
+            "Zafar Anjum"
+        ],
+        "class_numbers": [
+            24358,
+            24735
+        ],
+        "enrolled_current": 13,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1301",
+        "course_prefixes": [
+            "arts"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Exploration of the Arts",
+        "instructors": [
+            "Jason Bennett"
+        ],
+        "class_numbers": [
+            23856
+        ],
+        "enrolled_current": 140,
+        "enrolled_max": 140,
+        "assistants": [
+            "Marjan Daneshvarkashkooli",
+            "Angela Ford",
+            "Kyul Kang"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2318",
+        "course_prefixes": [
+            "arts"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Mobile Photography",
+        "instructors": [
+            "Brenda Vega Mora"
+        ],
+        "class_numbers": [
+            28861
+        ],
+        "enrolled_current": 13,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4310",
+        "course_prefixes": [
+            "arts"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Studies in Contemporary Exhibitions",
+        "instructors": [
+            "Danielle Avram"
+        ],
+        "class_numbers": [
+            24012
+        ],
+        "enrolled_current": 11,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2321",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Reading Media Critically",
+        "instructors": [
+            "Laura Imaoka"
+        ],
+        "class_numbers": [
+            24610
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 19,
+        "assistants": [
+            "Fiona Haborak"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2321",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Reading Media Critically",
+        "instructors": [
+            "Kathryn Whitlock"
+        ],
+        "class_numbers": [
+            24865
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2321",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Reading Media Critically",
+        "instructors": [
+            "Angie Vo"
+        ],
+        "class_numbers": [
+            29142
+        ],
+        "enrolled_current": 20,
+        "enrolled_max": 20,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2322",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Media Histories",
+        "instructors": [
+            "James Fraley"
+        ],
+        "class_numbers": [
+            24633
+        ],
+        "enrolled_current": 47,
+        "enrolled_max": 48,
+        "assistants": [
+            "Diamond Nguyen",
+            "Flavia Costa De Souza"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2325",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Ethnic Studies",
+        "instructors": [
+            "Audra Heaslip"
+        ],
+        "class_numbers": [
+            24537
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2340",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Visual Communication",
+        "instructors": [
+            "Janet Johnson"
+        ],
+        "class_numbers": [
+            24542
+        ],
+        "enrolled_current": 100,
+        "enrolled_max": 100,
+        "assistants": [
+            "Abby Cole",
+            "Yu Guo"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2340",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "0s1"
+        ],
+        "title": "Visual Communication",
+        "instructors": [
+            "John Gooch"
+        ],
+        "class_numbers": [
+            28953
+        ],
+        "enrolled_current": 17,
+        "enrolled_max": 25,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2360",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Design Histories",
+        "instructors": [
+            "Norman Cox"
+        ],
+        "class_numbers": [
+            24581
+        ],
+        "enrolled_current": 60,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3301",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001",
+            "002",
+            "004"
+        ],
+        "title": "Writing for ATEC",
+        "instructors": [
+            "Audra Heaslip"
+        ],
+        "class_numbers": [
+            24540,
+            24594,
+            24595
+        ],
+        "enrolled_current": 42,
+        "enrolled_max": 45,
+        "assistants": [
+            "",
+            "Qi Wang"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3301",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Writing for ATEC",
+        "instructors": [
+            "Kasif Rahman"
+        ],
+        "class_numbers": [
+            24539
+        ],
+        "enrolled_current": 13,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3301",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "005"
+        ],
+        "title": "Writing for ATEC",
+        "instructors": [
+            "Luke Hernandez"
+        ],
+        "class_numbers": [
+            24541
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3301",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Writing for ATEC",
+        "instructors": [
+            "Samuel Pietsch"
+        ],
+        "class_numbers": [
+            24867
+        ],
+        "enrolled_current": 13,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3320",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Critical Media Theories",
+        "instructors": [
+            "David Rheams"
+        ],
+        "class_numbers": [
+            24579
+        ],
+        "enrolled_current": 29,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3321",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Networked Identities",
+        "instructors": [
+            "James Fraley"
+        ],
+        "class_numbers": [
+            24578
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3331",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Critical Making",
+        "instructors": [
+            "Heidi Cooley"
+        ],
+        "class_numbers": [
+            28283
+        ],
+        "enrolled_current": 28,
+        "enrolled_max": 30,
+        "assistants": [
+            "Maruf Rahman"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3336",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001",
+            "002",
+            "003"
+        ],
+        "title": "Design Research Methods",
+        "instructors": [
+            "Elisa Miller"
+        ],
+        "class_numbers": [
+            24558,
+            24559,
+            24560
+        ],
+        "enrolled_current": 66,
+        "enrolled_max": 90,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3388",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Social Influence and Persuasive Design",
+        "instructors": [
+            "James Fraley"
+        ],
+        "class_numbers": [
+            24580
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4384",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "0h1"
+        ],
+        "title": "Ethics in New Media  Technology  and Communication",
+        "instructors": [
+            "Karl Sengupta"
+        ],
+        "class_numbers": [
+            24547
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4384",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "0h2",
+            "0w1"
+        ],
+        "title": "Ethics in New Media  Technology  and Communication",
+        "instructors": [
+            "Janet Johnson"
+        ],
+        "class_numbers": [
+            24548,
+            24549
+        ],
+        "enrolled_current": 79,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6327",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Experimental Publishing",
+        "instructors": [
+            "Roger Malina"
+        ],
+        "class_numbers": [
+            24561
+        ],
+        "enrolled_current": 4,
+        "enrolled_max": 10,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6376",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Media and Cultural Studies Methods",
+        "instructors": [
+            "Laura Imaoka"
+        ],
+        "class_numbers": [
+            24577
+        ],
+        "enrolled_current": 5,
+        "enrolled_max": 10,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6395",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Special Topics in Arts  Technology  and Emerging Communication",
+        "instructors": [
+            "Diana Rojas Ponce"
+        ],
+        "class_numbers": [
+            28685
+        ],
+        "enrolled_current": 6,
+        "enrolled_max": 10,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "7340",
+        "course_prefixes": [
+            "atcm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Advanced Studies in Arts  Technology  and Emerging Communication",
+        "instructors": [
+            "Heidi Cooley"
+        ],
+        "class_numbers": [
+            28692
+        ],
+        "enrolled_current": 5,
+        "enrolled_max": 10,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "001",
+            "004"
+        ],
+        "title": "Introduction to Communication Studies",
+        "instructors": [
+            "Patricia Totusek"
+        ],
+        "class_numbers": [
+            23996,
+            23999
+        ],
+        "enrolled_current": 85,
+        "enrolled_max": 104,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "002",
+            "0w6"
+        ],
+        "title": "Introduction to Communication Studies",
+        "instructors": [
+            "Daniel Moss"
+        ],
+        "class_numbers": [
+            23997,
+            24056
+        ],
+        "enrolled_current": 47,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "003",
+            "0h1",
+            "0h2",
+            "0w3",
+            "0w9"
+        ],
+        "title": "Introduction to Communication Studies",
+        "instructors": [
+            "Melodee Sova"
+        ],
+        "class_numbers": [
+            23998,
+            24000,
+            24013,
+            24689,
+            24726
+        ],
+        "enrolled_current": 119,
+        "enrolled_max": 120,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0h3"
+        ],
+        "title": "Introduction to Communication Studies",
+        "instructors": [
+            "Candie Mckee-Williams"
+        ],
+        "class_numbers": [
+            24048
+        ],
+        "enrolled_current": 24,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0h4",
+            "0h5"
+        ],
+        "title": "Introduction to Communication Studies",
+        "instructors": [
+            "Lari Tanner"
+        ],
+        "class_numbers": [
+            24657,
+            24658
+        ],
+        "enrolled_current": 47,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0w1",
+            "0w2"
+        ],
+        "title": "Introduction to Communication Studies",
+        "instructors": [
+            "Allison Templeton"
+        ],
+        "class_numbers": [
+            24002,
+            24014
+        ],
+        "enrolled_current": 48,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0w4",
+            "0w5"
+        ],
+        "title": "Introduction to Communication Studies",
+        "instructors": [
+            "Alecia Williams"
+        ],
+        "class_numbers": [
+            24001,
+            24057
+        ],
+        "enrolled_current": 48,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0w7",
+            "5w1"
+        ],
+        "title": "Introduction to Communication Studies",
+        "instructors": [
+            "James Fraley"
+        ],
+        "class_numbers": [
+            24058,
+            25026
+        ],
+        "enrolled_current": 47,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0w8"
+        ],
+        "title": "Introduction to Communication Studies",
+        "instructors": [
+            "Gregory McCown"
+        ],
+        "class_numbers": [
+            24690
+        ],
+        "enrolled_current": 24,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1315",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Public Speaking",
+        "instructors": [
+            "Barbara Baker"
+        ],
+        "class_numbers": [
+            28532,
+            29378
+        ],
+        "enrolled_current": 42,
+        "enrolled_max": 43,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1315",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0h1"
+        ],
+        "title": "Public Speaking",
+        "instructors": [
+            "Michael Saenz"
+        ],
+        "class_numbers": [
+            24038
+        ],
+        "enrolled_current": 24,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1315",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0h2",
+            "0h5"
+        ],
+        "title": "Public Speaking",
+        "instructors": [
+            "Natalie Farr"
+        ],
+        "class_numbers": [
+            24077,
+            24659
+        ],
+        "enrolled_current": 47,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1315",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0h3"
+        ],
+        "title": "Public Speaking",
+        "instructors": [
+            "Sarah Gonzales"
+        ],
+        "class_numbers": [
+            24078
+        ],
+        "enrolled_current": 23,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1315",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0h6",
+            "0h7"
+        ],
+        "title": "Public Speaking",
+        "instructors": [
+            "Allison Templeton"
+        ],
+        "class_numbers": [
+            24922,
+            24923
+        ],
+        "enrolled_current": 47,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1315",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0w1",
+            "0w2"
+        ],
+        "title": "Public Speaking",
+        "instructors": [
+            "Charles Cannon"
+        ],
+        "class_numbers": [
+            24079,
+            24080
+        ],
+        "enrolled_current": 46,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1315",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0w3",
+            "0w4"
+        ],
+        "title": "Public Speaking",
+        "instructors": [
+            "Mike Bromberg"
+        ],
+        "class_numbers": [
+            24367,
+            24705
+        ],
+        "enrolled_current": 46,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1315",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "hn1"
+        ],
+        "title": "Public Speaking",
+        "instructors": [
+            "Scott Herndon"
+        ],
+        "class_numbers": [
+            27950
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 25,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2314",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Oral Interpretation",
+        "instructors": [
+            "Melodee Sova"
+        ],
+        "class_numbers": [
+            28334
+        ],
+        "enrolled_current": 16,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3302",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Graphics and Images in Professional Communication",
+        "instructors": [
+            "Candie Mckee-Williams"
+        ],
+        "class_numbers": [
+            28335
+        ],
+        "enrolled_current": 18,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3340",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Small Group Communication",
+        "instructors": [
+            "Patricia Totusek"
+        ],
+        "class_numbers": [
+            24109
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3350",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0h1"
+        ],
+        "title": "Intercultural Communication",
+        "instructors": [
+            "Melissa Hernandez-Katz"
+        ],
+        "class_numbers": [
+            28337
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4305",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Communications Law",
+        "instructors": [
+            "Maribeth Schlobohm"
+        ],
+        "class_numbers": [
+            24374
+        ],
+        "enrolled_current": 21,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4360",
+        "course_prefixes": [
+            "comm"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Communication Ethics",
+        "instructors": [
+            "Carie King"
+        ],
+        "class_numbers": [
+            24813
+        ],
+        "enrolled_current": 12,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2301",
+        "course_prefixes": [
+            "crwt"
+        ],
+        "sections": [
+            "001",
+            "003"
+        ],
+        "title": "Introduction to Creative Writing",
+        "instructors": [
+            "Jenny Bhatt"
+        ],
+        "class_numbers": [
+            23862,
+            24094
+        ],
+        "enrolled_current": 37,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2301",
+        "course_prefixes": [
+            "crwt"
+        ],
+        "sections": [
+            "002",
+            "004"
+        ],
+        "title": "Introduction to Creative Writing",
+        "instructors": [
+            "Matthew Baker"
+        ],
+        "class_numbers": [
+            23863,
+            23864
+        ],
+        "enrolled_current": 38,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2301",
+        "course_prefixes": [
+            "crwt"
+        ],
+        "sections": [
+            "005",
+            "006"
+        ],
+        "title": "Introduction to Creative Writing",
+        "instructors": [
+            "Jennifer Cranfill"
+        ],
+        "class_numbers": [
+            24087,
+            24110
+        ],
+        "enrolled_current": 31,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2301",
+        "course_prefixes": [
+            "crwt"
+        ],
+        "sections": [
+            "007"
+        ],
+        "title": "Introduction to Creative Writing",
+        "instructors": [
+            "Laura Goldstein"
+        ],
+        "class_numbers": [
+            24665
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2301",
+        "course_prefixes": [
+            "crwt"
+        ],
+        "sections": [
+            "008",
+            "501"
+        ],
+        "title": "Introduction to Creative Writing",
+        "instructors": [
+            "Daniel Pena"
+        ],
+        "class_numbers": [
+            24971,
+            29600
+        ],
+        "enrolled_current": 31,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1305",
+        "course_prefixes": [
+            "danc"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to World Dance Forms",
+        "instructors": [
+            "Hayley Duplantier"
+        ],
+        "class_numbers": [
+            24917
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 49,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1305",
+        "course_prefixes": [
+            "danc"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Introduction to World Dance Forms",
+        "instructors": [
+            "Monica Saba"
+        ],
+        "class_numbers": [
+            29149
+        ],
+        "enrolled_current": 49,
+        "enrolled_max": 49,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1310",
+        "course_prefixes": [
+            "danc"
+        ],
+        "sections": [
+            "0h1"
+        ],
+        "title": "Understanding Dance",
+        "instructors": [
+            "Marquita De Jesus"
+        ],
+        "class_numbers": [
+            24085
+        ],
+        "enrolled_current": 48,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1310",
+        "course_prefixes": [
+            "danc"
+        ],
+        "sections": [
+            "0h2"
+        ],
+        "title": "Understanding Dance",
+        "instructors": [
+            "Jennifer Mabus"
+        ],
+        "class_numbers": [
+            24415
+        ],
+        "enrolled_current": 42,
+        "enrolled_max": 49,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1310",
+        "course_prefixes": [
+            "danc"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Understanding Dance",
+        "instructors": [
+            "Cheryl Callon"
+        ],
+        "class_numbers": [
+            24916
+        ],
+        "enrolled_current": 49,
+        "enrolled_max": 49,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1310",
+        "course_prefixes": [
+            "danc"
+        ],
+        "sections": [
+            "hn1"
+        ],
+        "title": "Understanding Dance",
+        "instructors": [
+            "Monica Saba"
+        ],
+        "class_numbers": [
+            24416
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 25,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3340",
+        "course_prefixes": [
+            "danc"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Dance in Historical Context",
+        "instructors": [
+            "Melissa Johnson"
+        ],
+        "class_numbers": [
+            24856
+        ],
+        "enrolled_current": 5,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1303",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Transnational Film and Video",
+        "instructors": [
+            "Shilyh Warren"
+        ],
+        "class_numbers": [
+            24113
+        ],
+        "enrolled_current": 44,
+        "enrolled_max": 45,
+        "assistants": [
+            "Olaoluwa Alake"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1303",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "002",
+            "003"
+        ],
+        "title": "Transnational Film and Video",
+        "instructors": [
+            "Angelica Martinez Ochoa"
+        ],
+        "class_numbers": [
+            24131,
+            24396
+        ],
+        "enrolled_current": 80,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1303",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Transnational Film and Video",
+        "instructors": [
+            "Maureen Okwulogu"
+        ],
+        "class_numbers": [
+            24696
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2332",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Understanding Film",
+        "instructors": [
+            "Dalton Cooper"
+        ],
+        "class_numbers": [
+            24039
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2332",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Understanding Film",
+        "instructors": [
+            "Mazyar Mahan"
+        ],
+        "class_numbers": [
+            24394
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2332",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Understanding Film",
+        "instructors": [
+            "Brecken Wellborn"
+        ],
+        "class_numbers": [
+            24395
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2332",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Understanding Film",
+        "instructors": [
+            "Gregory Shows"
+        ],
+        "class_numbers": [
+            24972
+        ],
+        "enrolled_current": 40,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2332",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "005"
+        ],
+        "title": "Understanding Film",
+        "instructors": [
+            "Tinamarie Ivey"
+        ],
+        "class_numbers": [
+            29164
+        ],
+        "enrolled_current": 38,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2332",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "0w1",
+            "0w2"
+        ],
+        "title": "Understanding Film",
+        "instructors": [
+            "Caitlin Miles"
+        ],
+        "class_numbers": [
+            24943,
+            24944
+        ],
+        "enrolled_current": 97,
+        "enrolled_max": 98,
+        "assistants": [
+            "Amine Faali",
+            "Celia Hay"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3321",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Film in Historical Context",
+        "instructors": [
+            "Adrienne McLean"
+        ],
+        "class_numbers": [
+            23987
+        ],
+        "enrolled_current": 15,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3326",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "World Cinema",
+        "instructors": [
+            "Arya Prakash"
+        ],
+        "class_numbers": [
+            28310
+        ],
+        "enrolled_current": 13,
+        "enrolled_max": 35,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3342",
+        "course_prefixes": [
+            "film"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Topics in Film",
+        "instructors": [
+            "Hanno Berger"
+        ],
+        "class_numbers": [
+            28311
+        ],
+        "enrolled_current": 11,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1301",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "U S  History Survey to Civil War",
+        "instructors": [
+            "Jeffrey Schulze"
+        ],
+        "class_numbers": [
+            24816
+        ],
+        "enrolled_current": 237,
+        "enrolled_max": 240,
+        "assistants": [
+            "Kehinde Tijani",
+            "Odegua Akhighu",
+            "Saul Leon Dubon",
+            "Mojtaba Al Sayyedan",
+            "Joey Turner",
+            "Sabro Bengaro",
+            "Jennifer Armstrong",
+            "Taylor Gee"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "U S  History Survey from Civil War",
+        "instructors": [
+            "Jeffrey Schulze"
+        ],
+        "class_numbers": [
+            23840
+        ],
+        "enrolled_current": 239,
+        "enrolled_max": 240,
+        "assistants": [
+            "Joey Turner",
+            "Kehinde Tijani",
+            "Saul Leon Dubon",
+            "Jennifer Armstrong"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "U S  History Survey from Civil War",
+        "instructors": [
+            "John Flippen"
+        ],
+        "class_numbers": [
+            28119
+        ],
+        "enrolled_current": 235,
+        "enrolled_max": 240,
+        "assistants": [
+            "Angie Simmons",
+            "Ash Seidl-Staley",
+            "Shengxin Zhang",
+            "Maryam Sadeghi"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "U S  History Survey from Civil War",
+        "instructors": [
+            "Ryan Pettengill"
+        ],
+        "class_numbers": [
+            28418
+        ],
+        "enrolled_current": 70,
+        "enrolled_max": 70,
+        "assistants": [
+            "John Kalkanli"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2330",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Themes and Ideas in American History",
+        "instructors": [
+            "Natalie Ring"
+        ],
+        "class_numbers": [
+            24930
+        ],
+        "enrolled_current": 237,
+        "enrolled_max": 240,
+        "assistants": [
+            "Kaitlyn Weirich",
+            "Brenda Lakhani",
+            "Anthony Vecchio",
+            "Clayton Cummings"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2330",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Themes and Ideas in American History",
+        "instructors": [
+            "Daniel Wickberg"
+        ],
+        "class_numbers": [
+            29486
+        ],
+        "enrolled_current": 32,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2341",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001",
+            "hn1"
+        ],
+        "title": "East Asian Civilizations",
+        "instructors": [
+            "J Michael Farmer"
+        ],
+        "class_numbers": [
+            24064,
+            24928
+        ],
+        "enrolled_current": 99,
+        "enrolled_max": 100,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2350",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Latin American Civilizations",
+        "instructors": [
+            "Monica Rankin"
+        ],
+        "class_numbers": [
+            24117
+        ],
+        "enrolled_current": 38,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2381",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "African-American History",
+        "instructors": [
+            "Kimberly Hill"
+        ],
+        "class_numbers": [
+            24118
+        ],
+        "enrolled_current": 119,
+        "enrolled_max": 120,
+        "assistants": [
+            "Travis Hill",
+            "Maria Rufino"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3301",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Historical Inquiry",
+        "instructors": [
+            "Michael Wilson"
+        ],
+        "class_numbers": [
+            23927
+        ],
+        "enrolled_current": 17,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3305",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "0w1",
+            "501"
+        ],
+        "title": "War and Genocide in the 20th Century",
+        "instructors": [
+            "Debra Pfister"
+        ],
+        "class_numbers": [
+            28391,
+            28392
+        ],
+        "enrolled_current": 45,
+        "enrolled_max": 50,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3310",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Modern East Asia",
+        "instructors": [
+            "En Li"
+        ],
+        "class_numbers": [
+            28867
+        ],
+        "enrolled_current": 13,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3315",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Modern China",
+        "instructors": [
+            "En Li"
+        ],
+        "class_numbers": [
+            28868
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3320",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Modern Europe",
+        "instructors": [
+            "Michael Wilson"
+        ],
+        "class_numbers": [
+            28393
+        ],
+        "enrolled_current": 29,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3346",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Medieval Islamic World",
+        "instructors": [
+            "Rosemary Admiral"
+        ],
+        "class_numbers": [
+            28394
+        ],
+        "enrolled_current": 26,
+        "enrolled_max": 26,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3350",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Topics in History",
+        "instructors": [
+            "Ben Wright"
+        ],
+        "class_numbers": [
+            28396
+        ],
+        "enrolled_current": 15,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3396",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Native Americans in the Twentieth Century",
+        "instructors": [
+            "Jeffrey Schulze"
+        ],
+        "class_numbers": [
+            28399
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4323",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Topics in Premodern Asian History",
+        "instructors": [
+            "J Michael Farmer"
+        ],
+        "class_numbers": [
+            29109
+        ],
+        "enrolled_current": 16,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4376",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Advanced Topics in History",
+        "instructors": [
+            "Paula Cuellar Cuellar"
+        ],
+        "class_numbers": [
+            28401
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 16,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4377",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Topics in Early American History",
+        "instructors": [
+            "Eric Schlereth"
+        ],
+        "class_numbers": [
+            28402
+        ],
+        "enrolled_current": 17,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4381",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Topics in Comparative History",
+        "instructors": [
+            "Kimberly Hill"
+        ],
+        "class_numbers": [
+            28404
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6342",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "The Holocaust",
+        "instructors": [
+            "David Patterson"
+        ],
+        "class_numbers": [
+            24952
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 13,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6360",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Latin American History",
+        "instructors": [
+            "Monica Rankin"
+        ],
+        "class_numbers": [
+            28407
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 12,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6370",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Middle Eastern History",
+        "instructors": [
+            "Rosemary Admiral"
+        ],
+        "class_numbers": [
+            28408
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 12,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6384",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Movements in Thought and Culture",
+        "instructors": [
+            "Nils Roemer"
+        ],
+        "class_numbers": [
+            29315
+        ],
+        "enrolled_current": 8,
+        "enrolled_max": 8,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6390",
+        "course_prefixes": [
+            "hist"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Topics in History",
+        "instructors": [
+            "Paula Cuellar Cuellar"
+        ],
+        "class_numbers": [
+            28409
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 12,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3328",
+        "course_prefixes": [
+            "hist",
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "History and Philosophy of Science and Medicine",
+        "instructors": [
+            "Jonathan Tsou"
+        ],
+        "class_numbers": [
+            28445,
+            28446
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "japn"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Beginning Japanese I",
+        "instructors": [
+            "Chieko Hoki"
+        ],
+        "class_numbers": [
+            24084
+        ],
+        "enrolled_current": 18,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "japn"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Beginning Japanese I",
+        "instructors": [
+            "Katsumi Spangler"
+        ],
+        "class_numbers": [
+            24891
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1312",
+        "course_prefixes": [
+            "japn"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Beginning Japanese II",
+        "instructors": [
+            "Katsumi Spangler"
+        ],
+        "class_numbers": [
+            24397
+        ],
+        "enrolled_current": 12,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2311",
+        "course_prefixes": [
+            "japn"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Intermediate Japanese I",
+        "instructors": [
+            "Chieko Hoki"
+        ],
+        "class_numbers": [
+            24116
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2312",
+        "course_prefixes": [
+            "japn"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Intermediate Japanese II",
+        "instructors": [
+            "Chieko Hoki"
+        ],
+        "class_numbers": [
+            23994
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3312",
+        "course_prefixes": [
+            "japn"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Advanced Japanese II",
+        "instructors": [
+            "Chieko Hoki"
+        ],
+        "class_numbers": [
+            28347
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "kore"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Beginning Korean I",
+        "instructors": [
+            "Hyejeong Jeong"
+        ],
+        "class_numbers": [
+            24398,
+            24644
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1312",
+        "course_prefixes": [
+            "kore"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Beginning Korean II",
+        "instructors": [
+            "Hwaja Bang"
+        ],
+        "class_numbers": [
+            24399
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2311",
+        "course_prefixes": [
+            "kore"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Intermediate Korean I",
+        "instructors": [
+            "Heewon Seon"
+        ],
+        "class_numbers": [
+            24400
+        ],
+        "enrolled_current": 5,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2312",
+        "course_prefixes": [
+            "kore"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Intermediate Korean II",
+        "instructors": [
+            "Heewon Seon"
+        ],
+        "class_numbers": [
+            29211
+        ],
+        "enrolled_current": 10,
+        "enrolled_max": 18,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1301",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "001",
+            "002",
+            "003"
+        ],
+        "title": "Introduction to Literature",
+        "instructors": [
+            "Peter Ingrao"
+        ],
+        "class_numbers": [
+            24076,
+            24088,
+            24883
+        ],
+        "enrolled_current": 341,
+        "enrolled_max": 360,
+        "assistants": [
+            "Marjan Daneshvarkashkooli",
+            "Lilia Martinez",
+            "Inez Olivas"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "The Art of Fiction",
+        "instructors": [
+            "Negeen Nikravesh"
+        ],
+        "class_numbers": [
+            28131
+        ],
+        "enrolled_current": 57,
+        "enrolled_max": 120,
+        "assistants": [
+            "Raluca Simion"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1315",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "The Art of Poetry",
+        "instructors": [
+            "Lauren Brazeal Garza"
+        ],
+        "class_numbers": [
+            28132
+        ],
+        "enrolled_current": 78,
+        "enrolled_max": 80,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2321",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Survey B  Literature in Translation",
+        "instructors": [
+            "Rene Prieto"
+        ],
+        "class_numbers": [
+            29292
+        ],
+        "enrolled_current": 17,
+        "enrolled_max": 35,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2329",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Ethnic American Literature",
+        "instructors": [
+            "Mai Wang"
+        ],
+        "class_numbers": [
+            28492
+        ],
+        "enrolled_current": 23,
+        "enrolled_max": 49,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2331",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to World Literature",
+        "instructors": [
+            "Rifat Siddiqui"
+        ],
+        "class_numbers": [
+            23904
+        ],
+        "enrolled_current": 19,
+        "enrolled_max": 35,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2331",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Introduction to World Literature",
+        "instructors": [
+            "Jeeah Ham"
+        ],
+        "class_numbers": [
+            23995
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 35,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2331",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "003"
+        ],
+        "title": "Introduction to World Literature",
+        "instructors": [
+            "Kiran Sahota"
+        ],
+        "class_numbers": [
+            24114
+        ],
+        "enrolled_current": 28,
+        "enrolled_max": 35,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2331",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "004"
+        ],
+        "title": "Introduction to World Literature",
+        "instructors": [
+            "Carmon Brandow"
+        ],
+        "class_numbers": [
+            24663
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 35,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2350",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Close Reading",
+        "instructors": [
+            "Ashley Barnes"
+        ],
+        "class_numbers": [
+            24059
+        ],
+        "enrolled_current": 15,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2350",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Close Reading",
+        "instructors": [
+            "Negeen Nikravesh"
+        ],
+        "class_numbers": [
+            24115
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3300",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Western Literary Tradition",
+        "instructors": [
+            "Rene Prieto"
+        ],
+        "class_numbers": [
+            24941
+        ],
+        "enrolled_current": 17,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3330",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Linguistics",
+        "instructors": [
+            "Joy Saunders"
+        ],
+        "class_numbers": [
+            24728
+        ],
+        "enrolled_current": 20,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3339",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "0h1",
+            "0h2"
+        ],
+        "title": "Writing Literary Studies",
+        "instructors": [
+            "Kristin Riley"
+        ],
+        "class_numbers": [
+            24105,
+            28495
+        ],
+        "enrolled_current": 26,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6323",
+        "course_prefixes": [
+            "lit"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Creating Plays and Musicals",
+        "instructors": [
+            "Fred Curchack"
+        ],
+        "class_numbers": [
+            28490
+        ],
+        "enrolled_current": 0,
+        "enrolled_max": 0,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1306",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "0h1",
+            "0h2"
+        ],
+        "title": "Understanding Music",
+        "instructors": [
+            "Min Kim"
+        ],
+        "class_numbers": [
+            23989,
+            24003
+        ],
+        "enrolled_current": 79,
+        "enrolled_max": 81,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1306",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Understanding Music",
+        "instructors": [
+            "Jason Bennett"
+        ],
+        "class_numbers": [
+            24125
+        ],
+        "enrolled_current": 139,
+        "enrolled_max": 140,
+        "assistants": [
+            "Iris Wu",
+            "Gideon Ogunniran"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1306",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "0w2"
+        ],
+        "title": "Understanding Music",
+        "instructors": [
+            "Kelly Durbin"
+        ],
+        "class_numbers": [
+            28455
+        ],
+        "enrolled_current": 98,
+        "enrolled_max": 100,
+        "assistants": [
+            "Yuhui Zeng"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1306",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Understanding Music",
+        "instructors": [
+            "Robert Lapinski"
+        ],
+        "class_numbers": [
+            24040
+        ],
+        "enrolled_current": 39,
+        "enrolled_max": 40,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1306",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "hn1"
+        ],
+        "title": "Understanding Music",
+        "instructors": [
+            "Katrina Rushing"
+        ],
+        "class_numbers": [
+            28456
+        ],
+        "enrolled_current": 24,
+        "enrolled_max": 25,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2321",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Music Cultures of the World",
+        "instructors": [
+            "Yuxin Mei"
+        ],
+        "class_numbers": [
+            24093
+        ],
+        "enrolled_current": 49,
+        "enrolled_max": 49,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2322",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Music in Western Civilization",
+        "instructors": [
+            "Lori Gerard"
+        ],
+        "class_numbers": [
+            24015
+        ],
+        "enrolled_current": 29,
+        "enrolled_max": 31,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2322",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "0w1"
+        ],
+        "title": "Music in Western Civilization",
+        "instructors": [
+            "Rodger Bennett"
+        ],
+        "class_numbers": [
+            24066
+        ],
+        "enrolled_current": 29,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2328",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Music Theory I",
+        "instructors": [
+            "Katrina Rushing"
+        ],
+        "class_numbers": [
+            24652,
+            24868
+        ],
+        "enrolled_current": 45,
+        "enrolled_max": 60,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2329",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Music Theory II",
+        "instructors": [
+            "Katrina Rushing"
+        ],
+        "class_numbers": [
+            29101
+        ],
+        "enrolled_current": 18,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2330",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Music Theory III",
+        "instructors": [
+            "Katrina Rushing"
+        ],
+        "class_numbers": [
+            24653
+        ],
+        "enrolled_current": 11,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3322",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Music in Historical Context",
+        "instructors": [
+            "Kathryn Evans"
+        ],
+        "class_numbers": [
+            24041
+        ],
+        "enrolled_current": 23,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3342",
+        "course_prefixes": [
+            "musi"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Topics in Music",
+        "instructors": [
+            "Kathryn Evans"
+        ],
+        "class_numbers": [
+            28477
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1301",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Philosophy",
+        "instructors": [
+            "Katherine Davies"
+        ],
+        "class_numbers": [
+            28373
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1305",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Philosophy of Religion",
+        "instructors": [
+            "Lawrence Amato"
+        ],
+        "class_numbers": [
+            24628
+        ],
+        "enrolled_current": 98,
+        "enrolled_max": 120,
+        "assistants": [
+            "Coco Gagnet",
+            "Jeongmi Hwang"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2303",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Logic",
+        "instructors": [
+            "Laura Campos"
+        ],
+        "class_numbers": [
+            24126
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2317",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "History of Philosophy II",
+        "instructors": [
+            "Lawrence Amato"
+        ],
+        "class_numbers": [
+            28376
+        ],
+        "enrolled_current": 47,
+        "enrolled_max": 80,
+        "assistants": [
+            "Eric Sampson"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3320",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Medical Ethics",
+        "instructors": [
+            "Jeff Edwards"
+        ],
+        "class_numbers": [
+            28377
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3323",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Early Modern Philosophy",
+        "instructors": [
+            "Humberto Gonzalez Nunez"
+        ],
+        "class_numbers": [
+            28378
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3338",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Literary Theory and Aesthetic Philosophy",
+        "instructors": [
+            "Davis Smith-Brecheisen"
+        ],
+        "class_numbers": [
+            24889
+        ],
+        "enrolled_current": 1,
+        "enrolled_max": 10,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3357",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Confronting Death",
+        "instructors": [
+            "Katherine Davies"
+        ],
+        "class_numbers": [
+            28379
+        ],
+        "enrolled_current": 29,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4322",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Philosophical Traditions II",
+        "instructors": [
+            "Lawrence Amato"
+        ],
+        "class_numbers": [
+            24412
+        ],
+        "enrolled_current": 6,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4326",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Major Figures",
+        "instructors": [
+            "Charles Bambach"
+        ],
+        "class_numbers": [
+            28380
+        ],
+        "enrolled_current": 9,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4380",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Topics in Philosophy",
+        "instructors": [
+            "Songyao Ren"
+        ],
+        "class_numbers": [
+            28381
+        ],
+        "enrolled_current": 8,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6322",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Continental Philosophy",
+        "instructors": [
+            "Humberto Gonzalez Nunez"
+        ],
+        "class_numbers": [
+            28387
+        ],
+        "enrolled_current": 8,
+        "enrolled_max": 12,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "6392",
+        "course_prefixes": [
+            "phil"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Great Texts",
+        "instructors": [
+            "Charles Bambach"
+        ],
+        "class_numbers": [
+            28383
+        ],
+        "enrolled_current": 10,
+        "enrolled_max": 10,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1325",
+        "course_prefixes": [
+            "rels"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Introduction to Philosophy of Religion",
+        "instructors": [
+            "Lawrence Amato"
+        ],
+        "class_numbers": [
+            24643
+        ],
+        "enrolled_current": 18,
+        "enrolled_max": 120,
+        "assistants": [
+            "Coco Gagnet",
+            "Jeongmi Hwang"
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3366",
+        "course_prefixes": [
+            "rels"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Baroque Art and Architecture",
+        "instructors": [
+            "Mark Rosen"
+        ],
+        "class_numbers": [
+            28486
+        ],
+        "enrolled_current": 0,
+        "enrolled_max": 9,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "001",
+            "004"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "John Cakerice"
+        ],
+        "class_numbers": [
+            23841,
+            23844
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "005",
+            "008"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Hosanna Alem"
+        ],
+        "class_numbers": [
+            23845,
+            23848
+        ],
+        "enrolled_current": 36,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "006",
+            "030"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Junaid Shabir"
+        ],
+        "class_numbers": [
+            23846,
+            24636
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "007",
+            "010"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Rosemond Cates"
+        ],
+        "class_numbers": [
+            23847,
+            23850
+        ],
+        "enrolled_current": 36,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "009",
+            "012"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Marjan Heidari"
+        ],
+        "class_numbers": [
+            23849,
+            23916
+        ],
+        "enrolled_current": 36,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "011",
+            "014"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Jason Bennett"
+        ],
+        "class_numbers": [
+            23851,
+            23965
+        ],
+        "enrolled_current": 33,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "013",
+            "016"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Mustafa Arrabai"
+        ],
+        "class_numbers": [
+            23917,
+            23967
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "015",
+            "018"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Clara Burghelea"
+        ],
+        "class_numbers": [
+            23966,
+            23969
+        ],
+        "enrolled_current": 36,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "017",
+            "026"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Dawn Yang"
+        ],
+        "class_numbers": [
+            23968,
+            24130
+        ],
+        "enrolled_current": 36,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "019",
+            "038"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Manzar Feiz"
+        ],
+        "class_numbers": [
+            23984,
+            24090
+        ],
+        "enrolled_current": 34,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "022",
+            "024"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Siting Wang"
+        ],
+        "class_numbers": [
+            23983,
+            24127
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "025",
+            "032"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Muhammad Ahmad"
+        ],
+        "class_numbers": [
+            24129,
+            24638
+        ],
+        "enrolled_current": 36,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "028",
+            "031"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Jiajia Gu"
+        ],
+        "class_numbers": [
+            23852,
+            24637
+        ],
+        "enrolled_current": 32,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "033",
+            "036"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Kyeongmin Hwang"
+        ],
+        "class_numbers": [
+            24361,
+            24641
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "034",
+            "037"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Masrufa Nusrat"
+        ],
+        "class_numbers": [
+            24362,
+            24639
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "035",
+            "039"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Abhipriya Priyadarshi"
+        ],
+        "class_numbers": [
+            23985,
+            24640
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "042",
+            "047"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Bahar Momeni"
+        ],
+        "class_numbers": [
+            24363,
+            24815
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "043",
+            "0h6"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Swati Anwesha"
+        ],
+        "class_numbers": [
+            24364,
+            28319
+        ],
+        "enrolled_current": 34,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "045",
+            "0h1"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Gavin Cox"
+        ],
+        "class_numbers": [
+            24814,
+            28314
+        ],
+        "enrolled_current": 36,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "046",
+            "0h7"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Nikita D'Monte"
+        ],
+        "class_numbers": [
+            24366,
+            28320
+        ],
+        "enrolled_current": 35,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "0h3",
+            "0h5"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Tiffany Sidders"
+        ],
+        "class_numbers": [
+            28316,
+            28318
+        ],
+        "enrolled_current": 36,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "0h4",
+            "0h8"
+        ],
+        "title": "Rhetoric",
+        "instructors": [
+            "Katherine Yu"
+        ],
+        "class_numbers": [
+            28317,
+            28321
+        ],
+        "enrolled_current": 33,
+        "enrolled_max": 36,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "0h1",
+            "0h2"
+        ],
+        "title": "Intermediate Composition and Rhetoric",
+        "instructors": [
+            "Christina Montgomery"
+        ],
+        "class_numbers": [
+            24877,
+            24878
+        ],
+        "enrolled_current": 33,
+        "enrolled_max": 38,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4302",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Advanced Writing and Research",
+        "instructors": [
+            "Carie King"
+        ],
+        "class_numbers": [
+            29184
+        ],
+        "enrolled_current": 6,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4320",
+        "course_prefixes": [
+            "rhet"
+        ],
+        "sections": [
+            "002",
+            "0w1"
+        ],
+        "title": "Legal Research and Writing",
+        "instructors": [
+            "Erin Kelley"
+        ],
+        "class_numbers": [
+            28559,
+            29257
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1301",
+        "course_prefixes": [
+            "sgnl"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Beginning American Sign Language I",
+        "instructors": [
+            "Erika Trammell-Conerly"
+        ],
+        "class_numbers": [
+            24980
+        ],
+        "enrolled_current": 15,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1302",
+        "course_prefixes": [
+            "sgnl"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Beginning American Sign Language II",
+        "instructors": [
+            "Erika Trammell-Conerly"
+        ],
+        "class_numbers": [
+            28488
+        ],
+        "enrolled_current": 3,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2301",
+        "course_prefixes": [
+            "sgnl"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Intermediate American Sign Language I",
+        "instructors": [
+            "Carlita Edwards"
+        ],
+        "class_numbers": [
+            28489
+        ],
+        "enrolled_current": 2,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "span"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Beginning Spanish I",
+        "instructors": [
+            "Laura Fernandez Cobos"
+        ],
+        "class_numbers": [
+            24063
+        ],
+        "enrolled_current": 13,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1311",
+        "course_prefixes": [
+            "span"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Beginning Spanish I",
+        "instructors": [
+            "Yunet Puentes"
+        ],
+        "class_numbers": [
+            24893
+        ],
+        "enrolled_current": 14,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1312",
+        "course_prefixes": [
+            "span"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Beginning Spanish II",
+        "instructors": [
+            "Diego Alins Breda"
+        ],
+        "class_numbers": [
+            23853,
+            24894
+        ],
+        "enrolled_current": 22,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2311",
+        "course_prefixes": [
+            "span"
+        ],
+        "sections": [
+            "001",
+            "002"
+        ],
+        "title": "Intermediate Spanish I",
+        "instructors": [
+            "Diego Alins Breda"
+        ],
+        "class_numbers": [
+            23973,
+            24895
+        ],
+        "enrolled_current": 18,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2312",
+        "course_prefixes": [
+            "span"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Intermediate Spanish II",
+        "instructors": [
+            "Laura Fernandez Cobos"
+        ],
+        "class_numbers": [
+            23976
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "2312",
+        "course_prefixes": [
+            "span"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Intermediate Spanish II",
+        "instructors": [
+            "Yunet Puentes"
+        ],
+        "class_numbers": [
+            24896
+        ],
+        "enrolled_current": 7,
+        "enrolled_max": 15,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3311",
+        "course_prefixes": [
+            "span"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Advanced Spanish I",
+        "instructors": [
+            "Lorena Camacho-Guardado"
+        ],
+        "class_numbers": [
+            24021
+        ],
+        "enrolled_current": 17,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3312",
+        "course_prefixes": [
+            "span"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Advanced Spanish II",
+        "instructors": [
+            "Lorena Camacho-Guardado"
+        ],
+        "class_numbers": [
+            24042
+        ],
+        "enrolled_current": 16,
+        "enrolled_max": 19,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3350",
+        "course_prefixes": [
+            "span"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Business Spanish",
+        "instructors": [
+            "Diego Alins Breda"
+        ],
+        "class_numbers": [
+            24081
+        ],
+        "enrolled_current": 24,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4301",
+        "course_prefixes": [
+            "span"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Advanced Spanish Conversation",
+        "instructors": [
+            "Lorena Camacho-Guardado"
+        ],
+        "class_numbers": [
+            28344
+        ],
+        "enrolled_current": 10,
+        "enrolled_max": 24,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "4330",
+        "course_prefixes": [
+            "span"
+        ],
+        "sections": [
+            "0s1"
+        ],
+        "title": "Medical Spanish Immersion",
+        "instructors": [
+            "Lorena Camacho-Guardado"
+        ],
+        "class_numbers": [
+            28835
+        ],
+        "enrolled_current": 20,
+        "enrolled_max": 20,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1310",
+        "course_prefixes": [
+            "thea"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Understanding Theatre",
+        "instructors": [
+            "Damian Enyaosah"
+        ],
+        "class_numbers": [
+            24043
+        ],
+        "enrolled_current": 33,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1310",
+        "course_prefixes": [
+            "thea"
+        ],
+        "sections": [
+            "002"
+        ],
+        "title": "Understanding Theatre",
+        "instructors": [
+            "Emmalyn Miron"
+        ],
+        "class_numbers": [
+            24044
+        ],
+        "enrolled_current": 46,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1310",
+        "course_prefixes": [
+            "thea"
+        ],
+        "sections": [
+            "501"
+        ],
+        "title": "Understanding Theatre",
+        "instructors": [
+            "Shahrzad Hamzeh"
+        ],
+        "class_numbers": [
+            24111
+        ],
+        "enrolled_current": 30,
+        "enrolled_max": 48,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "1310",
+        "course_prefixes": [
+            "thea"
+        ],
+        "sections": [
+            "hn1"
+        ],
+        "title": "Understanding Theatre",
+        "instructors": [
+            "Maiza Hixson"
+        ],
+        "class_numbers": [
+            24086
+        ],
+        "enrolled_current": 25,
+        "enrolled_max": 25,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    },
+    {
+        "course_number": "3323",
+        "course_prefixes": [
+            "thea"
+        ],
+        "sections": [
+            "001"
+        ],
+        "title": "Performance in Historical Context",
+        "instructors": [
+            "Maiza Hixson"
+        ],
+        "class_numbers": [
+            28882
+        ],
+        "enrolled_current": 12,
+        "enrolled_max": 30,
+        "assistants": [
+            ""
+        ],
+        "dept": "ahtc"
+    }
+]
