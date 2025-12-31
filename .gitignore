@@ -9,3 +9,5 @@ backend/
 service-account.json
 venv
 *.json
+!tsconfig.json
+!package-lock.json
