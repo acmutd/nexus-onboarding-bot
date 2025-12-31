@@ -2,6 +2,7 @@ import { Guild, User, Interaction, TextChannel, BaseGuildTextChannel, GuildMembe
 import { PermissionsBitField, PermissionOverwriteManager } from "discord.js";
 const fs = require("fs").promises;  // Use promises API for cleaner await
 import { readFile, writeFile } from 'fs/promises';
+import * as fsSync from 'fs';
 
 interface Course {
   course_id: string
@@ -17,6 +18,12 @@ export class AdminError extends Error {
 
 const ADMIN_FILE = "data/admin.json"
 
+// Cache prefix_map.json in memory (loaded once at startup)
+const prefixMap: Record<string, string> = JSON.parse(
+  fsSync.readFileSync("data/prefix_map.json", "utf-8")
+);
+console.log("Loaded prefix_map.json into memory");
+
 /**
  * Remove all course channel permissions for a user when they unlink Discord
  * @param user - The Discord user
@@ -24,8 +31,7 @@ const ADMIN_FILE = "data/admin.json"
  */
 export async function removeAllCourseAccess(user: User, guild: Guild) {
   try {
-    const data = await fs.readFile("data/prefix_map.json", "utf-8");
-    const prefixMap = JSON.parse(data);
+    // Use cached prefix_map instead of reading from disk
     
     // Get all course prefixes that belong to this guild
     const guildPrefixes = Object.keys(prefixMap).filter(prefix => 
@@ -224,8 +230,7 @@ export async function removeAdminJson(userId: string) {
  */
 export async function allocateCourseByServer(courses: Course[], guild: Guild, user: User) {
   try {
-    const data = await fs.readFile("data/prefix_map.json", "utf-8");
-    const prefixMap = JSON.parse(data);
+    // Use cached prefix_map instead of reading from disk
     
     console.log(` Processing ${courses.length} courses for ${user.username} in guild "${guild.name}"`);
 
