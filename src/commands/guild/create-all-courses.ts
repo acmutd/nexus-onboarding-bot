@@ -9,6 +9,7 @@ import {
 import fsp from 'node:fs/promises';
 import fs from 'node:fs';
 import path from 'node:path';
+import { findAdminJson } from '../../utils/discordUtils';
 
 // paths
 // JSONs live in:   ./data/alternate_schools/*.json
@@ -138,10 +139,20 @@ module.exports = {
         .setName('dryrun')
         .setDescription('Preview without creating channels')
         .setRequired(false),
-    ),
+    )
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
   // === Main execution ===
   async execute(interaction: ChatInputCommandInteraction) {
+    // Check if user is admin
+    const isAdmin = await findAdminJson(interaction.user.id);
+    if (!isAdmin) {
+      return await interaction.reply({
+        content: "You must be an admin to use this command.",
+        flags: MessageFlags.Ephemeral,
+      });
+    }
+
     if (!interaction.guild) {
       return interaction.reply({
         content: 'This command can only be used inside a server.',
@@ -181,6 +192,24 @@ module.exports = {
 
       const prefixMap = await loadPrefixMap();
       const courses = await readCoursesFromFile(filename);
+
+      // Send welcome message to #welcome channel (if it exists)
+      if (!dryRun) {
+        try {
+          const welcomeChannel = interaction.guild.channels.cache.find(
+            (c) => c.type === ChannelType.GuildText && c.name === 'welcome'
+          );
+          if (welcomeChannel && welcomeChannel.isTextBased()) {
+            const welcomeMessagePath = path.resolve(process.cwd(), 'data', 'welcomemsg.txt');
+            const welcomeMessage = await fsp.readFile(welcomeMessagePath, 'utf-8');
+            await welcomeChannel.send(welcomeMessage);
+            console.log(`Sent welcome message to #welcome in ${interaction.guild.name}`);
+          }
+        } catch (err) {
+          console.error(`Failed to send welcome message:`, err);
+          // Continue even if welcome message fails
+        }
+      }
 
       let created = 0;
       let skipped = 0;

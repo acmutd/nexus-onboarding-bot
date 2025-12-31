@@ -1,11 +1,22 @@
-import {SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate } from 'discord.js'
+import {SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate, PermissionFlagsBits } from 'discord.js'
 import { ChatInputCommandInteraction } from 'discord.js'
+import { findAdminJson } from '../../utils/discordUtils'
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('delete-all-servers')
-        .setDescription("Delete all servers the bot can delete"),
+        .setDescription("Delete all servers the bot can delete")
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     async execute(interaction:ChatInputCommandInteraction) {
+        // Check if user is admin
+        const isAdmin = await findAdminJson(interaction.user.id);
+        if (!isAdmin) {
+            return await interaction.reply({
+                content: "You must be an admin to use this command.",
+                flags: MessageFlags.Ephemeral,
+            });
+        }
+
         // Defer reply with ephemeral flag (no deprecated warning)
         await interaction.deferReply({ flags: MessageFlags.Ephemeral });
         const bot = interaction.guild?.members.me

@@ -1,8 +1,9 @@
-import { SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate, TextChannel } from 'discord.js'
+import { SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate, TextChannel, PermissionFlagsBits } from 'discord.js'
 import { ChatInputCommandInteraction, ChannelType } from 'discord.js'
-import { makeTextChannel } from '../../utils/discordUtils'
+import { makeTextChannel, findAdminJson } from '../../utils/discordUtils'
 import path, { dirname } from 'path'
 import fs from 'fs'
+import { readFile } from 'fs/promises'
 interface Course {
     course_number: string,
     course_prefixes: string[],
@@ -20,9 +21,19 @@ interface Course {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('create-all-servers')
-        .setDescription("Create all servers and courses"),
+        .setDescription("Create all servers and courses")
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     async execute(interaction: ChatInputCommandInteraction) {
         try {
+            // Check if user is admin
+            const isAdmin = await findAdminJson(interaction.user.id);
+            if (!isAdmin) {
+                return await interaction.reply({
+                    content: "You must be an admin to use this command.",
+                    flags: MessageFlags.Ephemeral,
+                });
+            }
+
             const bot = interaction.guild?.members.me
             if (bot && !bot.permissions.has([
                 PermissionsBitField.Flags.ManageChannels,
@@ -63,6 +74,16 @@ module.exports = {
                     name: "welcome",
                     type: ChannelType.GuildText
                 });
+
+                // Send the welcome message from welcomemsg.txt
+                try {
+                    const welcomeMessagePath = path.join(process.cwd(), 'data', 'welcomemsg.txt');
+                    const welcomeMessage = await readFile(welcomeMessagePath, 'utf-8');
+                    await welcomeChannel.send(welcomeMessage);
+                    console.log(`✅ Sent welcome message to #welcome in ${guild.name}`);
+                } catch (err) {
+                    console.error(`⚠️ Failed to send welcome message in ${guild.name}:`, err);
+                }
 
                 // Create #general second
                 const generalChannel = await guild.channels.create({

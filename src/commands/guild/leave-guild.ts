@@ -1,4 +1,5 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, PermissionFlagsBits } from 'discord.js';
+import { findAdminJson } from '../../utils/discordUtils';
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -12,6 +13,15 @@ module.exports = {
     
   async execute(interaction: ChatInputCommandInteraction) {
     try {
+      // Check if user is admin
+      const isAdmin = await findAdminJson(interaction.user.id);
+      if (!isAdmin) {
+        return await interaction.reply({
+          content: "You must be an admin to use this command.",
+          ephemeral: true
+        });
+      }
+
       const guildId = interaction.options.getString('guild-id', true);
       
       // Get the guild

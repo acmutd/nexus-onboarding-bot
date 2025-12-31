@@ -1,15 +1,7 @@
 
 import * as admin from 'firebase-admin'
 import {GuildMember} from 'discord.js'
-const { FIREBASE_PROJECT_ID } = process.env;
-const serviceAccount = require('../../service-account.json');
-if (!admin.apps.length) {
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-        projectId: FIREBASE_PROJECT_ID
-    });
-    console.log(' Firebase Admin initialized');
-}
+
 export async function getUserSnapshot(discordId:string):Promise<admin.firestore.QueryDocumentSnapshot<FirebaseFirestore.DocumentData, FirebaseFirestore.DocumentData>>{
     const usersRef = admin.firestore().collection('users');
     const querySnapshot = await usersRef.where('discord.id', '==', discordId).get();

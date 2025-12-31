@@ -9,7 +9,7 @@ interface Course {
 interface Admins {
   admins: string[]
 }
-export class AdminError extends Error{
+export class AdminError extends Error {
     constructor(mssg:string){
         super(mssg)
     }
@@ -257,9 +257,9 @@ export async function allocateCourseByServer(courses: Course[], guild: Guild, us
         try {
           await provideUserAccess(channelName, user, guild);
         } catch (accessErr) {
-          // If channel doesn't exist, try to create it
+          // If channel doesn't exist, try to create it in the correct guild
           try {
-            await makeTextChannel(channelName, user, guild);
+            await makeTextChannel(channelName, user, guild, prefix, prefixMap);
             console.log(`   Created new channel: ${channelName}`);
           } catch (createErr) {
             console.warn(`   Could not create/access channel ${channelName}:`, createErr);
@@ -300,14 +300,30 @@ export async function provideUserAccess(courseCode: string, user: User, guild: G
  * @param courseCode 
  * @param user 
  * @param guild 
+ * @param prefix - Course prefix (e.g., "cs", "math")
+ * @param prefixMap - Map of prefixes to guild names
  * 
  * What: Makes a text channel in the guild if it has not already been made 
  * Why: Utility method so it's easier to make channels when needed
  */
 
-export async function makeTextChannel(courseCode: string, user: User, guild: Guild | null): Promise<BaseGuildTextChannel> {
+export async function makeTextChannel(
+  courseCode: string, 
+  user: User, 
+  guild: Guild | null,
+  prefix?: string,
+  prefixMap?: Record<string, string>
+): Promise<BaseGuildTextChannel> {
   if (!guild)
     throw new Error(`Guild Not Found!`)
+  
+  // If prefix and prefixMap are provided, verify we're creating in the correct guild
+  if (prefix && prefixMap) {
+    const expectedGuildName = prefixMap[prefix.toLowerCase()];
+    if (expectedGuildName && expectedGuildName.toLowerCase() !== guild.name.toLowerCase()) {
+      throw new Error(`Channel ${courseCode} belongs to guild "${expectedGuildName}", but attempted to create in "${guild.name}"`);
+    }
+  }
   
   let channel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase());
   if (channel) {
@@ -316,7 +332,7 @@ export async function makeTextChannel(courseCode: string, user: User, guild: Gui
     return channel as BaseGuildTextChannel;
   }
 
-  console.log(`   Creating new channel: ${courseCode}`);
+  console.log(`   Creating new channel: ${courseCode} in guild: ${guild.name}`);
   channel = await guild.channels.create({
     name: courseCode,
     type: 0,  // GUILD_TEXT

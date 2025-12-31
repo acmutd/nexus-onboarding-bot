@@ -1,0 +1,22 @@
+**:wave: Welcome to Nexus! It’s Nice to Meet You.**
+
+**:question: How do I get started?**  
+Follow the instructions on our website [insert link] to create an account and get access to your classes.
+
+**What can I do here?**
+
+**:speech_balloon: Chat It Up**  
+Need some help? Start talking to your classmates in your course channel—whether you’re confused on an assignment or just trying to meet new people.
+
+**:books: Study Together**  
+Test coming up? Upload your notes to **SuperDoc**, our communal note-sharing feature, to create a comprehensive study guide with all of your classmates.  
+We remove redundant information so you can keep all your ideas in one place.
+
+You can make edits from both the Nexus website and Discord.  
+In your desired channel, use the slash commands below to make your changes:  [provide a list of all slash commands]
+
+**:bar_chart: Plan Ahead**  
+Worried about your grade? Use our **Grade Calculator** to figure out exactly what you need to get the grade you want.  
+Enter the scores and weights of all your assignments, and we’ll do the rest.
+
+**Powered by ACM Dev**

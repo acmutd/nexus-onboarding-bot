@@ -1,6 +1,7 @@
-import { SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate } from 'discord.js'
+import { SlashCommandBuilder, MessageFlags, PermissionsBitField, GuildTemplate, PermissionFlagsBits } from 'discord.js'
 import { ChatInputCommandInteraction, GuildMember, Guild } from 'discord.js'
 import { DiscordjsError, DiscordjsErrorCodes } from 'discord.js'
+import { findAdminJson } from '../../utils/discordUtils'
 
 import fs from 'fs'
 
@@ -23,9 +24,19 @@ async function waitForMember(guild: Guild, userId: string, timeout: number = 100
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('leave-all-servers')
-        .setDescription("leave all servers and transferownership to user created"),
+        .setDescription("leave all servers and transferownership to user created")
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     async execute(interaction: ChatInputCommandInteraction) {
         try {
+            // Check if user is admin
+            const isAdmin = await findAdminJson(interaction.user.id);
+            if (!isAdmin) {
+                return await interaction.reply({
+                    content: "You must be an admin to use this command.",
+                    flags: MessageFlags.Ephemeral,
+                });
+            }
+
             const userId = interaction.user.id;
             const bot = interaction.guild?.members.me
             //const member = await interaction.guild.members.fetch(userId); 

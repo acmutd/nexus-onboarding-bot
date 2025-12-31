@@ -210,10 +210,28 @@ async function sendWelcomeMessage(guild: any, userId: string) {
   }
 }
 
+// ---------- Memory Monitoring Helper ----------
+function logMemoryStats() {
+  const mem = process.memoryUsage();
+  const formatMB = (bytes: number) => `${Math.round(bytes / 1024 / 1024)}MB`;
+  
+  console.log('\nMemory Stats:');
+  console.log(`RSS (Total): ${formatMB(mem.rss)}`);
+  console.log(`Heap Used: ${formatMB(mem.heapUsed)}`);
+  console.log(`Heap Total: ${formatMB(mem.heapTotal)}`);
+  console.log(`External: ${formatMB(mem.external)}`);
+}
+
 // ---------- Auto-deploy to ALL joined guilds on Ready ----------
 client.once(Events.ClientReady, async (c) => {
   await c.application?.fetch();
   console.log(` Ready as ${c.user.tag} (app id: ${c.application?.id})`);
+  
+  // Log initial memory usage
+  // logMemoryStats();
+  
+  // Log memory every 5 minutes 
+  // setInterval(logMemoryStats, 5 * 60 * 1000);
 
   const token = process.env.DISCORD_TOKEN || process.env.DISCORD_BOT_TOKEN;
   const clientId = c.application?.id;
@@ -293,6 +311,8 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 
   try {
+    console.log(`\n⚡ Command triggered: ${interaction.commandName}`);
+    logMemoryStats();
     await command.execute(interaction);
   } catch (error) {
     console.error(error);
@@ -311,11 +331,14 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
 // ---------- Member events ----------
 client.on(Events.GuildCreate, async (guild) => {
+  console.log(`\nBot added to new guild: ${guild.name}`);
+  logMemoryStats();
   await guild.members.fetch().catch(console.error);
 });
 
 client.on(Events.GuildMemberAdd, async (member) => {
-  console.log(` New guild member joined: ${member.user.tag} (${member.user.id}) in guild: ${member.guild.name}`);
+  console.log(`\nNew guild member joined: ${member.user.tag} (${member.user.id}) in guild: ${member.guild.name}`);
+  logMemoryStats();
   const guild = member.guild;
   const userId = member.user.id;
 
@@ -355,7 +378,7 @@ client.on(Events.GuildMemberAdd, async (member) => {
   }
 });
 
-// ---------- Login (uses DISCORD_TOKEN) ----------
+// ---------- Login ----------
 const TOKEN = process.env.DISCORD_TOKEN || process.env.DISCORD_BOT_TOKEN;
 if (!TOKEN) {
   console.error(' Missing DISCORD_TOKEN in .env');
