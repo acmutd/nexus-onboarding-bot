@@ -77,12 +77,12 @@ db.collection('users').onSnapshot((snapshot) => {
       // Check if Discord was unlinked (had discord.id before, doesn't now)
       if (before.discord?.id && !after.discord?.id) {
         const discordId = before.discord.id;
-        console.log(`⏰ Discord unlink detected for user ${discordId}`);
+        console.log(` Discord unlink detected for user ${discordId}`);
         
         // If there's already a pending operation for this user, cancel it
         if (pendingUnlinks.has(discordId)) {
           clearTimeout(pendingUnlinks.get(discordId)!);
-          console.log(`⏱️  Reset debounce timer for ${discordId}`);
+          console.log(`  Reset debounce timer for ${discordId}`);
         }
         
         // Schedule the operation after the delay
@@ -95,7 +95,7 @@ db.collection('users').onSnapshot((snapshot) => {
         
         // Store the timeout so we can cancel it if needed
         pendingUnlinks.set(discordId, timeoutId);
-        console.log(`⏰ Scheduled unlink processing for ${discordId} in ${DEBOUNCE_DELAY}ms`);
+        console.log(` Scheduled unlink processing for ${discordId} in ${DEBOUNCE_DELAY}ms`);
       }
     }
   });
@@ -268,7 +268,7 @@ function clearMemberCache() {
   });
   
   if (totalCleared > 0) {
-    console.log(`🧹 Cleared ${totalCleared} cached members, freed ~${Math.round(totalMemoryFreed / 1024)}MB`);
+    console.log(` Cleared ${totalCleared} cached members, freed ~${Math.round(totalMemoryFreed / 1024)}MB`);
   }
 }
 
