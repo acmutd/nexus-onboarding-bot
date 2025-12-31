@@ -311,8 +311,8 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 
   try {
-    console.log(`\n⚡ Command triggered: ${interaction.commandName}`);
-    logMemoryStats();
+    console.log(`\nCommand triggered: ${interaction.commandName}`);
+    // logMemoryStats();
     await command.execute(interaction);
   } catch (error) {
     console.error(error);
@@ -332,13 +332,13 @@ client.on(Events.InteractionCreate, async (interaction) => {
 // ---------- Member events ----------
 client.on(Events.GuildCreate, async (guild) => {
   console.log(`\nBot added to new guild: ${guild.name}`);
-  logMemoryStats();
+  // logMemoryStats();
   await guild.members.fetch().catch(console.error);
 });
 
 client.on(Events.GuildMemberAdd, async (member) => {
   console.log(`\nNew guild member joined: ${member.user.tag} (${member.user.id}) in guild: ${member.guild.name}`);
-  logMemoryStats();
+  // logMemoryStats();
   const guild = member.guild;
   const userId = member.user.id;
 
