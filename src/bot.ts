@@ -222,22 +222,6 @@ if (fs.existsSync(eventsPath)) {
   }
 }
 
-// ---------- Helpers ----------
-async function sendWelcomeMessage(guild: any, userId: string) {
-  const welcomeChannel = guild.channels.cache.find(
-    (c: any) => c.name === 'welcome' && c.isTextBased()
-  );
-  if (welcomeChannel) {
-    await welcomeChannel.send({
-      content: ` <@${userId}> Please verify your account here: [http://localhost:5173/]`,
-      allowedMentions: { users: [userId] },
-    });
-    console.log(` Sent welcome message to ${userId}`);
-  } else {
-    console.log(` No welcome channel found in ${guild.name}`);
-  }
-}
-
 // ---------- Memory Monitoring Helper ----------
 function logMemoryStats() {
   const mem = process.memoryUsage();
@@ -412,11 +396,9 @@ client.on(Events.GuildMemberAdd, async (member) => {
     }
 
     if (!userData.discord || !userData.discord.id) {
-      console.log(` User ${userId} has no Discord linked. Sending welcome message.`);
-      await sendWelcomeMessage(guild, userId);
+      console.log(` User ${userId} has no Discord linked.`);
     } else if (!userData.courses || userData.courses.length === 0) {
-      console.log(` User ${userId} has Discord linked but no courses. Sending welcome message.`);
-      await sendWelcomeMessage(guild, userId);
+      console.log(` User ${userId} has Discord linked but no courses.`);
     } else {
       console.log(` Allocating ${userData.courses.length} courses for ${userId} in guild ${guild.name}`);
       console.log(` Courses:`, userData.courses);
@@ -424,8 +406,7 @@ client.on(Events.GuildMemberAdd, async (member) => {
     }
   } catch (err: any) {
     if (err instanceof Error && err.message === 'User not found') {
-      console.log(` User not found in Firestore (no account yet). Sending welcome message to ${userId}.`);
-      await sendWelcomeMessage(guild, userId);
+      console.log(` User not found in Firestore (no account yet).`);
     } else {
       console.error(` GuildMemberAdd error for ${userId}:`, err);
     }
