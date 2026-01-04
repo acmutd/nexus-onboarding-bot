@@ -1,4 +1,6 @@
 import express from 'express'
+import { authenticateApiKey } from '../middleware/auth.middleware';
+
 const router = express.Router();
 
 // Import controller functions
@@ -7,7 +9,10 @@ const { guildsFetch} = require('../controllers/guilds.fetch.controller');
 const { removeUserAccess } = require('../controllers/remove.access.controller');
 const { grantUserAccess } = require('../controllers/grant.access.controller');
 
-// POST /auth/makeUserByDiscord
+// Apply API key authentication to all routes
+router.use(authenticateApiKey);
+
+// Protected routes - require valid API key
 router.post('/allocate', allocateToJoinedServer);
 router.get('/guilds', guildsFetch);
 router.post('/remove-access', removeUserAccess);
