@@ -4,6 +4,11 @@ declare global {
   namespace Express {
     interface Request {
       client: Client;
+      firebaseUser?: {
+        uid: string;
+        email?: string;
+        emailVerified?: boolean;
+      };
     }
   }
 }
