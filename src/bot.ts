@@ -104,14 +104,79 @@ db.collection('users').onSnapshot((snapshot) => {
 // ---------- Express ----------
 const app = express();
 const PORT = process.env.PORT || 3001; // Use environment variable or default to 3001
+
+// Concurrent request limiting
+let activeRequests = 0;
+const MAX_CONCURRENT_REQUESTS = 50; // Adjust if needed
+
+const concurrentLimiter = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if (activeRequests >= MAX_CONCURRENT_REQUESTS) {
+    return res.status(503).json({ 
+      error: 'Server is busy. Please try again in a moment.',
+      retryAfter: 5 
+    });
+  }
+  
+  activeRequests++;
+  console.log(` Active requests: ${activeRequests}/${MAX_CONCURRENT_REQUESTS}`);
+  
+  // Decrement when request finishes
+  res.on('finish', () => {
+    activeRequests--;
+  });
+  
+  next();
+};
+
+// Rate limiting per IP 
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+const MAX_REQUESTS_PER_WINDOW = 100; // 100 requests per minute per IP
+
+const rateLimiter = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  const ip = req.ip || req.socket.remoteAddress || 'unknown';
+  const now = Date.now();
+  
+  let record = rateLimitMap.get(ip);
+  
+  // Clean up old records (older than 5 minutes)
+  if (rateLimitMap.size > 10000) {
+    for (const [key, value] of rateLimitMap.entries()) {
+      if (now - value.resetTime > 5 * 60 * 1000) {
+        rateLimitMap.delete(key);
+      }
+    }
+  }
+  
+  if (!record || now > record.resetTime) {
+    // Start new window
+    record = { count: 1, resetTime: now + RATE_LIMIT_WINDOW };
+    rateLimitMap.set(ip, record);
+    next();
+  } else if (record.count < MAX_REQUESTS_PER_WINDOW) {
+    // Within limits
+    record.count++;
+    next();
+  } else {
+    // Rate limit exceeded
+    const retryAfter = Math.ceil((record.resetTime - now) / 1000);
+    res.status(429).json({
+      error: 'Too many requests. Please slow down.',
+      retryAfter
+    });
+  }
+};
+
 app.use(cors());
 app.use(bodyParser.json());
+app.use(concurrentLimiter);
+app.use(rateLimiter);
 
-// Shape of a command module we expect
+// Shape of a command module expected
 type Command = {
   data: { name: string; toJSON: () => any };
   execute: (interaction: ChatInputCommandInteraction) => Promise<any>;
-  autocomplete?: (interaction: any) => Promise<void>; // Add optional autocomplete function
+  autocomplete?: (interaction: any) => Promise<void>;
 };
 
 class ModClient extends Client {
@@ -236,7 +301,7 @@ function logMemoryStats() {
 
 // ---------- Periodic Member Cache Clearing (Memory Optimization) ----------
 // Clears member cache every hour to free RAM
-// Safe because: member data can be refetched, Firestore has all critical data
+// member data can be refetched, Firestore has all critical data
 const CACHE_CLEAR_INTERVAL = 60 * 60 * 1000; // 1 hour
 
 function clearMemberCache() {
