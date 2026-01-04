@@ -8,7 +8,13 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('delete-all-courses')
         .setDescription("delete all courses")
-        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+        .addStringOption(option =>
+            option
+                .setName('confirmation')
+                .setDescription('Type "DELETION CONFIRMED" to confirm deletion')
+                .setRequired(true)
+        ),
     async execute(interaction: ChatInputCommandInteraction) {
         try {
             // Check if user is admin
@@ -16,6 +22,15 @@ module.exports = {
             if (!isAdmin) {
                 return await interaction.reply({
                     content: "You must be an admin to use this command.",
+                    flags: MessageFlags.Ephemeral,
+                });
+            }
+
+            // Check confirmation
+            const confirmation = interaction.options.getString('confirmation', true);
+            if (confirmation !== 'DELETION CONFIRMED') {
+                return await interaction.reply({
+                    content: 'You must type "DELETION CONFIRMED" exactly to confirm this action.',
                     flags: MessageFlags.Ephemeral,
                 });
             }
@@ -36,7 +51,8 @@ module.exports = {
             if (!guild)
                 throw Error('Guild not found')
             guild.channels.cache.forEach(async (channel) => {
-                if (channel.name.toLowerCase() != "general")
+                const channelName = channel.name.toLowerCase();
+                if (channelName != "general" && channelName != "welcome" && channelName != "announcements")
                     await guild.channels.delete(channel.id)
             })
             //make and or set permission to course channel

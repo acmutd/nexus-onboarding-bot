@@ -352,32 +352,7 @@ client.once(Events.ClientReady, async (c) => {
   for (const [guildId, guild] of guilds) {
     try {
       await rest.put(Routes.applicationGuildCommands(clientId, guildId), { body });
-      
-      // Try to create an invite link
-      let inviteInfo = '';
-      try {
-        // Get the first available text channel to create an invite
-        const fullGuild = await c.guilds.fetch(guildId);
-        const channels = await fullGuild.channels.fetch();
-        const textChannel = channels.find(channel => 
-          channel?.type === ChannelType.GuildText &&
-          channel.permissionsFor(fullGuild.members.me!)?.has('CreateInstantInvite')
-        ) as TextChannel;
-        
-        if (textChannel) {
-          const invite = await textChannel.createInvite({
-            maxAge: 0, // Never expires
-            maxUses: 0, // Unlimited uses
-            reason: 'Bot deployment logging'
-          });
-          inviteInfo = ` | Invite: ${invite.url}`;
-        }
-      } catch (inviteError) {
-        // If we can't create an invite, just continue without it
-        inviteInfo = ' | No invite permissions';
-      }
-      
-      console.log(` Deployed to guild "${guild.name}" (${guildId})${inviteInfo}`);
+      console.log(` Deployed to guild "${guild.name}" (${guildId})`);
     } catch (e) {
       console.error(` Failed to deploy to guild "${guild.name}" (${guildId}):`, e);
     }

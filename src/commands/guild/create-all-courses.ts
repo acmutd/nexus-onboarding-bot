@@ -193,24 +193,6 @@ module.exports = {
       const prefixMap = await loadPrefixMap();
       const courses = await readCoursesFromFile(filename);
 
-      // Send welcome message to #welcome channel (if it exists)
-      if (!dryRun) {
-        try {
-          const welcomeChannel = interaction.guild.channels.cache.find(
-            (c) => c.type === ChannelType.GuildText && c.name === 'welcome'
-          );
-          if (welcomeChannel && welcomeChannel.isTextBased()) {
-            const welcomeMessagePath = path.resolve(process.cwd(), 'data', 'welcomemsg.txt');
-            const welcomeMessage = await fsp.readFile(welcomeMessagePath, 'utf-8');
-            await welcomeChannel.send(welcomeMessage);
-            console.log(`Sent welcome message to #welcome in ${interaction.guild.name}`);
-          }
-        } catch (err) {
-          console.error(`Failed to send welcome message:`, err);
-          // Continue even if welcome message fails
-        }
-      }
-
       let created = 0;
       let skipped = 0;
 

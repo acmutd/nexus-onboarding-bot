@@ -17,12 +17,38 @@ export class AdminError extends Error {
 }
 
 const ADMIN_FILE = "data/admin.json"
+const PREFIX_MAP_FILE = "data/prefix_map.json"
 
 // Cache prefix_map.json in memory (loaded once at startup)
-const prefixMap: Record<string, string> = JSON.parse(
-  fsSync.readFileSync("data/prefix_map.json", "utf-8")
+let prefixMap: Record<string, string> = JSON.parse(
+  fsSync.readFileSync(PREFIX_MAP_FILE, "utf-8")
 );
 console.log("Loaded prefix_map.json into memory");
+
+/**
+ * Reload prefix_map.json from disk into memory
+ */
+export async function reloadPrefixMap(): Promise<void> {
+  const data = await readFile(PREFIX_MAP_FILE, "utf-8");
+  const newMap = JSON.parse(data);
+  // Update the cache
+  Object.keys(prefixMap).forEach(key => delete prefixMap[key]);
+  Object.assign(prefixMap, newMap);
+  console.log("Reloaded prefix_map.json into memory");
+}
+
+/**
+ * Reload admin.json from disk
+ */
+export async function reloadAdminList(): Promise<void> {
+  // Just verify the file can be read and parsed
+  const data = await readFile(ADMIN_FILE, "utf-8");
+  const parsed = JSON.parse(data);
+  if (!parsed.admins || !Array.isArray(parsed.admins)) {
+    throw new Error("Invalid admin.json format");
+  }
+  console.log("Reloaded admin.json - verified format");
+}
 
 /**
  * Remove all course channel permissions for a user when they unlink Discord
