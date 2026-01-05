@@ -2,12 +2,12 @@ import { Request, Response, NextFunction } from 'express';
 import * as admin from 'firebase-admin';
 
 // Middleware to authenticate API requests using Firebase Auth tokens OR API key
-// Supports two authentication methods:
-// 1. X-API-Key header for backend-to-bot communication (OAuth callback flow)
-// 2. Bearer token for Firebase ID tokens (frontend-initiated requests)
+// Supports two authentication methods
+// API-Key header for backend-to-bot communication (OAuth callback flow)
+// Bearer token for Firebase ID tokens (frontend-initiated requests)
 
 export const authenticateFirebaseUser = async (req: Request, res: Response, next: NextFunction) => {
-  // 1. Check for backend API key FIRST (for OAuth callback flow)
+  // Check for backend API key FIRST (for OAuth callback flow)
   const apiKey = req.headers['x-api-key'];
   if (apiKey) {
     const validApiKey = process.env.BOT_API_KEY || process.env.API_KEY;
@@ -21,7 +21,7 @@ export const authenticateFirebaseUser = async (req: Request, res: Response, next
     }
     
     if (apiKey === validApiKey) {
-      console.log('✅ Authenticated via API key');
+      console.log(' Authenticated via API key');
       return next();
     } else {
       console.warn(`Failed API key authentication attempt from IP: ${req.ip}`);
@@ -32,7 +32,7 @@ export const authenticateFirebaseUser = async (req: Request, res: Response, next
     }
   }
   
-  // 2. Check for Firebase ID token (for frontend-initiated requests)
+  // Check for Firebase ID token (for frontend-initiated requests)
   const authHeader = req.headers.authorization;
   
   if (!authHeader) {
@@ -63,7 +63,7 @@ export const authenticateFirebaseUser = async (req: Request, res: Response, next
       emailVerified: decodedToken.email_verified
     };
     
-    console.log(`✅ Authenticated via Firebase ID token: ${decodedToken.email || decodedToken.uid}`);
+    console.log(` Authenticated via Firebase ID token: ${decodedToken.email || decodedToken.uid}`);
     
     // Authentication successful
     next();
@@ -76,10 +76,9 @@ export const authenticateFirebaseUser = async (req: Request, res: Response, next
   }
 };
 
-/**
- * Legacy API key authentication - kept for backward compatibility
- * Will be deprecated in future versions
- */
+ // API key authentication kept for backward compatibility
+ // Will be deprecated in future versions
+
 export const authenticateApiKey = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers.authorization;
   
