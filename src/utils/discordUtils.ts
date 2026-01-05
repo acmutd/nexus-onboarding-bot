@@ -25,9 +25,8 @@ let prefixMap: Record<string, string> = JSON.parse(
 );
 console.log("Loaded prefix_map.json into memory");
 
-/**
- * Reload prefix_map.json from disk into memory
- */
+
+// Reload prefix_map.json from disk into memory
 export async function reloadPrefixMap(): Promise<void> {
   const data = await readFile(PREFIX_MAP_FILE, "utf-8");
   const newMap = JSON.parse(data);
@@ -37,9 +36,7 @@ export async function reloadPrefixMap(): Promise<void> {
   console.log("Reloaded prefix_map.json into memory");
 }
 
-/**
- * Reload admin.json from disk
- */
+// Reload admin.json from disk
 export async function reloadAdminList(): Promise<void> {
   // Just verify the file can be read and parsed
   const data = await readFile(ADMIN_FILE, "utf-8");
@@ -58,13 +55,12 @@ export async function reloadAdminList(): Promise<void> {
 export async function removeAllCourseAccess(user: User, guild: Guild) {
   try {
     // Use cached prefix_map instead of reading from disk
-    
     // Get all course prefixes that belong to this guild
     const guildPrefixes = Object.keys(prefixMap).filter(prefix => 
       prefixMap[prefix].toLowerCase() === guild.name.toLowerCase()
     );
     
-    console.log(` Removing course access for ${user.username} in guild ${guild.name}`);
+    console.log(`Removing course access for ${user.username} in guild ${guild.name}`);
     
     // Find all channels that might be course channels
     const channels = guild.channels.cache.filter(channel => 
@@ -88,7 +84,7 @@ export async function removeAllCourseAccess(user: User, guild: Guild) {
       }
     }
     
-    console.log(` Removed course access from ${user.username}`);
+    console.log(`Removed course access from ${user.username}`);
   } catch (err) {
     console.error("removeAllCourseAccess error:", err);
   }
@@ -123,9 +119,7 @@ export async function addAdmin(target:unknown, guild: Guild) {
     if (target.roles.cache.has(adminRole.id)) {
         throw new AdminError(`${target.displayName} is already an Admin`)
     }
-
     await target.roles.add(adminRole)
-    
 }
 
 export async function removeAdmin(target:unknown, guild: Guild) {
@@ -167,7 +161,7 @@ export async function addAdminJson(userId: string) {
 
     // 3. Save back to file
     await writeFile(ADMIN_FILE, JSON.stringify(json, null, 2));
-    console.log(` Added ${userId} to admins list`);
+    console.log(`Added ${userId} to admins list`);
   } catch (err) {
     if (!(err instanceof Error))
       throw new Error(`Unkown Error:${err}`);
@@ -227,7 +221,7 @@ export async function removeAdminJson(userId: string) {
     admins.splice(admins.indexOf(userId), 1)
 
     await writeFile(ADMIN_FILE, JSON.stringify(json, null, 2));
-    console.log(` Removed ${userId} from admins list`);
+    console.log(`Removed ${userId} from admins list`);
   } catch (err) {
     if (!(err instanceof Error))
       throw new Error(`Unkown Error:${err}`);
@@ -256,9 +250,36 @@ export async function removeAdminJson(userId: string) {
  */
 export async function allocateCourseByServer(courses: Course[], guild: Guild, user: User) {
   try {
-    // Use cached prefix_map instead of reading from disk
+    // OPTIMIZATION: Course Filtering - Skip guilds that don't match any course prefixes
+    // Extract unique prefixes from user's courses
+    const coursePrefixes = new Set(
+      courses
+        .map(c => c.course_id.split('-')[0]?.toLowerCase())
+        .filter(Boolean)
+    );
     
-    console.log(` Processing ${courses.length} courses for ${user.username} in guild "${guild.name}"`);
+    // Check if this guild handles ANY of the user's course prefixes
+    const guildName = guild.name.toLowerCase();
+    const hasRelevantCourses = Array.from(coursePrefixes).some(
+      prefix => prefixMap[prefix]?.toLowerCase() === guildName
+    );
+    
+    if (!hasRelevantCourses) {
+      console.log(`Skipped guild "${guild.name}" - no relevant courses (has: ${Array.from(coursePrefixes).join(', ')})`);
+      return;
+    }
+    
+    // OPTIMIZATION: Channel Index Map - Build once, lookup in O(1)
+    // Instead of .find() for each course (O(n)), build a map (O(n)) and lookup O(1)
+    const channelMap = new Map<string, TextChannel>();
+    guild.channels.cache.forEach(channel => {
+      if (channel.isTextBased() && 'name' in channel) {
+        channelMap.set(channel.name.toLowerCase(), channel as TextChannel);
+      }
+    });
+    console.log(`Built channel index: ${channelMap.size} channels in guild "${guild.name}"`);
+    
+    console.log(`Processing ${courses.length} courses for ${user.username} in guild "${guild.name}"`);
 
     for (const course of courses) {
       const parts = course.course_id.split('-');
@@ -286,7 +307,7 @@ export async function allocateCourseByServer(courses: Course[], guild: Guild, us
         console.log(`   Granted access to ${channelName}`);
         
         try {
-          await provideUserAccess(channelName, user, guild);
+          await provideUserAccessIndexed(channelName, user, guild, channelMap);
         } catch (accessErr) {
           // If channel doesn't exist, try to create it in the correct guild
           try {
@@ -305,7 +326,33 @@ export async function allocateCourseByServer(courses: Course[], guild: Guild, us
 
 
 /**
- * 
+ * Optimized version using pre-built channel index map
+ * @param courseCode - Channel name to find
+ * @param user - Discord user
+ * @param guild - Discord guild
+ * @param channelMap - Pre-built map of channel name -> channel object
+ */
+export async function provideUserAccessIndexed(
+  courseCode: string, 
+  user: User, 
+  guild: Guild, 
+  channelMap: Map<string, TextChannel>
+) {
+  // O(1) lookup instead of O(n) find
+  const channel = channelMap.get(courseCode.toLowerCase());
+  
+  if (channel) {
+    await channel.permissionOverwrites.edit(user.id, {
+      ViewChannel: true,
+      SendMessages: true
+    });
+  } else {
+    throw new Error(`Channel ${courseCode} not found`);
+  }
+}
+
+/**
+ * Original version (kept for backward compatibility)
  * @param courseCode 
  * @param user 
  * @param guild 
@@ -358,12 +405,12 @@ export async function makeTextChannel(
   
   let channel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase());
   if (channel) {
-    console.log(`   Channel ${courseCode} already exists. Providing access to ${user.username}`);
+    console.log(`Channel ${courseCode} already exists. Providing access to ${user.username}`);
     await provideUserAccess(courseCode, user, guild);
     return channel as BaseGuildTextChannel;
   }
 
-  console.log(`   Creating new channel: ${courseCode} in guild: ${guild.name}`);
+  console.log(`Creating new channel: ${courseCode} in guild: ${guild.name}`);
   channel = await guild.channels.create({
     name: courseCode,
     type: 0,  // GUILD_TEXT
