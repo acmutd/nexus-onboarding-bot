@@ -1,11 +1,38 @@
 import { Request, Response, NextFunction } from 'express';
 import * as admin from 'firebase-admin';
 
-// Middleware to authenticate API requests using Firebase Auth tokens
-// The Firebase ID token should be provided in the Authorization header as "Bearer <token>"
+// Middleware to authenticate API requests using Firebase Auth tokens OR API key
+// Supports two authentication methods:
+// 1. X-API-Key header for backend-to-bot communication (OAuth callback flow)
+// 2. Bearer token for Firebase ID tokens (frontend-initiated requests)
 
-// This verifies that requests come from authenticated users in your Firebase project.
 export const authenticateFirebaseUser = async (req: Request, res: Response, next: NextFunction) => {
+  // 1. Check for backend API key FIRST (for OAuth callback flow)
+  const apiKey = req.headers['x-api-key'];
+  if (apiKey) {
+    const validApiKey = process.env.BOT_API_KEY || process.env.API_KEY;
+    
+    if (!validApiKey) {
+      console.error('SECURITY WARNING: BOT_API_KEY or API_KEY environment variable is not set!');
+      return res.status(500).json({ 
+        error: 'Server configuration error',
+        message: 'API authentication is not properly configured'
+      });
+    }
+    
+    if (apiKey === validApiKey) {
+      console.log('✅ Authenticated via API key');
+      return next();
+    } else {
+      console.warn(`Failed API key authentication attempt from IP: ${req.ip}`);
+      return res.status(403).json({ 
+        error: 'Forbidden',
+        message: 'Invalid API key'
+      });
+    }
+  }
+  
+  // 2. Check for Firebase ID token (for frontend-initiated requests)
   const authHeader = req.headers.authorization;
   
   if (!authHeader) {
@@ -36,7 +63,7 @@ export const authenticateFirebaseUser = async (req: Request, res: Response, next
       emailVerified: decodedToken.email_verified
     };
     
-    console.log(`✓ Authenticated user: ${decodedToken.email || decodedToken.uid}`);
+    console.log(`✅ Authenticated via Firebase ID token: ${decodedToken.email || decodedToken.uid}`);
     
     // Authentication successful
     next();
