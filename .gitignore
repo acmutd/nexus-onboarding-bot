@@ -8,3 +8,5 @@ node_modules
 backend/
 service-account.json
 venv
+credentials.json
+token.json
