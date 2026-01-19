@@ -3,6 +3,7 @@ import { deleteHeading, checkSuperdocHealth, getDocIds } from '../../utils/super
 import { checkChannelName } from '../../utils/discordUtils';
 
 const SUPERDOC_INDEX = 'sdtest1';
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('superdoc-delete-heading')
@@ -16,64 +17,74 @@ module.exports = {
     .addStringOption(option =>
       option
         .setName('document_name')
-        .setDescription('Name of the document (optional, creates new if not provided)')
+        .setDescription('Name of the document to delete the heading from')
         .setRequired(true)
     ),
 
   async execute(interaction: ChatInputCommandInteraction) {
     await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+    
     const channel = interaction.channel as TextChannel;
     const channelName = channel.name;
     const check = await checkChannelName(channelName); 
-    if(!check){
-        return interaction.editReply({
-          content: 'Please use superdoc commands in course channels only',
-        })
-      }
+    
+    if (!check) {
+      return interaction.editReply({
+        content: 'Please use superdoc commands in course channels only',
+      });
+    }
+
     try {
-      // Check if API is healthy
+      // 1. Verify API Connectivity
       const isHealthy = await checkSuperdocHealth();
       if (!isHealthy) {
         return interaction.editReply({
-          content: 'Superdoc API is not available. Please check if the server is running.',
+          content: 'Superdoc API is not available. Please check if the server is running on port 8000.',
         });
       }
 
       const courseId = channelName;
       const heading = interaction.options.getString('heading', true);
-      const documentName = interaction.options.getString('document_name') || undefined;
+      const documentName = interaction.options.getString('document_name', true);
 
-      // Look up document ID from document name if provided
+      // 2. Fetch Document IDs via the GET endpoint
+      const docIdsResult = await getDocIds(courseId);
+      
       let documentId: string | undefined = undefined;
-      if (documentName) {
-        const docIdsResult = await getDocIds(courseId, SUPERDOC_INDEX);
-        if (docIdsResult.ids && docIdsResult.ids[documentName]) {
-          documentId = docIdsResult.ids[documentName];
-        } else {
-          return interaction.editReply({
-            content: `Document "${documentName}" not found for course ${courseId}`,
-          });
+
+      // Handle matching based on the array/record returned by get_course_documents
+      if (docIdsResult.documentIds && Array.isArray(docIdsResult.documentIds)) {
+        const foundId = docIdsResult.documentIds.find(id => id === documentName);
+        if (foundId) {
+          documentId = foundId;
         }
+      } else if (docIdsResult.ids && docIdsResult.ids[documentName]) {
+        documentId = docIdsResult.ids[documentName];
+      }
+
+      if (!documentId) {
+        return interaction.editReply({
+          content: `Document "${documentName}" not found for course ${courseId}.`,
+        });
       }
 
       await interaction.editReply({
-        content: '⏳ Deleting heading...',
+        content: `Deleting heading "${heading}" from document ${documentId}...`,
       });
 
+      // 3. Execute Heading Deletion
+      // Matches Python: @app.delete("/headings/delete") -> {"status": "heading deleted", ...}
       const result = await deleteHeading(courseId, heading, documentId, SUPERDOC_INDEX);
 
-      if (result.status === 'success') {
+      if (result.status === 'heading deleted') {
         let message = `Heading "${heading}" deleted successfully!\n`;
-        if (result.document_id) {
-          message += `Document ID: ${result.document_id}\n`;
-        }
-        if (result.message) {
-          message += `${result.message}`;
+        if (result.documentId) {
+          message += `Document ID: ${result.documentId}`;
         }
         await interaction.editReply({ content: message });
       } else {
         await interaction.editReply({
-          content: `Error: ${result.error || 'Unknown error occurred'}`,
+          content: `Error: ${result.detail || result.error || 'The server returned an unsuccessful status.'}`,
         });
       }
     } catch (error) {
@@ -85,4 +96,3 @@ module.exports = {
     }
   },
 };
-

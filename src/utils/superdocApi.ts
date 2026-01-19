@@ -1,16 +1,17 @@
 import { Attachment } from 'discord.js';
-import FormData from 'form-data';
 
-const SUPERDOC_API_URL = process.env.SUPERDOC_API_URL || 'http://localhost:5000';
-
+const SUPERDOC_API_URL = process.env.SUPERDOC_API_URL || 'http://localhost:8000'; // Uvicorn default is 8000
 const SUPERDOC_INDEX = 'sdtest1';
+
 export interface SuperdocApiResponse {
   status?: string;
   message?: string;
-  document_id?: string;
+  documentId?: string; 
+  document?: string;     // To catch the raw 'document' key from Python
+  documentIds?: string[]; // For the GET /documents/ route
+  ids?: Record<string, string>; // The missing property
   error?: string;
-  trace?: string;
-  ids?: Record<string, string>;
+  detail?: string;       // FastAPI standard for errors
 }
 
 /**
@@ -38,25 +39,18 @@ export async function mergePdf(
   try {
     const response = await fetch(`${SUPERDOC_API_URL}/merge_pdf`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        pdf_url: pdfAttachment.url, // Sending the URL string
-        course_id: courseId,
-        document_id: documentId,
+        pdfUrl: pdfAttachment.url, // Python expects req.pdfUrl
+        courseId: courseId,        // Python expects req.courseId
+        documentId: documentId,
         index_name: indexName,
       }),
     });
 
-    // Handle the unknown type safely
-    const data = (await response.json()) as SuperdocApiResponse & { error?: string };
-
-    if (!response.ok) {
-      throw new Error(data.error || `API returned status ${response.status}`);
-    }
-
-    return data as SuperdocApiResponse;
+    const data = (await response.json()) as SuperdocApiResponse
+    if (!response.ok) throw new Error(data.detail || 'Merge failed');
+    return data;
   } catch (error) {
     console.error('[Superdoc API] Merge PDF error:', error);
     throw error;
@@ -73,25 +67,20 @@ export async function createHeading(
   indexName: string = SUPERDOC_INDEX
 ): Promise<SuperdocApiResponse> {
   try {
-    const response = await fetch(`${SUPERDOC_API_URL}/create_heading`, {
+    const response = await fetch(`${SUPERDOC_API_URL}/headings/create`, { // Path updated
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        course_id: courseId,
-        new_heading: newHeading,
-        document_id: documentId,
+        courseId: courseId,
+        heading: newHeading, // Python expects req.heading
+        documentId: documentId,
         index_name: indexName,
       }),
     });
 
     const data = (await response.json()) as SuperdocApiResponse
-    if (!response.ok) {
-      throw new Error(data.error || `API returned status ${response.status}`);
-    }
-
-    return data as SuperdocApiResponse;
+    if (!response.ok) throw new Error(data.detail || 'Create heading failed');
+    return data;
   } catch (error) {
     console.error('[Superdoc API] Create heading error:', error);
     throw error;
@@ -99,7 +88,7 @@ export async function createHeading(
 }
 
 /**
- * Update a heading in a document
+ * Update a heading
  */
 export async function updateHeading(
   courseId: string,
@@ -109,26 +98,21 @@ export async function updateHeading(
   indexName: string = SUPERDOC_INDEX
 ): Promise<SuperdocApiResponse> {
   try {
-    const response = await fetch(`${SUPERDOC_API_URL}/update_heading`, {
+    const response = await fetch(`${SUPERDOC_API_URL}/headings/update`, { // Path updated
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        course_id: courseId,
-        old_heading: oldHeading,
-        new_heading: newHeading,
-        document_id: documentId,
+        courseId: courseId,
+        oldHeading: oldHeading,
+        newHeading: newHeading,
+        documentId: documentId,
         index_name: indexName,
       }),
     });
 
     const data = (await response.json()) as SuperdocApiResponse
-    if (!response.ok) {
-      throw new Error(data.error || `API returned status ${response.status}`);
-    }
-
-    return data as SuperdocApiResponse;
+    if (!response.ok) throw new Error(data.detail || 'Update failed');
+    return data;
   } catch (error) {
     console.error('[Superdoc API] Update heading error:', error);
     throw error;
@@ -136,34 +120,29 @@ export async function updateHeading(
 }
 
 /**
- * Delete a heading from a document
+ * Delete a heading
  */
 export async function deleteHeading(
   courseId: string,
-  oldHeading: string,
+  heading: string,
   documentId?: string,
   indexName: string = SUPERDOC_INDEX
 ): Promise<SuperdocApiResponse> {
   try {
-    const response = await fetch(`${SUPERDOC_API_URL}/delete_heading`, {
+    const response = await fetch(`${SUPERDOC_API_URL}/headings/delete`, { // Path updated
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        course_id: courseId,
-        old_heading: oldHeading,
-        document_id: documentId,
+        courseId: courseId,
+        heading: heading,
+        documentId: documentId,
         index_name: indexName,
       }),
     });
 
     const data = (await response.json()) as SuperdocApiResponse
-    if (!response.ok) {
-      throw new Error(data.error || `API returned status ${response.status}`);
-    }
-
-    return data as SuperdocApiResponse;
+    if (!response.ok) throw new Error(data.detail || 'Delete failed');
+    return data;
   } catch (error) {
     console.error('[Superdoc API] Delete heading error:', error);
     throw error;
@@ -173,28 +152,16 @@ export async function deleteHeading(
 /**
  * Get document IDs for a course
  */
-export async function getDocIds(
-  courseId: string,
-  indexName: string = SUPERDOC_INDEX
-): Promise<SuperdocApiResponse> {
+export async function getDocIds(courseId: string): Promise<SuperdocApiResponse> {
   try {
-    const response = await fetch(`${SUPERDOC_API_URL}/get_docids`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        course_id: courseId,
-        index_name: indexName,
-      }),
+    // Python endpoint is @app.get("/documents/{course_id}")
+    const response = await fetch(`${SUPERDOC_API_URL}/documents/${courseId}`, {
+      method: 'GET',
     });
 
     const data = (await response.json()) as SuperdocApiResponse
-    if (!response.ok) {
-      throw new Error(data.error || `API returned status ${response.status}`);
-    }
-    console.log(data)
-    return data as SuperdocApiResponse;
+    if (!response.ok) throw new Error(data.detail || 'Fetch IDs failed');
+    return data;
   } catch (error) {
     console.error('[Superdoc API] Get doc IDs error:', error);
     throw error;
@@ -206,31 +173,23 @@ export async function getDocIds(
  */
 export async function createDocument(
   courseId: string,
-  documentName: string,
-  indexName: string = SUPERDOC_INDEX
+  documentName: string
 ): Promise<SuperdocApiResponse> {
   try {
-    const response = await fetch(`${SUPERDOC_API_URL}/create_document`, {
+    const response = await fetch(`${SUPERDOC_API_URL}/documents/create`, { // Path updated
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        course_id: courseId,
-        document_name: documentName,
-        index_name: indexName,
+        courseId: courseId,
+        documentName: documentName,
       }),
     });
 
     const data = (await response.json()) as SuperdocApiResponse
-    if (!response.ok) {
-      throw new Error(data.error || `API returned status ${response.status}`);
-    }
-
-    return data as SuperdocApiResponse;
+    if (!response.ok) throw new Error(data.detail || 'Create document failed');
+    return data;
   } catch (error) {
     console.error('[Superdoc API] Create document error:', error);
     throw error;
   }
 }
-

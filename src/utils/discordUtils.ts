@@ -388,6 +388,12 @@ export async function makeTextChannel(
   return channel as BaseGuildTextChannel;
 }
 
+
+export async function checkChannelName(courseCode:string){
+  const pattern = /^[a-z]+-\d{4}$/i;
+  return pattern.test(courseCode);
+} 
+
 /*
 const makeTextThread = async (interaction, channel, courseSection) => {
   if (!channel) {

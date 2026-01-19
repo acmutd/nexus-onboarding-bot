@@ -23,65 +23,75 @@ module.exports = {
     .addStringOption(option =>
       option
         .setName('document_name')
-        .setDescription('Name of the document (optional, creates new if not provided)')
-        .setRequired(false)
+        .setDescription('Name of the document containing the heading')
+        .setRequired(true)
     ),
 
   async execute(interaction: ChatInputCommandInteraction) {
     await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+    
     const channel = interaction.channel as TextChannel;
     const channelName = channel.name;
     const check = await checkChannelName(channelName); 
-    if(!check){
-        return interaction.editReply({
-          content: 'Please use superdoc commands in course channels only',
-        })
-      }
+    
+    if (!check) {
+      return interaction.editReply({
+        content: 'Please use superdoc commands in course channels only',
+      });
+    }
+
     try {
-      // Check if API is healthy
+      // 1. Verify API Connectivity
       const isHealthy = await checkSuperdocHealth();
       if (!isHealthy) {
         return interaction.editReply({
-          content: 'Superdoc API is not available. Please check if the server is running.',
+          content: 'Superdoc API is not available. Please check if the server is running on port 8000.',
         });
       }
 
       const courseId = channelName;
       const oldHeading = interaction.options.getString('old_heading', true);
       const newHeading = interaction.options.getString('new_heading', true);
-      const documentName = interaction.options.getString('document_name') || undefined;
+      const documentName = interaction.options.getString('document_name', true);
 
-      // Look up document ID from document name if provided
+      // 2. Fetch Document IDs via the GET endpoint
+      const docIdsResult = await getDocIds(courseId);
+      
       let documentId: string | undefined = undefined;
-      if (documentName) {
-        const docIdsResult = await getDocIds(courseId, SUPERDOC_INDEX);
-        if (docIdsResult.ids && docIdsResult.ids[documentName]) {
-          documentId = docIdsResult.ids[documentName];
-        } else {
-          return interaction.editReply({
-            content: `Document "${documentName}" not found for course ${courseId}`,
-          });
+
+      // Logic to match documentName against the returned list or record
+      if (docIdsResult.documentIds && Array.isArray(docIdsResult.documentIds)) {
+        const foundId = docIdsResult.documentIds.find(id => id === documentName);
+        if (foundId) {
+          documentId = foundId;
         }
+      } else if (docIdsResult.ids && docIdsResult.ids[documentName]) {
+        documentId = docIdsResult.ids[documentName];
+      }
+
+      if (!documentId) {
+        return interaction.editReply({
+          content: `Document "${documentName}" not found for course ${courseId}.`,
+        });
       }
 
       await interaction.editReply({
-        content: 'Updating heading...',
+        content: `Updating heading from "${oldHeading}" to "${newHeading}" in document ${documentId}...`,
       });
 
+      // 3. Execute Heading Update
+      // Matches Python: @app.put("/headings/update") -> {"status": "heading updated", ...}
       const result = await updateHeading(courseId, oldHeading, newHeading, documentId, SUPERDOC_INDEX);
 
-      if (result.status === 'success') {
+      if (result.status === 'heading updated') {
         let message = `Heading "${oldHeading}" updated to "${newHeading}" successfully!\n`;
-        if (result.document_id) {
-          message += `Document ID: ${result.document_id}\n`;
-        }
-        if (result.message) {
-          message += `${result.message}`;
+        if (result.documentId) {
+          message += `Document ID: ${result.documentId}`;
         }
         await interaction.editReply({ content: message });
       } else {
         await interaction.editReply({
-          content: `Error: ${result.error || 'Unknown error occurred'}`,
+          content: `Error: ${result.detail || result.error || 'The server returned an unsuccessful status.'}`,
         });
       }
     } catch (error) {
@@ -93,4 +103,3 @@ module.exports = {
     }
   },
 };
-

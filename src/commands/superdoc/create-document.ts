@@ -41,12 +41,12 @@ module.exports = {
         content: 'Creating document...',
       });
 
-      const result = await createDocument(courseId, documentName, SUPERDOC_INDEX);
+      const result = await createDocument(courseId, documentName);
 
       if (result.status === 'success') {
         let message = `Document "${documentName}" created successfully!\n`;
-        if (result.document_id) {
-          message += `Document ID: ${result.document_id}\n`;
+        if (result.documentId) {
+          message += `Document ID: ${result.documentId}\n`;
         }
         if (result.message) {
           message += `📝 ${result.message}`;

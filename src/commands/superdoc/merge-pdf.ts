@@ -17,72 +17,81 @@ module.exports = {
     .addStringOption(option =>
       option
         .setName('document_name')
-        .setDescription('Name of the document (optional, creates new if not provided)')
+        .setDescription('Name of the document to merge the PDF into')
         .setRequired(true)
     ),
 
   async execute(interaction: ChatInputCommandInteraction) {
     await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+    
     const channel = interaction.channel as TextChannel;
     const channelName = channel.name;
     const check = await checkChannelName(channelName); 
-    if(!check){
-        return interaction.editReply({
-          content: 'Please use superdoc commands in course channels only',
-        })
-      }
+    
+    if (!check) {
+      return interaction.editReply({
+        content: 'Please use superdoc commands in course channels only',
+      });
+    }
+
     try {
-      // Check if API is healthy
+      // 1. Verify API Health
       const isHealthy = await checkSuperdocHealth();
       if (!isHealthy) {
         return interaction.editReply({
-          content: 'Superdoc API is not available. Please check if the server is running.',
+          content: 'Superdoc API is not available. Please check if the server is running on port 8000.',
         });
       }
 
       const pdfAttachment = interaction.options.getAttachment('pdf', true);
       
-      // Validate it's a PDF
-      if (!pdfAttachment.contentType?.includes('pdf') && !pdfAttachment.name?.endsWith('.pdf')) {
+      // Validate file type
+      if (!pdfAttachment.contentType?.includes('pdf') && !pdfAttachment.name?.toLowerCase().endsWith('.pdf')) {
         return interaction.editReply({
           content: 'The attached file must be a PDF.',
         });
       }
 
       const courseId = channelName;
-      const documentName = interaction.options.getString('document_name') || undefined;
+      const documentName = interaction.options.getString('document_name', true);
 
-      // Look up document ID from document name if provided
+      // 2. Look up document ID
+      const docIdsResult = await getDocIds(courseId);
       let documentId: string | undefined = undefined;
-      if (documentName) {
-        const docIdsResult = await getDocIds(courseId, SUPERDOC_INDEX);
-        if (docIdsResult.ids && docIdsResult.ids[documentName]) {
-          documentId = docIdsResult.ids[documentName];
-        } else {
-          return interaction.editReply({
-            content: `Document "${documentName}" not found for course ${courseId}`,
-          });
+
+      // Handle matching based on the array/list returned by your FastAPI backend
+      if (docIdsResult.documentIds && Array.isArray(docIdsResult.documentIds)) {
+        const foundId = docIdsResult.documentIds.find(id => id === documentName);
+        if (foundId) {
+          documentId = foundId;
         }
+      } else if (docIdsResult.ids && docIdsResult.ids[documentName]) {
+        documentId = docIdsResult.ids[documentName];
+      }
+
+      if (!documentId) {
+        return interaction.editReply({
+          content: `Document "${documentName}" not found for course ${courseId}.`,
+        });
       }
 
       await interaction.editReply({
-        content: 'Merging PDF into document...',
+        content: `Merging PDF "${pdfAttachment.name}" into document ${documentId}...`,
       });
 
+      // 3. Execute Merge
+      // Matches Python: @app.post("/merge_pdf") -> {"status": "success", "documentId": ...}
       const result = await mergePdf(pdfAttachment as Attachment, courseId, documentId, SUPERDOC_INDEX);
 
       if (result.status === 'success') {
         let message = `PDF merged successfully!\n`;
-        if (result.document_id) {
-          message += `Document ID: ${result.document_id}\n`;
-        }
-        if (result.message) {
-          message += `${result.message}`;
+        if (result.documentId) {
+          message += `Document ID: ${result.documentId}`;
         }
         await interaction.editReply({ content: message });
       } else {
         await interaction.editReply({
-          content: `Error: ${result.error || 'Unknown error occurred'}`,
+          content: `Error: ${result.detail || result.error || 'The server returned an unsuccessful status.'}`,
         });
       }
     } catch (error) {
@@ -94,4 +103,3 @@ module.exports = {
     }
   },
 };
-
