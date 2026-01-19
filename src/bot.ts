@@ -18,6 +18,8 @@ import {
 import { getUserData } from './utils/firebaseUtils';
 import { allocateCourseByServer, findAdminJson, addAdmin, AdminError, removeAllCourseAccess } from './utils/discordUtils';
 import discordRoutes from './api/routes/discord.routes';
+import superdocRoutes from './api/routes/superdoc.routes';
+
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -205,6 +207,9 @@ app.use((req, _res, next) => {
 
 // Attach Discord routes
 app.use('/api/discord', discordRoutes);
+
+//Attach Superdoc routes
+app.use('/api/superdoc', superdocRoutes);
 
 // Start HTTP server
 app.listen(PORT, () => console.log(` Bot server running at http://localhost:${PORT}`));

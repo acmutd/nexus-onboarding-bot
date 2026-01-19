@@ -1,6 +1,7 @@
 import { SlashCommandBuilder, MessageFlags, ChatInputCommandInteraction, TextChannel } from 'discord.js';
-import { createHeading, checkSuperdocHealth, getDocIds } from '../../utils/superdocApi';
+import { createHeading, checkSuperdocHealth, getDocIds, SuperdocApiResponse } from '../../utils/superdocApi';
 import { checkChannelName } from "../../utils/discordUtils";
+import { superdocQueue } from '../../utils/superdocQueue';
 
 const SUPERDOC_INDEX = 'sdtest1';
 
@@ -47,23 +48,17 @@ module.exports = {
       const newHeading = interaction.options.getString('heading', true);
       const documentName = interaction.options.getString('document_name', true);
 
-      // 2. Fetch Document IDs using the updated GET endpoint structure
-      // Your Python backend returns {"courseId": "...", "documentIds": [...]}
+      // 2. Fetch Document IDs
       const docIdsResult = await getDocIds(courseId);
       
       let documentId: string | undefined = undefined;
       
-      // Look for the document ID matching the provided document name
-      // This assumes your backend returns a record/map or you are matching against the list
       if (docIdsResult.documentIds && Array.isArray(docIdsResult.documentIds)) {
-        // If documentIds is a simple list, we use the name provided as the ID 
-        // Or if it's a record/object, we look up the key
         const foundId = docIdsResult.documentIds.find(id => id === documentName);
         if (foundId) {
           documentId = foundId;
         }
       } else if (docIdsResult.ids && docIdsResult.ids[documentName]) {
-        // Fallback for record-style response
         documentId = docIdsResult.ids[documentName];
       }
 
@@ -74,13 +69,16 @@ module.exports = {
       }
 
       await interaction.editReply({
-        content: `Creating heading "${newHeading}" in document ${documentId}...`,
+        content: `Queuing request to create heading "${newHeading}" in document ${documentId}...`,
       });
 
-      // 3. Execute Heading Creation
-      // Matches Python: @app.post("/headings/create") -> {"status": "heading created", ...}
-      const result = await createHeading(courseId, newHeading, documentId, SUPERDOC_INDEX);
+      // 3. Execute Heading Creation via Queue
+      // We pass SuperdocApiResponse as the generic type to fix the 'unknown' issue
+      const result = await superdocQueue.enqueue<SuperdocApiResponse>(documentId, async () => {
+        return await createHeading(courseId, newHeading, documentId, SUPERDOC_INDEX);
+      });
 
+      // Now 'result' is correctly typed
       if (result.status === 'heading created') {
         let message = `Heading "${newHeading}" created successfully!\n`;
         if (result.documentId) {
@@ -92,9 +90,14 @@ module.exports = {
           content: `Error: ${result.detail || result.error || 'The server returned an unsuccessful status.'}`,
         });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error in superdoc-create-heading command:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      
+      // Specific check for the queue timeout
+      const errorMessage = error.message?.includes('timed out') 
+        ? 'The operation timed out after 30 seconds. The document might be busy or the server is unresponsive.'
+        : (error instanceof Error ? error.message : 'Unknown error occurred');
+
       await interaction.editReply({
         content: `Failed to create heading: ${errorMessage}`,
       });

@@ -1,6 +1,7 @@
 import { SlashCommandBuilder, MessageFlags, Attachment, ChatInputCommandInteraction, TextChannel } from 'discord.js';
-import { mergePdf, checkSuperdocHealth, getDocIds } from '../../utils/superdocApi';
+import { mergePdf, checkSuperdocHealth, getDocIds, SuperdocApiResponse } from '../../utils/superdocApi';
 import { checkChannelName } from '../../utils/discordUtils';
+import { superdocQueue } from '../../utils/superdocQueue';
 
 const SUPERDOC_INDEX = 'sdtest1';
 
@@ -59,7 +60,6 @@ module.exports = {
       const docIdsResult = await getDocIds(courseId);
       let documentId: string | undefined = undefined;
 
-      // Handle matching based on the array/list returned by your FastAPI backend
       if (docIdsResult.documentIds && Array.isArray(docIdsResult.documentIds)) {
         const foundId = docIdsResult.documentIds.find(id => id === documentName);
         if (foundId) {
@@ -76,12 +76,14 @@ module.exports = {
       }
 
       await interaction.editReply({
-        content: `Merging PDF "${pdfAttachment.name}" into document ${documentId}...`,
+        content: `Queuing PDF merge for "${pdfAttachment.name}" into document ${documentId}...`,
       });
 
-      // 3. Execute Merge
-      // Matches Python: @app.post("/merge_pdf") -> {"status": "success", "documentId": ...}
-      const result = await mergePdf(pdfAttachment as Attachment, courseId, documentId, SUPERDOC_INDEX);
+      // 3. Execute Merge via Queue
+      // Using generic <SuperdocApiResponse> to ensure 'result' has correct properties
+      const result = await superdocQueue.enqueue<SuperdocApiResponse>(documentId, async () => {
+        return await mergePdf(pdfAttachment as Attachment, courseId, documentId, SUPERDOC_INDEX);
+      });
 
       if (result.status === 'success') {
         let message = `PDF merged successfully!\n`;
@@ -94,9 +96,13 @@ module.exports = {
           content: `Error: ${result.detail || result.error || 'The server returned an unsuccessful status.'}`,
         });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error in superdoc-merge-pdf command:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      
+      const errorMessage = error.message?.includes('timed out') 
+        ? 'The merge operation timed out after 30 seconds. Large PDFs may take longer to process.'
+        : (error instanceof Error ? error.message : 'Unknown error occurred');
+
       await interaction.editReply({
         content: `Failed to merge PDF: ${errorMessage}`,
       });

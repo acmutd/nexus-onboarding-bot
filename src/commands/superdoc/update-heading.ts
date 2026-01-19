@@ -1,6 +1,7 @@
 import { SlashCommandBuilder, MessageFlags, ChatInputCommandInteraction, TextChannel } from 'discord.js';
-import { updateHeading, checkSuperdocHealth, getDocIds } from '../../utils/superdocApi';
+import { updateHeading, checkSuperdocHealth, getDocIds, SuperdocApiResponse } from '../../utils/superdocApi';
 import { checkChannelName } from '../../utils/discordUtils';
+import { superdocQueue } from '../../utils/superdocQueue';
 
 const SUPERDOC_INDEX = 'sdtest1';
 
@@ -59,7 +60,6 @@ module.exports = {
       
       let documentId: string | undefined = undefined;
 
-      // Logic to match documentName against the returned list or record
       if (docIdsResult.documentIds && Array.isArray(docIdsResult.documentIds)) {
         const foundId = docIdsResult.documentIds.find(id => id === documentName);
         if (foundId) {
@@ -76,12 +76,14 @@ module.exports = {
       }
 
       await interaction.editReply({
-        content: `Updating heading from "${oldHeading}" to "${newHeading}" in document ${documentId}...`,
+        content: `Queuing update for heading "${oldHeading}" in document ${documentId}...`,
       });
 
-      // 3. Execute Heading Update
-      // Matches Python: @app.put("/headings/update") -> {"status": "heading updated", ...}
-      const result = await updateHeading(courseId, oldHeading, newHeading, documentId, SUPERDOC_INDEX);
+      // 3. Execute Heading Update via Queue
+      // Using generic <SuperdocApiResponse> ensures 'result' has correct properties
+      const result = await superdocQueue.enqueue<SuperdocApiResponse>(documentId, async () => {
+        return await updateHeading(courseId, oldHeading, newHeading, documentId, SUPERDOC_INDEX);
+      });
 
       if (result.status === 'heading updated') {
         let message = `Heading "${oldHeading}" updated to "${newHeading}" successfully!\n`;
@@ -94,9 +96,14 @@ module.exports = {
           content: `Error: ${result.detail || result.error || 'The server returned an unsuccessful status.'}`,
         });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error in superdoc-update-heading command:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      
+      // Handle queue timeout or standard error
+      const errorMessage = error.message?.includes('timed out') 
+        ? 'The update operation timed out. The document might be busy with another request.'
+        : (error instanceof Error ? error.message : 'Unknown error occurred');
+
       await interaction.editReply({
         content: `Failed to update heading: ${errorMessage}`,
       });

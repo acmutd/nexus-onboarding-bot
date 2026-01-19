@@ -1,6 +1,7 @@
 import { SlashCommandBuilder, MessageFlags, ChatInputCommandInteraction, TextChannel } from 'discord.js';
-import { deleteHeading, checkSuperdocHealth, getDocIds } from '../../utils/superdocApi';
+import { deleteHeading, checkSuperdocHealth, getDocIds, SuperdocApiResponse } from '../../utils/superdocApi';
 import { checkChannelName } from '../../utils/discordUtils';
+import { superdocQueue } from '../../utils/superdocQueue';
 
 const SUPERDOC_INDEX = 'sdtest1';
 
@@ -52,7 +53,6 @@ module.exports = {
       
       let documentId: string | undefined = undefined;
 
-      // Handle matching based on the array/record returned by get_course_documents
       if (docIdsResult.documentIds && Array.isArray(docIdsResult.documentIds)) {
         const foundId = docIdsResult.documentIds.find(id => id === documentName);
         if (foundId) {
@@ -69,12 +69,14 @@ module.exports = {
       }
 
       await interaction.editReply({
-        content: `Deleting heading "${heading}" from document ${documentId}...`,
+        content: `Queuing deletion of heading "${heading}" from document ${documentId}...`,
       });
 
-      // 3. Execute Heading Deletion
-      // Matches Python: @app.delete("/headings/delete") -> {"status": "heading deleted", ...}
-      const result = await deleteHeading(courseId, heading, documentId, SUPERDOC_INDEX);
+      // 3. Execute Heading Deletion via Queue
+      // Passing SuperdocApiResponse to enqueue restores type safety for result
+      const result = await superdocQueue.enqueue<SuperdocApiResponse>(documentId, async () => {
+        return await deleteHeading(courseId, heading, documentId, SUPERDOC_INDEX);
+      });
 
       if (result.status === 'heading deleted') {
         let message = `Heading "${heading}" deleted successfully!\n`;
@@ -87,9 +89,13 @@ module.exports = {
           content: `Error: ${result.detail || result.error || 'The server returned an unsuccessful status.'}`,
         });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error in superdoc-delete-heading command:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      
+      const errorMessage = error.message?.includes('timed out') 
+        ? 'The operation timed out. The request was cancelled to prevent a queue deadlock.'
+        : (error instanceof Error ? error.message : 'Unknown error occurred');
+
       await interaction.editReply({
         content: `Failed to delete heading: ${errorMessage}`,
       });

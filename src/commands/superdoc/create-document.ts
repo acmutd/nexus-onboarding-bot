@@ -1,8 +1,7 @@
 import { SlashCommandBuilder, MessageFlags, ChatInputCommandInteraction, TextChannel } from 'discord.js';
 import { createDocument, checkSuperdocHealth } from '../../utils/superdocApi';
 import { checkChannelName } from '../../utils/discordUtils';
-
-const SUPERDOC_INDEX = 'sdtest1';
+import { superdocQueue } from '../../utils/superdocQueue';
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -17,20 +16,23 @@ module.exports = {
 
   async execute(interaction: ChatInputCommandInteraction) {
     await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+    
     const channel = interaction.channel as TextChannel;
     const channelName = channel.name;
     const check = await checkChannelName(channelName); 
-    if(!check){
-        return interaction.editReply({
-          content: 'Please use superdoc commands in course channels only',
-        })
-      }
+    
+    if (!check) {
+      return interaction.editReply({
+        content: 'Please use superdoc commands in course channels only',
+      });
+    }
+
     try {
-      // Check if API is healthy
+      // 1. Verify API Health
       const isHealthy = await checkSuperdocHealth();
       if (!isHealthy) {
         return interaction.editReply({
-          content: 'Superdoc API is not available. Please check if the server is running.',
+          content: 'Superdoc API is not available. Please check if the server is running on port 8000.',
         });
       }
 
@@ -38,32 +40,41 @@ module.exports = {
       const documentName = interaction.options.getString('document_name', true);
 
       await interaction.editReply({
-        content: 'Creating document...',
+        content: `Creating document "${documentName}" for course ${courseId}...`,
       });
 
-      const result = await createDocument(courseId, documentName);
+      // 2. Execute via Queue
+      // We use courseId as the lock key here since the documentId doesn't exist yet
+      const result = await superdocQueue.enqueue(courseId, async () => {
+        return await createDocument(courseId, documentName);
+      });
 
-      if (result.status === 'success') {
+      // 3. Handle Result (Matching FastAPI status: "created")
+      if (result.status === 'created') {
         let message = `Document "${documentName}" created successfully!\n`;
-        if (result.documentId) {
-          message += `Document ID: ${result.documentId}\n`;
+        
+        const id = result.documentId || (typeof result.document === 'string' ? result.document : null);
+        if (id) {
+          message += `Document ID: ${id}`;
         }
-        if (result.message) {
-          message += `📝 ${result.message}`;
-        }
+        
         await interaction.editReply({ content: message });
       } else {
         await interaction.editReply({
-          content: `Error: ${result.error || 'Unknown error occurred'}`,
+          content: `Error: ${result.detail || result.error || 'The server returned an unsuccessful status.'}`,
         });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error in superdoc-create-document command:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      
+      // Handle the 30-second timeout specifically
+      const errorMessage = error.message?.includes('timed out') 
+        ? 'The operation timed out. The document creation is taking longer than expected.'
+        : (error instanceof Error ? error.message : 'Unknown error occurred');
+
       await interaction.editReply({
         content: `Failed to create document: ${errorMessage}`,
       });
     }
   },
 };
-
