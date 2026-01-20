@@ -6,12 +6,12 @@ const SUPERDOC_INDEX = 'sdtest1';
 export interface SuperdocApiResponse {
   status?: string;
   message?: string;
-  documentId?: string; 
-  document?: string;     // To catch the raw 'document' key from Python
-  documentIds?: string[]; // For the GET /documents/ route
-  ids?: Record<string, string>; // The missing property
+  documentId?: string;
+  document?: string;
+  documentIds?: Record<string, string>;
+  courseId?: string;
   error?: string;
-  detail?: string;       // FastAPI standard for errors
+  detail?: string;
 }
 
 /**
@@ -31,17 +31,20 @@ export async function checkSuperdocHealth(): Promise<boolean> {
  * Merge a PDF file into a document
  */
 export async function mergePdf(
-  pdfAttachment: Attachment,
+  pdfAttachment: Attachment | string,
   courseId: string,
   documentId?: string,
   indexName: string = SUPERDOC_INDEX
 ): Promise<SuperdocApiResponse> {
   try {
+    const pdfUrl = typeof pdfAttachment === 'string' 
+      ? pdfAttachment 
+      : pdfAttachment.url;
     const response = await fetch(`${SUPERDOC_API_URL}/merge_pdf`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        pdfUrl: pdfAttachment.url, // Python expects req.pdfUrl
+        pdfUrl: pdfUrl, // Python expects req.pdfUrl
         courseId: courseId,        // Python expects req.courseId
         documentId: documentId,
         index_name: indexName,
@@ -49,7 +52,14 @@ export async function mergePdf(
     });
 
     const data = (await response.json()) as SuperdocApiResponse
-    if (!response.ok) throw new Error(data.detail || 'Merge failed');
+    if (!response.ok) {
+      // If detail is an object, stringify it; otherwise use it as is
+      const errorMsg = typeof data.detail === 'object'
+        ? JSON.stringify(data.detail)
+        : (data.detail || data.error || 'Merge failed');
+
+      throw new Error(errorMsg);
+    }
     return data;
   } catch (error) {
     console.error('[Superdoc API] Merge PDF error:', error);
@@ -79,7 +89,14 @@ export async function createHeading(
     });
 
     const data = (await response.json()) as SuperdocApiResponse
-    if (!response.ok) throw new Error(data.detail || 'Create heading failed');
+    if (!response.ok) {
+      // If detail is an object, stringify it; otherwise use it as is
+      const errorMsg = typeof data.detail === 'object'
+        ? JSON.stringify(data.detail)
+        : (data.detail || data.error || 'Create Heading Failed');
+
+      throw new Error(errorMsg);
+    }
     return data;
   } catch (error) {
     console.error('[Superdoc API] Create heading error:', error);
@@ -111,7 +128,14 @@ export async function updateHeading(
     });
 
     const data = (await response.json()) as SuperdocApiResponse
-    if (!response.ok) throw new Error(data.detail || 'Update failed');
+    if (!response.ok) {
+      // If detail is an object, stringify it; otherwise use it as is
+      const errorMsg = typeof data.detail === 'object'
+        ? JSON.stringify(data.detail)
+        : (data.detail || data.error || 'Update Heading failed');
+
+      throw new Error(errorMsg);
+    }
     return data;
   } catch (error) {
     console.error('[Superdoc API] Update heading error:', error);
@@ -141,7 +165,14 @@ export async function deleteHeading(
     });
 
     const data = (await response.json()) as SuperdocApiResponse
-    if (!response.ok) throw new Error(data.detail || 'Delete failed');
+    if (!response.ok) {
+      // If detail is an object, stringify it; otherwise use it as is
+      const errorMsg = typeof data.detail === 'object'
+        ? JSON.stringify(data.detail)
+        : (data.detail || data.error || 'Delete Heading Failed');
+
+      throw new Error(errorMsg);
+    }
     return data;
   } catch (error) {
     console.error('[Superdoc API] Delete heading error:', error);
@@ -160,7 +191,14 @@ export async function getDocIds(courseId: string): Promise<SuperdocApiResponse> 
     });
 
     const data = (await response.json()) as SuperdocApiResponse
-    if (!response.ok) throw new Error(data.detail || 'Fetch IDs failed');
+    if (!response.ok) {
+      // If detail is an object, stringify it; otherwise use it as is
+      const errorMsg = typeof data.detail === 'object'
+        ? JSON.stringify(data.detail)
+        : (data.detail || data.error || 'Get Docids failed');
+
+      throw new Error(errorMsg);
+    }
     return data;
   } catch (error) {
     console.error('[Superdoc API] Get doc IDs error:', error);
@@ -186,7 +224,14 @@ export async function createDocument(
     });
 
     const data = (await response.json()) as SuperdocApiResponse
-    if (!response.ok) throw new Error(data.detail || 'Create document failed');
+    if (!response.ok) {
+      // If detail is an object, stringify it; otherwise use it as is
+      const errorMsg = typeof data.detail === 'object'
+        ? JSON.stringify(data.detail)
+        : (data.detail || data.error || 'Create Document Failed');
+
+      throw new Error(errorMsg);
+    }
     return data;
   } catch (error) {
     console.error('[Superdoc API] Create document error:', error);

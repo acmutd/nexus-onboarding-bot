@@ -48,23 +48,20 @@ module.exports = {
       const heading = interaction.options.getString('heading', true);
       const documentName = interaction.options.getString('document_name', true);
 
-      // 2. Fetch Document IDs via the GET endpoint
+      // 2. Look up document ID
       const docIdsResult = await getDocIds(courseId);
-      
       let documentId: string | undefined = undefined;
 
-      if (docIdsResult.documentIds && Array.isArray(docIdsResult.documentIds)) {
-        const foundId = docIdsResult.documentIds.find(id => id === documentName);
-        if (foundId) {
-          documentId = foundId;
-        }
-      } else if (docIdsResult.ids && docIdsResult.ids[documentName]) {
-        documentId = docIdsResult.ids[documentName];
+      // Access the dictionary directly using the documentName key
+      if (docIdsResult.documentIds && typeof docIdsResult.documentIds === 'object') {
+        documentId = docIdsResult.documentIds[documentName];
       }
 
+      // Handle case where document name wasn't found
       if (!documentId) {
+        const availableDocs = Object.keys(docIdsResult.documentIds || {}).join(', ');
         return interaction.editReply({
-          content: `Document "${documentName}" not found for course ${courseId}.`,
+          content: `Could not find a document named "${documentName}" for this course. \nAvailable documents: ${availableDocs || 'None found'}`,
         });
       }
 

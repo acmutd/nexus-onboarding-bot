@@ -21,7 +21,6 @@ module.exports = {
     }
 
     try {
-      // 1. Verify API Connectivity
       const isHealthy = await checkSuperdocHealth();
       if (!isHealthy) {
         return interaction.editReply({
@@ -35,14 +34,14 @@ module.exports = {
         content: `Retrieving documents for course ${courseId}...`,
       });
 
-      // 2. Fetch Document IDs
-      // Matches Python: @app.get("/documents/{course_id}") -> {"courseId": "...", "documentIds": [...]}
       const result = await getDocIds(courseId);
 
-      // Your backend does not explicitly send a status: "success" for the GET route, 
-      // but the helper throws an error if !response.ok, so we check for documentIds.
-      if (result.documentIds && Array.isArray(result.documentIds)) {
-        const docCount = result.documentIds.length;
+      // Check if documentIds exists and is an object (the dictionary from Python)
+      if (result.documentIds && typeof result.documentIds === 'object' && !Array.isArray(result.documentIds)) {
+        
+        // Convert the dictionary into an array of [name, id] pairs
+        const entries = Object.entries(result.documentIds);
+        const docCount = entries.length;
 
         if (docCount > 0) {
           let message = `**Documents for ${courseId}**\n`;
@@ -50,13 +49,14 @@ module.exports = {
           
           const maxLength = 1900; 
           
-          for (let index = 0; index < result.documentIds.length; index++) {
-            const docId = result.documentIds[index];
-            // Since your current backend returns a list of IDs, we use the ID as the name reference
-            const docEntry = `**${index + 1}. Document**\n   ID: \`${docId}\`\n   Link: https://docs.google.com/document/d/${docId}\n\n`;
+          // Iterate over the [name, id] pairs
+          for (let i = 0; i < entries.length; i++) {
+            const [docName, docId] = entries[i];
+            
+            const docEntry = `**${i + 1}. ${docName}**\n   ID: \`${docId}\`\n   [Open Document](https://docs.google.com/document/d/${docId})\n\n`;
             
             if (message.length + docEntry.length > maxLength) {
-              message += `\n... and ${docCount - index} more document${docCount - index !== 1 ? 's' : ''}`;
+              message += `\n... and ${docCount - i} more documents.`;
               break;
             }
             
