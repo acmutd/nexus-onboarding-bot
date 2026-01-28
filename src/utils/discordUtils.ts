@@ -79,7 +79,7 @@ export async function removeAllCourseAccess(user: User, guild: Guild) {
             await channel.permissionOverwrites.delete(user.id);
           }
         } catch (err) {
-          console.warn(` Could not remove permissions from channel ${channel.name}:`, err);
+          console.warn(`Could not remove permissions from channel ${channel.name}:`, err);
         }
       }
     }
@@ -285,7 +285,7 @@ export async function allocateCourseByServer(courses: Course[], guild: Guild, us
       const parts = course.course_id.split('-');
       
       if (parts.length < 3) {
-        console.warn(`   Invalid course format: ${course.course_id} (expected format: prefix-code-professor)`);
+        console.warn(`Invalid course format: ${course.course_id} (expected format: prefix-code-professor)`);
         continue;
       }
       
@@ -304,7 +304,7 @@ export async function allocateCourseByServer(courses: Course[], guild: Guild, us
       const channelName = `${prefix}-${courseNumber}-${sanitizedProf}`;
       
       if (prefixMap[prefix] && prefixMap[prefix].toLowerCase() === guild.name.toLowerCase()) {
-        console.log(`   Granted access to ${channelName}`);
+        console.log(`Granted access to ${channelName}`);
         
         try {
           await provideUserAccessIndexed(channelName, user, guild, channelMap);
@@ -312,15 +312,15 @@ export async function allocateCourseByServer(courses: Course[], guild: Guild, us
           // If channel doesn't exist, try to create it in the correct guild
           try {
             await makeTextChannel(channelName, user, guild, prefix, prefixMap);
-            console.log(`   Created new channel: ${channelName}`);
+            console.log(`Created new channel: ${channelName}`);
           } catch (createErr) {
-            console.warn(`   Could not create/access channel ${channelName}:`, createErr);
+            console.warn(`Could not create/access channel ${channelName}:`, createErr);
           }
         }
       }
     }
   } catch (err) {
-    console.error(" allocateCourseByServer error:", err);
+    console.error("allocateCourseByServer error:", err);
   }
 }
 

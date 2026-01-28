@@ -8,6 +8,7 @@ const { allocateToJoinedServer } = require('../controllers/course.allocator.cont
 const { guildsFetch} = require('../controllers/guilds.fetch.controller');
 const { removeUserAccess } = require('../controllers/remove.access.controller');
 const { grantUserAccess } = require('../controllers/grant.access.controller');
+const { joinGuilds } = require('../controllers/join.guilds.controller');
 
 // Apply Firebase authentication to all routes
 // Users must provide a valid Firebase ID token in Authorization header
@@ -18,5 +19,6 @@ router.post('/allocate', allocateToJoinedServer);
 router.get('/guilds', guildsFetch);
 router.post('/remove-access', removeUserAccess);
 router.post('/grant-access', grantUserAccess);
+router.post('/join-guilds', joinGuilds);
 
 export default router;
