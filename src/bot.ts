@@ -107,7 +107,7 @@ const PORT = process.env.PORT || 3001; // Use environment variable or default to
 
 // Concurrent request limiting
 let activeRequests = 0;
-const MAX_CONCURRENT_REQUESTS = 50; // Adjust if needed
+const MAX_CONCURRENT_REQUESTS = 75; // Adjust if needed
 
 const concurrentLimiter = (req: express.Request, res: express.Response, next: express.NextFunction) => {
   if (activeRequests >= MAX_CONCURRENT_REQUESTS) {
