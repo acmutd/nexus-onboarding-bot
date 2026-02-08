@@ -11,9 +11,9 @@ interface Admins {
   admins: string[]
 }
 export class AdminError extends Error {
-    constructor(mssg:string){
-        super(mssg)
-    }
+  constructor(mssg: string) {
+    super(mssg)
+  }
 }
 
 const ADMIN_FILE = "data/admin.json"
@@ -58,22 +58,22 @@ export async function reloadAdminList(): Promise<void> {
 export async function removeAllCourseAccess(user: User, guild: Guild) {
   try {
     // Use cached prefix_map instead of reading from disk
-    
+
     // Get all course prefixes that belong to this guild
-    const guildPrefixes = Object.keys(prefixMap).filter(prefix => 
+    const guildPrefixes = Object.keys(prefixMap).filter(prefix =>
       prefixMap[prefix].toLowerCase() === guild.name.toLowerCase()
     );
-    
+
     console.log(` Removing course access for ${user.username} in guild ${guild.name}`);
-    
+
     // Find all channels that might be course channels
-    const channels = guild.channels.cache.filter(channel => 
+    const channels = guild.channels.cache.filter(channel =>
       channel.type === 0 && // Text channel
-      guildPrefixes.some(prefix => 
+      guildPrefixes.some(prefix =>
         channel.name.toLowerCase().startsWith(prefix.toLowerCase())
       )
     );
-    
+
     for (const [channelId, channel] of channels) {
       if (channel instanceof TextChannel) {
         try {
@@ -87,69 +87,69 @@ export async function removeAllCourseAccess(user: User, guild: Guild) {
         }
       }
     }
-    
+
     console.log(` Removed course access from ${user.username}`);
   } catch (err) {
     console.error("removeAllCourseAccess error:", err);
   }
 }
 
-export async function addAdmin(target:unknown, guild: Guild) {
-    if (!(target instanceof GuildMember)) {
-        throw new AdminError("Can only promote Guild Members")
-    }
-    
-    // Look for admin role by name, not by ID
-    let adminRole = guild.roles.cache.find(role => role.name.toLowerCase() === "admin");
-    
-    if (!adminRole) {
-        // Create admin role if it doesn't exist
-        console.log(`Creating admin role in guild ${guild.name}`);
-        adminRole = await guild.roles.create({
-            name: "Admin",
-            permissions: [
-                PermissionsBitField.Flags.Administrator
-            ],
-            color: 0x0052CC, // Role color
-            hoist: true, // Show separately in member list
-            mentionable: true,
-            reason: "Auto-created admin role for promotion command"
-        });
-        console.log(`Admin role created with ID: ${adminRole.id}`);
-    }
-    
-    await addAdminJson(target.id);
-    
-    if (target.roles.cache.has(adminRole.id)) {
-        throw new AdminError(`${target.displayName} is already an Admin`)
-    }
+export async function addAdmin(target: unknown, guild: Guild) {
+  if (!(target instanceof GuildMember)) {
+    throw new AdminError("Can only promote Guild Members")
+  }
 
-    await target.roles.add(adminRole)
-    
+  // Look for admin role by name, not by ID
+  let adminRole = guild.roles.cache.find(role => role.name.toLowerCase() === "admin");
+
+  if (!adminRole) {
+    // Create admin role if it doesn't exist
+    console.log(`Creating admin role in guild ${guild.name}`);
+    adminRole = await guild.roles.create({
+      name: "Admin",
+      permissions: [
+        PermissionsBitField.Flags.Administrator
+      ],
+      color: 0x0052CC, // Role color
+      hoist: true, // Show separately in member list
+      mentionable: true,
+      reason: "Auto-created admin role for promotion command"
+    });
+    console.log(`Admin role created with ID: ${adminRole.id}`);
+  }
+
+  await addAdminJson(target.id);
+
+  if (target.roles.cache.has(adminRole.id)) {
+    throw new AdminError(`${target.displayName} is already an Admin`)
+  }
+
+  await target.roles.add(adminRole)
+
 }
 
-export async function removeAdmin(target:unknown, guild: Guild) {
-    if (!(target instanceof GuildMember)) {
-        throw new AdminError("Can only demote Guild Members")
-    }
-    
-    // Look for admin role by name
-    const adminRole = guild.roles.cache.find(role => role.name.toLowerCase() === "admin");
-    
-    if (!adminRole) {
-        throw new AdminError("Admin role not found in this server")
-    }
-    
-    if (!target.roles.cache.has(adminRole.id)) {
-        throw new AdminError(`${target.displayName} is not an Admin`)
-    }
+export async function removeAdmin(target: unknown, guild: Guild) {
+  if (!(target instanceof GuildMember)) {
+    throw new AdminError("Can only demote Guild Members")
+  }
 
-    // Remove from JSON file first
-    await removeAdminJson(target.id);
-    
-    // Remove admin role
-    await target.roles.remove(adminRole)
-    
+  // Look for admin role by name
+  const adminRole = guild.roles.cache.find(role => role.name.toLowerCase() === "admin");
+
+  if (!adminRole) {
+    throw new AdminError("Admin role not found in this server")
+  }
+
+  if (!target.roles.cache.has(adminRole.id)) {
+    throw new AdminError(`${target.displayName} is not an Admin`)
+  }
+
+  // Remove from JSON file first
+  await removeAdminJson(target.id);
+
+  // Remove admin role
+  await target.roles.remove(adminRole)
+
 }
 
 export async function addAdminJson(userId: string) {
@@ -257,40 +257,40 @@ export async function removeAdminJson(userId: string) {
 export async function allocateCourseByServer(courses: Course[], guild: Guild, user: User) {
   try {
     // Use cached prefix_map instead of reading from disk
-    
+
     console.log(` Processing ${courses.length} courses for ${user.username} in guild "${guild.name}"`);
 
     for (const course of courses) {
       const parts = course.course_id.split('-');
-      
+
       if (parts.length < 3) {
         console.warn(`   Invalid course format: ${course.course_id} (expected format: prefix-code-professor)`);
         continue;
       }
-      
+
       const prefix = parts[0].toLowerCase();
       const courseNumber = parts[1];
       const professorName = parts.slice(2).join(' ');
-      
+
       // Extract last name from professor (same logic as create-all-courses)
       const profParts = professorName.trim().split(/\s+/);
       const profLastName = profParts[profParts.length - 1] || 'staff';
-      
+
       // Sanitize professor name (remove non-alphanumeric characters, lowercase)
       const sanitizedProf = profLastName.toLowerCase().replace(/[^a-z0-9-_]/g, '');
-      
+
       // Build channel name in same format as create-all-courses: prefix-number-prof
       const channelName = `${prefix}-${courseNumber}-${sanitizedProf}`;
-      
+
       if (prefixMap[prefix] && prefixMap[prefix].toLowerCase() === guild.name.toLowerCase()) {
         console.log(`   Granted access to ${channelName}`);
-        
+
         try {
           await provideUserAccess(channelName, user, guild);
         } catch (accessErr) {
           // If channel doesn't exist, try to create it in the correct guild
           try {
-            await makeTextChannel(channelName, user, guild, prefix, prefixMap);
+            await makeTextChannel(channelName, guild,user, prefix, prefixMap);
             console.log(`   Created new channel: ${channelName}`);
           } catch (createErr) {
             console.warn(`   Could not create/access channel ${channelName}:`, createErr);
@@ -339,15 +339,27 @@ export async function provideUserAccess(courseCode: string, user: User, guild: G
  */
 
 export async function makeTextChannel(
-  courseCode: string, 
-  user: User, 
+  courseCode: string,
   guild: Guild | null,
+  user?: User,
   prefix?: string,
   prefixMap?: Record<string, string>
 ): Promise<BaseGuildTextChannel> {
   if (!guild)
     throw new Error(`Guild Not Found!`)
-  
+  if (!user) {
+    let channel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase());
+    if (channel) {
+      console.log(`Channel ${courseCode} already exists`);
+      return channel as BaseGuildTextChannel;
+    }
+    console.log(`   Creating new channel: ${courseCode} in guild: ${guild.name}`);
+    channel = await guild.channels.create({
+      name: courseCode,
+      type: 0,  // GUILD_TEXT
+    });
+    return channel as BaseGuildTextChannel;
+  }
   // If prefix and prefixMap are provided, verify we're creating in the correct guild
   if (prefix && prefixMap) {
     const expectedGuildName = prefixMap[prefix.toLowerCase()];
@@ -355,7 +367,7 @@ export async function makeTextChannel(
       throw new Error(`Channel ${courseCode} belongs to guild "${expectedGuildName}", but attempted to create in "${guild.name}"`);
     }
   }
-  
+
   let channel = guild.channels.cache.find(c => c.name === courseCode.toLowerCase());
   if (channel) {
     console.log(`   Channel ${courseCode} already exists. Providing access to ${user.username}`);
@@ -389,10 +401,10 @@ export async function makeTextChannel(
 }
 
 
-export async function checkChannelName(courseCode:string){
+export async function checkChannelName(courseCode: string) {
   const pattern = /^[a-z]+-\d{4}$/i;
   return pattern.test(courseCode);
-} 
+}
 
 /*
 const makeTextThread = async (interaction, channel, courseSection) => {

@@ -1,8 +1,11 @@
 import { Attachment } from 'discord.js';
+import { Buffer } from 'node:buffer';
 
 const SUPERDOC_API_URL = process.env.SUPERDOC_API_URL || 'http://localhost:8000'; // Uvicorn default is 8000
 const SUPERDOC_INDEX = 'sdtest1';
 
+
+console.log("SUPERDOC_API_URL:",SUPERDOC_API_URL);
 export interface SuperdocApiResponse {
   status?: string;
   message?: string;
@@ -26,6 +29,7 @@ export async function checkSuperdocHealth(): Promise<boolean> {
     return false;
   }
 }
+
 
 /**
  * Merge a PDF file into a document
