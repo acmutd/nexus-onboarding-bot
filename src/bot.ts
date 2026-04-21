@@ -209,7 +209,7 @@ app.use((req, _res, next) => {
 app.use('/api/discord', discordRoutes);
 
 //Attach Superdoc routes
-app.use('/api/superdoc', superdocRoutes);
+app.use('/api/superdoc', (superdocRoutes as any).default ?? superdocRoutes);
 
 // Start HTTP server
 app.listen(PORT, () => console.log(` Bot server running at http://localhost:${PORT}`));
