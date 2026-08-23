@@ -1,7 +1,9 @@
-import { SlashCommandBuilder, MessageFlags, Attachment, ChatInputCommandInteraction, TextChannel } from 'discord.js';
-import { mergePdf, checkSuperdocHealth, getDocIds, SuperdocApiResponse } from '../../utils/superdocApi';
+import { randomUUID } from 'crypto';
+import { SlashCommandBuilder, MessageFlags, ChatInputCommandInteraction, TextChannel } from 'discord.js';
+import { checkSuperdocHealth, getDocIds } from '../../utils/superdocApi';
 import { checkChannelName } from '../../utils/discordUtils';
-import { superdocQueue } from '../../utils/superdocQueue';
+import { createJob } from '../../utils/jobStore';
+import { enqueueMergeJob } from '../../utils/sqsClient';
 
 const SUPERDOC_INDEX = 'sdtest1';
 
@@ -73,36 +75,26 @@ module.exports = {
         });
       }
 
+      // 3. Enqueue the merge job — Discord already hosts the attachment on its
+      // own CDN, so pdfAttachment.url is used directly as the merge source,
+      // no separate upload step needed.
+      const jobId = randomUUID();
+      await createJob({ jobId, courseId, documentId, documentName });
+      await enqueueMergeJob({
+        jobId,
+        pdfUrl: pdfAttachment.url,
+        courseId,
+        documentId,
+        index_name: SUPERDOC_INDEX,
+      });
+
       await interaction.editReply({
-        content: `Queuing PDF merge for "${pdfAttachment.name}" into document ${documentId}...`,
+        content: `Queued PDF merge for "${pdfAttachment.name}" into document ${documentId}.\nJob ID: \`${jobId}\` — this runs in the background and may take a few minutes.`,
       });
-
-      // 3. Execute Merge via Queue
-      // Using generic <SuperdocApiResponse> to ensure 'result' has correct properties
-      const result = await superdocQueue.enqueue<SuperdocApiResponse>(documentId, async () => {
-        return await mergePdf(pdfAttachment as Attachment, courseId, documentId, SUPERDOC_INDEX);
-      });
-
-      if (result.status === 'success') {
-        let message = `PDF merged successfully!\n`;
-        if (result.documentId) {
-          message += `Document ID: ${result.documentId}`;
-        }
-        await interaction.editReply({ content: message });
-      } else {
-        await interaction.editReply({
-          content: `Error: ${result.detail || result.error || 'The server returned an unsuccessful status.'}`,
-        });
-      }
     } catch (error: any) {
       console.error('Error in superdoc-merge-pdf command:', error);
-      
-      const errorMessage = error.message?.includes('timed out') 
-        ? 'The merge operation timed out after 30 seconds. Large PDFs may take longer to process.'
-        : (error instanceof Error ? error.message : 'Unknown error occurred');
-
       await interaction.editReply({
-        content: `Failed to merge PDF: ${errorMessage}`,
+        content: `Failed to queue PDF merge: ${error instanceof Error ? error.message : 'Unknown error occurred'}`,
       });
     }
   },
